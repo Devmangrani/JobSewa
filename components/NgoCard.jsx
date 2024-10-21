@@ -26,8 +26,8 @@ export default function NgosCard({ data }) {
           alt="no image"
         />
         <div className="flex flex-col mx-2 px-2">
-          <h1 className="text-xl md:text-2xl font-semibold">{data.name}</h1>
-          <p className="text-xs sm:text-sm md:text-base text-gray-800 ">
+          <h1 className="text-lg md:text-2xl font-semibold">{data.name}</h1>
+          <p className="text-sm sm:text-base text-gray-800 ">
             {data.description}
           </p>
         </div>
@@ -46,18 +46,18 @@ export default function NgosCard({ data }) {
           </p>
         </div>
       </div> */}
-      <div className="mb-4 flex flex-col md:flex-wrap md:flex-row w-full justify-between  items-center ">
-        <div className="mb-4 flex  items-start justify-center py-2 flex-col">
-          <div className="flex px-6 rounded-2xl py-1 items-center justify-center bg-indigo-200 text-indigo-900  ">
+      <div className="mb-4 flex md:flex-wrap md:flex-row w-full justify-between  items-center ">
+        <div className="flex items-start justify-center py-2 flex-col">
+          <div className="flex px-3 md:px-6 rounded-2xl py-1 items-center justify-center bg-indigo-200 text-indigo-900  ">
             <p>{data.category}</p>
           </div>
         </div>
         <a
           href={data.link}
           target="_blank"
-          className="my-2 py-2 px-4  border border-sky-700   rounded flex items-center justify-center transition-all duration-700 hover:bg-indigo-600 hover:text-white text-sky-700 font-semibold"
+          className="my-2 py-2 px-2 md:px-4  border border-sky-700   rounded flex items-center justify-center transition-all duration-700 hover:bg-indigo-600 hover:text-white text-sky-700 font-semibold"
         >
-          More details <AiOutlineArrowRight className="mx-2 text-xl" />
+          More details <AiOutlineArrowRight className="mx-1 md:mx-2 text-xl" />
         </a>
       </div>
     </motion.div>
