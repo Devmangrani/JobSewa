@@ -24,7 +24,7 @@ export default function JobsCard({ job, posted }) {
         />
         <div className="flex flex-col mx-2 px-2">
           <h1 className="text-xl md:text-2xl font-semibold">
-            {job?.user}
+            {job?.user?.name}
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-gray-800">
             {job?.company}
