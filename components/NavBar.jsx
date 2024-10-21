@@ -10,6 +10,8 @@ import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 export default function NavBar() {
   const dispatch = useDispatch();
+  const router = useRouter();  // useRouter to get current path
+
   const [openJobs, setOpenJobs] = useState(false);
 
   useEffect(() => {
@@ -22,11 +24,8 @@ export default function NavBar() {
     );
   }, [dispatch]);
 
-  const Router = useRouter();
   const user = useSelector((state) => state.User.userData);
-
   const [isOpen, setIsOpen] = useState(false);
-
   const [scrolled, isScrolled] = useState(false);
 
   const useOutsideClick = (callback) => {
@@ -71,12 +70,13 @@ export default function NavBar() {
   const handleLogout = async () => {
     Cookies.remove("token");
     localStorage.removeItem("user");
-    Router.reload();
+    router.reload();
   };
 
   const handleClickOutside = () => {
     setIsOpen(false);
   };
+
   const ref = useOutsideClick(handleClickOutside);
 
   return (
@@ -88,58 +88,82 @@ export default function NavBar() {
       >
         <div className="px-2 h-full flex items-center justify-center">
           <p className="lowercase font-semibold tracking-widest text-lg">
-             <Link
-            href={"https://job-sewa.vercel.app/"}
-            className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
-          >
-             𝓙ob𝓢𝓮𝔀𝓪
-          </Link>
+            <Link
+              href={"/"}
+              className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+            >
+              𝓙ob𝓢𝓮𝔀𝓪
+            </Link>
           </p>
         </div>
+
         <div className="px-2 h-full hidden items-center justify-center lg:flex">
           <Link
             href={"/"}
-            className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+            className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+              router.pathname === "/" ? "text-sky-200 font-bold" : ""
+            }`}
           >
             Home
           </Link>
           <Link
             href={"/frontend/postAJob"}
-            className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+            className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+              router.pathname === "/frontend/postAJob"
+                ? "text-sky-200 font-bold"
+                : ""
+            }`}
           >
             Post Jobs
           </Link>
           <Link
             href={"/frontend/displayJobs"}
-            className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+            className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+              router.pathname === "/frontend/displayJobs"
+                ? "text-sky-200 font-bold"
+                : ""
+            }`}
           >
             View Jobs
           </Link>
           <Link
             href={"/frontend/postedJob"}
-            className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+            className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+              router.pathname === "/frontend/postedJob"
+                ? "text-sky-200 font-bold"
+                : ""
+            }`}
           >
             Posted Jobs
           </Link>
           <Link
             href={"/frontend/dashboard"}
-            className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+            className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+              router.pathname === "/frontend/dashboard"
+                ? "text-sky-200 font-bold"
+                : ""
+            }`}
           >
             Dashboard
           </Link>
           <Link
             href={"/frontend/organizations"}
-            className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+            className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+              router.pathname === "/frontend/organizations"
+                ? "text-sky-200 font-bold"
+                : ""
+            }`}
           >
             Organizations
           </Link>
         </div>
+
         <div className="px-2 h-full hidden items-center justify-center lg:flex ">
           {user !== null ? (
             <>
               <BiLogOut
                 onClick={handleLogout}
-                className=" cursor-pointer text-3xl hover:text-red-500 transition-all duration-700"
+                className="cursor-pointer text-3xl hover:text-red-500 transition-all duration-700"
               />
               <p className="text-lg px-4 font-semibold">{user?.name}</p>
             </>
@@ -147,13 +171,13 @@ export default function NavBar() {
             <>
               <Link
                 href={"/auth/login"}
-                className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-sky-700"
+                className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4 transition-all duration-700 hover:bg-white font-semibold text-base hover:text-sky-700"
               >
                 Login
               </Link>
               <Link
                 href={"/auth/register"}
-                className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-sky-700"
+                className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4 transition-all duration-700 hover:bg-white font-semibold text-base hover:text-sky-700"
               >
                 REGISTER
               </Link>
@@ -171,13 +195,15 @@ export default function NavBar() {
         {isOpen && (
           <div
             ref={ref}
-            className="flex w-full py-2 animate-fade-in-down  bg-indigo-600 transition-all fade duration-1000 absolute top-20 left-0  items-center justify-center flex-col "
+            className="flex w-full py-2 animate-fade-in-down bg-indigo-600 transition-all fade duration-1000 absolute top-20 left-0 items-center justify-center flex-col"
           >
-            <div className="px-2 h-full flex items-center justify-center flex-col py-2 ">
+            <div className="px-2 h-full flex items-center justify-center flex-col py-2">
               <Link
                 href={"/"}
                 onClick={() => setIsOpen(false)}
-                className="px-3  m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+                className={`px-3  m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+                  router.pathname === "/" ? "text-sky-200 font-bold" : ""
+                }`}
               >
                 Home
               </Link>
@@ -185,7 +211,7 @@ export default function NavBar() {
                 onClick={() => setOpenJobs((state) => !state)}
                 className="px-3  m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase flex items-center justify-center"
               >
-                Jobs {openJobs ? <AiFillCaretUp /> : <AiFillCaretDown />}{" "}
+                Jobs {openJobs ? <AiFillCaretUp /> : <AiFillCaretDown />}
               </button>
 
               {openJobs && (
@@ -193,21 +219,33 @@ export default function NavBar() {
                   <Link
                     href={"/frontend/displayJobs"}
                     onClick={() => setIsOpen(false)}
-                    className="px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+                    className={`px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+                      router.pathname === "/frontend/displayJobs"
+                        ? "text-sky-200 font-bold"
+                        : ""
+                    }`}
                   >
                     View Jobs
                   </Link>
                   <Link
                     href={"/frontend/postAJob"}
                     onClick={() => setIsOpen(false)}
-                    className="px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+                    className={`px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+                      router.pathname === "/frontend/postAJob"
+                        ? "text-sky-200 font-bold"
+                        : ""
+                    }`}
                   >
                     Post Jobs
                   </Link>
                   <Link
                     href={"/frontend/postedJob"}
                     onClick={() => setIsOpen(false)}
-                    className="px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+                    className={`px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+                      router.pathname === "/frontend/postedJob"
+                        ? "text-sky-200 font-bold"
+                        : ""
+                    }`}
                   >
                     Posted Jobs
                   </Link>
@@ -216,14 +254,22 @@ export default function NavBar() {
               <Link
                 href={"/frontend/dashboard"}
                 onClick={() => setIsOpen(false)}
-                className="px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+                className={`px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+                  router.pathname === "/frontend/dashboard"
+                    ? "text-sky-200 font-bold"
+                    : ""
+                }`}
               >
                 Dashboard
               </Link>
               <Link
                 href={"/frontend/organizations"}
                 onClick={() => setIsOpen(false)}
-                className="px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+                className={`px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+                  router.pathname === "/frontend/organizations"
+                    ? "text-sky-200 font-bold"
+                    : ""
+                }`}
               >
                 Organizations
               </Link>
@@ -233,7 +279,7 @@ export default function NavBar() {
                 <>
                   <BiLogOut
                     onClick={handleLogout}
-                    className=" cursor-pointer text-3xl hover:text-red-500 transition-all duration-700"
+                    className="cursor-pointer text-3xl hover:text-red-500 transition-all duration-700"
                   />
                   <p className="text-lg px-4 font-semibold">{user?.name}</p>
                 </>
@@ -241,13 +287,13 @@ export default function NavBar() {
                 <>
                   <Link
                     href={"/auth/login"}
-                    className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4   transition-all duration-700 hover:bg-white font-semibold text-base hover:text-sky-700"
+                    className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4 transition-all duration-700 hover:bg-white font-semibold text-base hover:text-sky-700"
                   >
                     Login
                   </Link>
                   <Link
                     href={"/auth/register"}
-                    className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4   text-sky-700 bg-white transition-all duration-700 hover:bg-transparent font-semibold text-base hover:text-white"
+                    className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4 text-sky-700 bg-white transition-all duration-700 hover:bg-transparent font-semibold text-base hover:text-white"
                   >
                     REGISTER
                   </Link>
