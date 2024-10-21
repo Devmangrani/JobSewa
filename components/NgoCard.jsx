@@ -3,10 +3,20 @@ import Image from "next/image";
 import { BsDot } from "react-icons/bs";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useRouter } from "next/router";
-
+import { motion } from 'framer-motion';
 export default function NgosCard({ data }) {
   return (
-    <div className="w-full cursor-pointer  transition-all duration-1000  md:w-5/12 m-4 border hover:shadow-xl rounded px-4 md:flex md:flex-wrap">
+    <motion.div 
+    initial={{ opacity: 0, x: -100 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{
+      duration: 0.8,
+      type: "spring",
+      stiffness: 90,
+      delay: 0,
+    }}
+    className="w-full cursor-pointer    md:w-5/12 m-4 border hover:shadow-xl rounded px-4 md:flex md:flex-wrap">
       <div className="mb-4 flex  items-center justify-center py-2 ">
         <Image
           width={70}
@@ -50,6 +60,6 @@ export default function NgosCard({ data }) {
           More details <AiOutlineArrowRight className="mx-2 text-xl" />
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 }
