@@ -16,8 +16,8 @@ export default function NgosCard({ data }) {
           alt="no image"
         />
         <div className="flex flex-col mx-2 px-2">
-          <h1 className="text-xl md:text-2xl font-semibold">{data.name}</h1>
-          <p className="text-xs sm:text-sm md:text-base text-gray-800 ">
+          <h1 className="text-lg md:text-2xl font-semibold">{data.name}</h1>
+          <p className="text-sm sm:text-base text-gray-800 ">
             {data.description}
           </p>
         </div>
