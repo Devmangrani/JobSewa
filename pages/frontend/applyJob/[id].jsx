@@ -112,7 +112,7 @@ export default function ApplyJob() {
               className="w-full py-2 px-3 mb-2 border border-sky-700 rounded"
               placeholder="Enter Name "
             />
-            {error.name && <p className="text-sm text-red-500">{error.name}</p>}
+            {error.name && <p className="text-sm text-red-800">{error.name}</p>}
           </div>
           <div className="w-full mb-4  flex flex-col items-start justify-center">
             <label htmlFor="email" className="mb-1 text-base font-semibold">
