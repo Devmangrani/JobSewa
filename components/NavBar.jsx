@@ -89,7 +89,7 @@ export default function NavBar() {
         <div className="px-2 h-full flex items-center justify-center">
           <p className="lowercase font-semibold tracking-widest text-lg">
              <Link
-            href={"/frontend"}
+            href={"https://job-sewa.vercel.app/"}
             className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase"
           >
              𝓙ob𝓢𝓮𝔀𝓪
