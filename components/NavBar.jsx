@@ -27,13 +27,17 @@ export default function NavBar() {
   const user = useSelector((state) => state.User.userData);
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, isScrolled] = useState(false);
+  const hamburgerRef = React.useRef(null);
 
-  const useOutsideClick = (callback) => {
+  const useOutsideClick = (callback, exceptions) => {
     const ref = React.useRef();
 
     React.useEffect(() => {
       const handleClick = (event) => {
-        if (ref.current && !ref.current.contains(event.target)) {
+        if (ref.current && 
+          !ref.current.contains(event.target) &&
+          !exceptions.some((exception) => exception.current.contains(event.target))
+        ) {
           callback();
         }
       };
@@ -43,7 +47,7 @@ export default function NavBar() {
       return () => {
         document.removeEventListener("click", handleClick, true);
       };
-    }, [ref]);
+    }, [ref, exceptions]);
 
     return ref;
   };
@@ -77,7 +81,7 @@ export default function NavBar() {
     setIsOpen(false);
   };
 
-  const ref = useOutsideClick(handleClickOutside);
+  const ref = useOutsideClick(handleClickOutside, [hamburgerRef]);
 
   return (
     <>
@@ -194,7 +198,7 @@ export default function NavBar() {
 
         {isOpen && (
           <div
-            ref={ref}
+            ref={hamburgerRef}
             className="flex w-full py-2 animate-fade-in-down bg-indigo-600 transition-all fade duration-1000 absolute top-20 left-0 items-center justify-center flex-col"
           >
             <div className="px-2 h-full flex items-center justify-center flex-col py-2">
