@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
+import { RxCross2 } from "react-icons/rx";
 import Image from "next/image";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
@@ -48,7 +49,7 @@ export default function Intro() {
 
   return (
     <>
-      <div className="w-full h-full flex items-center lg:justify-start py-24 justify-center flex-wrap">
+      <div className="w-full h-full flex items-center lg:justify-start pt-24 justify-center flex-wrap">
         <div className="lg:w-3/6 w-full sm:p-2 h-full my-2 flex items-center justify-center px-4 md:items-start md:justify-start md:p-20 flex-col">
           <motion.h1
             initial={{ opacity: 0, x: -100 }}
@@ -81,26 +82,28 @@ export default function Intro() {
             Thousands of people search for jobs daily on job portals on average.
           </motion.p>
           <div className="bg-white mb-6 w-full md:px-4 py-2 md:py-4 pl-4 flex sm:flex-row items-center justify-center">
-            <BiSearchAlt className="text-2xl text-sky-700 mx-2 hidden sm:flex" />
-            <input
-              onChange={(e) => setSearch(e.target.value)}
-              onKeyPress={handleKeyPress}
-              value={search}
-              type="text"
-              placeholder="Search Jobs with Job Categories like electrician ..."
-              className="xs:w-full w-3/4 md:h-full p-2 md:px-2 md:py-3 bg-gray-200 text-base outline-none"
-            />
+            <div className="flex xs:w-full w-3/4 md:h-full p-2 md:px-2 md:py-3 bg-gray-200 rounded">
+              <BiSearchAlt className="text-2xl text-sky-700 mx-2 hidden sm:flex" />
+              <input
+                onChange={(e) => setSearch(e.target.value)}
+                onKeyPress={handleKeyPress}
+                value={search}
+                type="text"
+                placeholder="Search Jobs with Job Categories like electrician ..."
+                className="flex-1 bg-transparent text-base outline-none"
+              />
+              {search && (
+                <RxCross2
+                  onClick={clearSearch}
+                  className="text-2xl text-sky-700 cursor-pointer"
+                />
+              )}
+            </div>
             <button
               onClick={handleSearch}
               className="px-3 py-2 my-2 sm:my-0 border border-sky-700 rounded uppercase tracking-widest mx-4 text-white bg-sky-700 transition-all duration-700 hover:bg-transparent font-semibold text-base hover:text-sky-700"
             >
               Search
-            </button>
-            <button
-              onClick={clearSearch}
-              className="px-3 py-2 my-2 sm:my-0 border border-red-500 rounded uppercase tracking-widest mx-2 text-white bg-red-500 transition-all duration-700 hover:bg-transparent font-semibold text-base hover:text-red-500"
-            >
-              Clear
             </button>
           </div>
           <div className="w-full px-2 py-2 flex items-center justify-start flex-wrap gap-2">
@@ -130,7 +133,7 @@ export default function Intro() {
             stiffness: 100,
             delay: 0,
           }}
-          className="w-3/6 my-2 h-full bg-gray-200 hidden items-center justify-center flex-col p-20 lg:flex"
+          className="md:w-3/6 md:my-2 h-full bg-gray-200 items-center justify-center flex-col md:p-20 lg:flex"
         >
           <Image
             width={1000}
