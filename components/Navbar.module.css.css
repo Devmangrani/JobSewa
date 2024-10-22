@@ -1,0 +1,41 @@
+/* Neon and futuristic effects */
+.neon-text {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #0fa, 0 0 20px #0fa, 0 0 40px #0fa;
+  }
+  
+  .hover\:neon-border:hover {
+    border: 2px solid #0fa;
+    transition: border 0.5s ease;
+  }
+  
+  .text-glow:hover {
+    color: #0fa;
+    text-shadow: 0 0 20px #0fa;
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+  }
+  
+  .hover\:bg-neon:hover {
+    background-color: #0fa;
+    box-shadow: 0 0 20px #0fa;
+  }
+  
+  .hover\:translate-y-2:hover {
+    transform: translateY(-8px);
+  }
+  
+  .animate-fade-in-down {
+    animation: fadeInDown 0.6s ease;
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
