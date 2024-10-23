@@ -9,9 +9,9 @@ export default function JobsCard({ job, posted }) {
   return (
     <div
       key={job._id}
-      className="w-full cursor-pointer  transition-all duration-1000  md:w-5/12 m-4 border hover:shadow-xl rounded px-4 md:flex md:flex-wrap"
+      className="w-full transition-all duration-1000  md:w-5/12 m-4 border hover:shadow-xl rounded p-4 md:flex md:flex-wrap"
     >
-      <div className="mb-4 flex  items-center justify-center py-2 ">
+      <div className="mb-4 flex lg:flex-col items-center justify-center py-2">
         <Image
           width={70}
           height={70}
@@ -31,8 +31,8 @@ export default function JobsCard({ job, posted }) {
           </p>
         </div>
       </div>
-      <div className="mb-4 flex   items-start justify-center py-2 flex-col">
-        <div className="flex  px-2 py-2 items-center justify-center ">
+      <div className="mb-4 flex min-w-fit items-start justify-center py-2 flex-col">
+        <div className="flex px-2 py-2 items-center justify-center ">
           <BsDot className="text-4xl font-extrabold text-sky-700" />
           <h1 className="text-lg text-gray-900 w-20">Salary</h1>
           <p className="text-base  font-semibold">
@@ -64,7 +64,7 @@ export default function JobsCard({ job, posted }) {
         ) : (
           <button
             onClick={() => router.push(`/frontend/jobDetails/${job?._id}`)}
-            className="my-2 py-2 px-4  border border-sky-700   rounded flex items-center justify-center transition-all duration-700 hover:bg-indigo-600 hover:text-white text-sky-700 font-semibold"
+            className="my-2 py-2 px-4 cursor-pointer border border-sky-700   rounded flex items-center justify-center transition-all duration-700 hover:bg-indigo-600 hover:text-white text-sky-700 font-semibold"
           >
             View Detail <AiOutlineArrowRight className="mx-2 text-xl" />
           </button>
