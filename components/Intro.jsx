@@ -154,6 +154,28 @@ export default function Intro() {
           )}
         </div>
       )}
+      {/* Footer Component */}
+      <footer className="w-full bg-gray-800 py-4 text-white text-center mt-6">
+        <div className="container mx-auto">
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} JobSewa. All rights reserved.
+          </p>
+          <p className="text-xs">
+            Designed by JobSewa Team. Follow us on{" "}
+            <a href="#" className="underline hover:text-blue-400">
+              Twitter
+            </a>{" "}
+            |{" "}
+            <a href="#" className="underline hover:text-blue-400">
+              LinkedIn
+            </a>{" "}
+            |{" "}
+            <a href="#" className="underline hover:text-blue-400">
+              Facebook
+            </a>
+          </p>
+        </div>
+      </footer>
     </>
   );
 }
