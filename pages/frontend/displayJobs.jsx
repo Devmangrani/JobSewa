@@ -1,11 +1,10 @@
 import NavBar from "@/components/NavBar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setJobData } from "@/Utils/JobSlice";
 import JobsCard from "@/components/JobsCard";
 import useSWR from "swr";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
 
 export default function DisplayJobs() {
@@ -13,7 +12,7 @@ export default function DisplayJobs() {
   const [search, setSearch] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const JobData = useSelector((state) => state?.Job?.JobData);
-
+  
   const { data, error, isLoading } = useSWR("/getAllJobs", () => get_job());
 
   useEffect(() => {
@@ -23,6 +22,7 @@ export default function DisplayJobs() {
   if (error) toast.error(error);
 
   useEffect(() => {
+    // Initial filter based on search term
     if (search === "") {
       setFilteredData(JobData);
     } else {
@@ -37,10 +37,18 @@ export default function DisplayJobs() {
     }
   }, [search, JobData]);
 
+  // Function to sort jobs based on salary
+  const sortBySalary = () => {
+    const sortedData = [...filteredData].sort((a, b) => {
+      return (a.salary || 0) - (b.salary || 0); // Sort in ascending order
+    });
+    setFilteredData(sortedData);
+  };
+
   return (
     <>
       <NavBar />
-      <div className="w-full  py-20 flex items-center md:px-8 px-2  justify-center flex-col">
+      <div className="w-full py-20 flex items-center md:px-8 px-2 justify-center flex-col">
         <h1 className="px-4 mx-2 py-2 mt-8 mb-4 leading-relaxed uppercase tracking-wider border-b-2 border-b-indigo-600 text-3xl font-semibold">
           Available Jobs
         </h1>
@@ -54,17 +62,23 @@ export default function DisplayJobs() {
             placeholder={"Search by title, company or category..."}
           />
         </div>
-        <div className="w-full h-full py-4 flex  overflow-y-auto  items-center justify-center flex-wrap">
-          {/* map */}
+
+        {/* Sort Button */}
+        <button
+          className="mt-4 py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700"
+          onClick={sortBySalary}
+        >
+          Sort by Salary
+        </button>
+
+        <div className="w-full h-full py-4 flex overflow-y-auto items-center justify-center flex-wrap">
           {Array.isArray(filteredData) && filteredData.length > 0 ? (
-            filteredData?.map((job) => {
+            filteredData.map((job) => {
               return <JobsCard job={job} key={job?._id} />;
             })
           ) : (
             <p>No jobs found</p>
           )}
-
-          {/* map */}
         </div>
       </div>
     </>
