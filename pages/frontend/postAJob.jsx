@@ -131,7 +131,7 @@ export default function PostAJob() {
               }
               type="text"
               id="title"
-              className="w-full py-2 px-3 mb-2 border border-sky-700 rounded"
+              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
               placeholder="Enter title of job"
             />
             {error.title && (
@@ -148,7 +148,7 @@ export default function PostAJob() {
               }
               type="number"
               id="salary"
-              className="w-full py-2 px-3 mb-2 border border-sky-700 rounded"
+              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
               placeholder="Enter Salary for this job"
             />
             {error.salary && (
@@ -165,7 +165,7 @@ export default function PostAJob() {
               }
               type="email"
               id="email"
-              className="w-full py-2 px-3 mb-2 border border-sky-700 rounded"
+              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
               placeholder="Enter Email to be Contacted for this job"
             />
             {error.email && (
@@ -182,7 +182,7 @@ export default function PostAJob() {
               }
               type="text"
               id="company"
-              className="w-full py-2 px-3 mb-2 border border-sky-700 rounded"
+              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
               placeholder="Enter Organization name"
             />
             {error.company && (
@@ -203,7 +203,7 @@ export default function PostAJob() {
               onResize={"none"}
               type="text"
               id="description"
-              className="w-full py-2 px-3 mb-2 border border-sky-700 rounded"
+              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
               placeholder="Enter description of job"
             />
             {error.description && (
@@ -223,7 +223,7 @@ export default function PostAJob() {
               }
               type="text"
               id="jobCategory"
-              className="w-full py-2 px-3 mb-2 border border-sky-700 rounded"
+              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
               placeholder="Enter Category of job"
             />
             {error.job_category && (
@@ -234,6 +234,25 @@ export default function PostAJob() {
             onChange={(e) => setFormData({ ...formData, job_type: e.value })}
             placeholder="Please Select Job type"
             options={options}
+            styles={{
+              control: (defaultstyle) => ({
+                  ...defaultstyle,
+                  border: '1px solid #D1D5DB', 
+                  borderRadius: '0.5rem', 
+                  padding: '0.4rem', 
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', 
+                  '&:focus': {
+                      outline: 'none',
+                      ring: '2',
+                      ringColor: 'INDIGO-50', 
+                  },
+              }),
+              placeholder: (defaultsyle) => ({
+                ...defaultsyle,
+                color: '#A0AEC0', 
+                
+              }),
+          }}
           />
           <div className="w-full mb-4  flex flex-col items-start justify-center">
             {error.job_category && (
@@ -253,7 +272,7 @@ export default function PostAJob() {
               }
               type="text"
               id="jobExperience"
-              className="w-full py-2 px-3 mb-2 border border-sky-700 rounded"
+              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
               placeholder="Enter Experience Required for this job"
             />
             {error.job_experience && (
@@ -270,7 +289,7 @@ export default function PostAJob() {
               }
               type="number"
               id="jobva"
-              className="w-full py-2 px-3 mb-2 border border-sky-700 rounded"
+              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
               placeholder="Enter Number  of Vacancies"
             />
             {error.job_vacancy && (
@@ -287,7 +306,7 @@ export default function PostAJob() {
               }
               type="date"
               id="jobva"
-              className="w-full py-2 px-3 mb-2 border border-sky-700 rounded"
+              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
               placeholder="Enter Deadline of job"
             />
             {error.job_deadline && (
