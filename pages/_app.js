@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Cookies from 'js-cookie';
 import 'react-toastify/dist/ReactToastify.css';
+import '../styles/globals.css'; // Ensure this is imported to use globally
+
 
 
 

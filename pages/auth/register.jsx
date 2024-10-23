@@ -16,7 +16,7 @@ export default function Register() {
     }
   }, [router]);
 
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ email: "", password: "", name: "" });
   const [error, setError] = useState({ email: "", password: "", name: "" });
 
   const handleSubmit = async (e) => {
@@ -48,107 +48,107 @@ export default function Register() {
   return (
     <>
       <NavBar />
-      <div className="w-full h-screen bg-gray-600 ">
-        <div className="flex flex-col text-center items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0 shadow-xl">
-          <div className="w-full bg-white rounded-lg shadow dark:border text-black md:mt-0 sm:max-w-md xl:p-0 ">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
-                Register your account
-              </h1>
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-4 md:space-y-6"
-                action="#"
+      <div className="w-full h-screen bg-gradient-to-r from-blue-900 to-purple-900 flex items-center justify-center">
+        <div className="w-full max-w-md p-8 space-y-8 glassmorphic-background rounded-lg shadow-xl transform transition duration-500 hover:scale-105 hover:shadow-2xl">
+          <h1 className="text-2xl font-bold text-center text-white animate-pulse">
+            Register your account
+          </h1>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="text-left">
+              <label
+                htmlFor="name"
+                className="block mb-2 text-sm font-medium text-gray-300"
               >
-                <div className="text-left">
-                  <label
-                    htmlFor="name"
-                    className="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Your Name
-                  </label>
-                  <input
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    type="text"
-                    name="name"
-                    id="namw"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-600 focus:border-sky-700 block w-full p-2.5"
-                    placeholder="Name"
-                    required=""
-                  />
-                  {error.name && (
-                    <p className="text-sm text-red-500">{error.name}</p>
-                  )}
-                </div>
-                <div className="text-left">
-                  <label
-                    htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Your email
-                  </label>
-                  <input
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    type="email"
-                    name="email"
-                    id="email"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-600 focus:border-sky-700 block w-full p-2.5"
-                    placeholder="name@company.com"
-                    required=""
-                  />
-                  {error.email && (
-                    <p className="text-sm text-red-500">{error.email}</p>
-                  )}
-                </div>
-                <div className="text-left">
-                  <label
-                    htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Password
-                  </label>
-                  <input
-                    onChange={(e) =>
-                      setFormData({ ...formData, password: e.target.value })
-                    }
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-600 focus:border-sky-700 block w-full p-2.5"
-                    required=""
-                  />
-                  {error.password && (
-                    <p className="text-sm text-red-500">{error.password}</p>
-                  )}
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
-                >
-                  Sign Up
-                </button>
-                <p className="text-sm font-light text-gray-500 ">
-                  Already have an account{" "}
-                  <Link
-                    href="/auth/login"
-                    className="font-medium text-sky-700 hover:underline "
-                  >
-                    Sign In
-                  </Link>
-                </p>
-              </form>
+                Your Name
+              </label>
+              <input
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                type="text"
+                name="name"
+                id="name"
+                className="bg-transparent border border-gray-600 text-gray-300 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 transition duration-300 ease-in-out transform hover:scale-105"
+                placeholder="Enter your name"
+              />
+              {error.name && (
+                <p className="text-sm text-red-500">{error.name}</p>
+              )}
             </div>
-          </div>
-        </div>
 
+            <div className="text-left">
+              <label
+                htmlFor="email"
+                className="block mb-2 text-sm font-medium text-gray-300"
+              >
+                Your Email
+              </label>
+              <input
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                type="email"
+                name="email"
+                id="email"
+                className="bg-transparent border border-gray-600 text-gray-300 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 transition duration-300 ease-in-out transform hover:scale-105"
+                placeholder="name@company.com"
+              />
+              {error.email && (
+                <p className="text-sm text-red-500">{error.email}</p>
+              )}
+            </div>
+
+            <div className="text-left">
+              <label
+                htmlFor="password"
+                className="block mb-2 text-sm font-medium text-gray-300"
+              >
+                Password
+              </label>
+              <input
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
+                type="password"
+                name="password"
+                id="password"
+                className="bg-transparent border border-gray-600 text-gray-300 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 transition duration-300 ease-in-out transform hover:scale-105"
+                placeholder="••••••••"
+              />
+              {error.password && (
+                <p className="text-sm text-red-500">{error.password}</p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:bg-gradient-to-l hover:from-purple-700 hover:to-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-500 ease-in-out transform hover:scale-110 hover:shadow-lg"
+            >
+              Sign Up
+            </button>
+
+            <p className="text-sm font-light text-gray-400">
+              Already have an account?{" "}
+              <Link
+                href="/auth/login"
+                className="font-medium text-blue-400 hover:underline"
+              >
+                Sign In
+              </Link>
+            </p>
+          </form>
+        </div>
         <ToastContainer />
       </div>
+
+      <style jsx>{`
+        .glassmorphic-background {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 16px;
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+      `}</style>
     </>
   );
 }
