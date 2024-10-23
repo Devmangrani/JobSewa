@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -e MONGO_INITDB_ROOT_USERNAME=JobSewa -e MONGO_INITDB_ROOT_PASSWORD=JobSewa7epic -e MONGO_INITDB_DATABASE=jobsewaDB -p 27017:27017 mongo
