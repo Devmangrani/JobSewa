@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
+import Image from 'next/image';
 import { BiLogOut } from "react-icons/bi";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
@@ -96,7 +97,7 @@ export default function NavBar() {
               href={"/"}
               className="px-3 mx-4 text-2xl font-medium transition-all duration-700 hover:translate-y-2 uppercase"
             >
-              𝓙ob𝓢𝓮𝔀𝓪
+            <Image src="/logo2.png" alt="JobSewa Logo" width={300} height={300} />
             </Link>
           </p>
         </div>
