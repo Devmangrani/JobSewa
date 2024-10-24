@@ -1,10 +1,11 @@
+
 const SeedData = [
   {
     name: "Ministry of Labour and Employment",
     image:
       "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684039827/Janseva/labour_rh0mh7.jpg",
     description:
-      "The Ministry of Labour and Employment is responsible for formulating and implementing policies and programs related to employment, job creation, and workers' welfare in India. It oversees several agencies that provide employment services and support",
+      "The Ministry of Labour and Employment is responsible for formulating and implementing policies and programs related to employment, job creation, and workers' welfare in India. It oversees several agencies that provide employment services and support.",
     category: "Government",
     link: "https://labour.gov.in/",
   },
@@ -13,7 +14,7 @@ const SeedData = [
     image:
       "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684039857/Janseva/l7OUmrFU_QD8taT_ICxg-mlMmf-IjXt5UqJ4pjrHxFkB9IWFN6rbtcgE7W7Ds0Zctg_x9goc9.png",
     description:
-      "The NCS is an online platform created by the Ministry of Labour and Employment to provide job-related services. It provides job listings, career counseling, skill assessments, and detailed information about various government schemes and programs .",
+      " NCS is an online platform developed by the Ministry of Labour and Employment to provide job-related services. It offers job listings, career counseling, skill assessments, and information about government schemes and programs.",
     category: "Government",
     link: "https://www.ncs.gov.in/Pages/default.aspx",
   },
@@ -45,6 +46,15 @@ const SeedData = [
     link: "https://www.sewa.org/",
   },
   {
+    name: "Prayas",
+    image:
+      "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684300629/Janseva/5qho1rXK_400x400_nhtxtb.jpg",
+    description:
+      "Prayas is an NGO operating in multiple states across India and works extensively to improve the lives of marginalized communities, including small workers and laborers. They provide vocational training, legal assistance, healthcare services, and educational support to empower workers. Prayas also advocates for labor rights and works towards policy changes for the welfare of these workers. ",
+    category: "NGO",
+    link: "http://www.prayaschildren.org/",
+  },
+  {
     name: "Association for Rural and Urban Needy (ARUN)",
     image:
       "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684300687/Janseva/El8q1-dVgAABLj5_ayt0ga.png",
@@ -54,21 +64,12 @@ const SeedData = [
     link: "http://arunindia.org/",
   },
   {
-    name: "Prayas",
-    image:
-      "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684300629/Janseva/5qho1rXK_400x400_nhtxtb.jpg",
-    description:
-      "Prayas is a dedicated NGO that operates across multiple states in India, striving to uplift and empower marginalized communities, including small workers and laborers. They provide essential vocational training, legal assistance, comprehensive healthcare services, and educational support aimed at effectively empowering workers. Prayas also actively advocates for labor rights and diligently pursues impactful policy changes to enhance the overall welfare of these vulnerable workers.",
-    category: "NGO",
-    link: "http://www.prayaschildren.org/",
-  },
-  {
     name: "Smile Foundation",
     image:
       "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684300755/Janseva/sm-e_TTy_400x400_vegcdn.jpg",
     description:
-      "Smile Foundation is a national-level development organization in India focused on education, healthcare, and livelihood support for underprivileged communities. They implement initiatives specifically designed for small workers and laborers. The organization offers skill training programs, healthcare services, education support, and opportunities for livelihood enhancement. Moreover, Smile Foundation collaborates with various stakeholders to enhance policy frameworks and  working conditions for these workers.",
-      category: "NGO",
+      "Smile Foundation is a national-level development organization in India that works towards the education, healthcare, and livelihood support of underprivileged communities. They have initiatives specifically targeting small workers and laborers. The organization provides skill training programs, healthcare services, education support, and livelihood enhancement opportunities. Smile Foundation also collaborates with various stakeholders to improve policy frameworks and ensure better working conditions for these workers. ",
+    category: "NGO",
     link: "https://www.smilefoundationindia.org/",
   },
 ];

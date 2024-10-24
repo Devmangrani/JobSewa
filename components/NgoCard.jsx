@@ -1,55 +1,102 @@
-import React from "react";
-import Image from "next/image";
-import { BsDot } from "react-icons/bs";
-import { AiOutlineArrowRight } from "react-icons/ai";
-import { useRouter } from "next/router";
+"use client"
+import React, { useState } from "react";
+import { motion } from 'framer-motion';
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
-export default function NgosCard({ data }) {
+const NgosCard = ({ data }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleReadMore = (e) => {
+    e.stopPropagation();
+    setIsExpanded(!isExpanded);
+  };
+
   return (
-    <div className="w-full cursor-pointer  transition-all duration-500  md:w-5/12 m-4 border hover:shadow-xl hover:border-1  rounded px-4 md:flex md:flex-wrap">
-      <div className="mb-4 flex  items-center justify-center py-2 ">
-        <Image
-          width={70}
-          height={70}
-          className="flex rounded-full "
-          src={data.image}
-          alt="no image"
-        />
-        <div className="flex flex-col mx-2 px-2">
-          <h1 className="text-xl md:text-2xl font-semibold">{data.name}</h1>
-          <p className="text-xs sm:text-sm md:text-base text-gray-800 ">
-            {data.description}
-          </p>
+    <motion.div
+      initial={{ opacity: 0, x: -100 }} 
+      whileInView={{ opacity: 1, x: 0 }} 
+      viewport={{ once: true }} 
+      transition={{
+        duration: 0.8, 
+        type: "spring", 
+        stiffness: 90, 
+        delay: 0.1, 
+      }}
+      className="w-full md:w-[420px] m-2"
+    >
+      <Card className="h-full min-h-[300px] transition-all duration-400 hover:shadow-xl flex flex-col justify-between">
+        <div>
+          <CardHeader className="flex flex-col items-center space-y-4 pb-2">
+            <div className="h-20 w-20 shrink-0 overflow-hidden rounded-full">
+              <img
+                src={data.image}
+                alt={data.name}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="space-y-2 text-center w-full">
+              <h3 className="font-semibold text-xl leading-tight min-h-[3rem] flex items-center justify-center">
+                {data.name}
+              </h3>
+              <Badge variant="secondary" className="text-xs bg-[#C9D3FA]">
+                {data.category}
+              </Badge>
+            </div>
+          </CardHeader>
+
+          <CardContent className="pb-4">
+            <div className="text-md text-gray-600 leading-relaxed">
+              {isExpanded ? data.description : `${data.description.substring(0, 200)}`}
+              {data.description.length > 150 && (
+                <>
+                  {!isExpanded && "..."}
+                  <button
+                    onClick={toggleReadMore}
+                    className="ml-1 text-indigo-600 hover:text-indigo-800 font-medium text-sm"
+                  >
+                    {isExpanded ? "Read less" : "Read more"}
+                  </button>
+                </>
+              )}
+            </div>
+          </CardContent>
         </div>
-      </div>
-      {/* <div className="mb-4 flex   items-start justify-center py-2 flex-col">
-        <div className="flex  px-2 py-2 items-center justify-center ">
-          <BsDot className="text-4xl font-extrabold text-sky-700" />
-          <h1 className="text-lg text-gray-900">Salary :</h1>
-          <p className="text-base  font-semibold">10$ / month</p>
-        </div>
-        <div className="flex px-2 py-2 items-center  justify-center">
-          <BsDot className="text-4xl font-extrabold text-sky-700" />
-          <h1 className="text-lg text-gray-900">Deadline :</h1>
-          <p className="text-base  font-semibold">
-            {new Date(Date.now()).toLocaleDateString("en-GB")}
-          </p>
-        </div>
-      </div> */}
-      <div className="mb-4 flex flex-col md:flex-wrap md:flex-row w-full justify-between  items-center h-full">
-        <div className="flex items-center space-x-4">
-          <div className="flex px-6 rounded-2xl py-1 items-center justify-center bg-indigo-200 text-indigo-900  ">
-            <p>{data.category}</p>
-          </div>
-        </div>
-        <a
-          href={data.link}
-          target="_blank"
-          className="my-2 py-2 px-4  border border-sky-700   rounded flex items-center justify-center transition-all duration-200 hover:bg-[#C9D3FA] hover:text-[#343680] text-sky-700 font-semibold"
-        >
-          More details <AiOutlineArrowRight className="mx-2 text-xl" />
-        </a>
-      </div>
-    </div>
+        {/* <div className="mb-4 flex   items-start justify-center py-2 flex-col">
+//         <div className="flex  px-2 py-2 items-center justify-center ">
+//           <BsDot className="text-4xl font-extrabold text-sky-700" />
+//           <h1 className="text-lg text-gray-900">Salary :</h1>
+//           <p className="text-base  font-semibold">10$ / month</p>
+//         </div>
+//         <div className="flex px-2 py-2 items-center  justify-center">
+//           <BsDot className="text-4xl font-extrabold text-sky-700" />
+//           <h1 className="text-lg text-gray-900">Deadline :</h1>
+//           <p className="text-base  font-semibold">
+//             {new Date(Date.now()).toLocaleDateString("en-GB")}
+//           </p>
+//         </div>
+//       </div> */}
+        <CardFooter className="mt-auto">
+          <a
+            href={data.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full"
+          >
+            <Button
+              variant="outline"
+              className="w-full group transition-all duration-200 hover:bg-[#C9D3FA] hover:text-[#343680]"
+            >
+              More details
+              <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+            </Button>
+          </a>
+        </CardFooter>
+      </Card>
+    </motion.div>
   );
-}
+};
+
+export default NgosCard;
