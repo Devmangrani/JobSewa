@@ -94,9 +94,12 @@ export default function NavBar() {
           <p className="lowercase font-semibold tracking-widest text-lg">
             <Link
               href={"/"}
-              className="px-3 mx-4 text-2xl font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+              className="px-3 mx-4 text-2xl "
             >
-              𝓙ob𝓢𝓮𝔀𝓪
+            <img src="./Jobsewa_logo.png" alt="JobSewa Logo"  
+            className="h-[7vw] w-[7vw]" />
+
+             
             </Link>
           </p>
         </div>
