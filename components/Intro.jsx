@@ -70,7 +70,7 @@ export default function Intro() {
             className="md:text-6xl text-3xl sm:text-2xl font-extrabold mb-4 text-black"
           >
             To Choose Right Jobs.{" "}
-            <span className="block text-sky-700"> JobSewa is for You</span>{" "}
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-indigo-400 to-indigo-300"> JobSewa is for You</span>{" "}
           </motion.h1>
 
           <motion.p

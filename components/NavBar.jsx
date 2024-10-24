@@ -87,34 +87,34 @@ export default function NavBar() {
     <>
       <div
         className={`w-full ${
-          scrolled ? "bg-custom-color" : "bg-custom-color"
-        } px-6 h-20 bg-gray-600 text-white flex items-center justify-between fixed top-0 left-0 z-50`}
+          scrolled ? "bg-gray-200" : "bg-transparent"
+        } px-6 h-16  text-white flex items-center justify-between fixed top-0 left-0 z-50 shadow-md`}
       >
         <div className="px-2 h-full flex items-center justify-center">
-          <p className="lowercase font-semibold tracking-widest text-lg">
+          <p className="lowercase font-semibold tracking-widest text-lg " style={{ color: '#0369a0' }}>
             <Link
               href={"/"}
-              className="px-3 mx-4 text-2xl font-medium transition-all duration-700 hover:translate-y-2 uppercase"
+              className="px-3 mx-4 text-2xl font-solid transition-all duration-700 hover:translate-y-2 uppercase"
             >
               𝓙ob𝓢𝓮𝔀𝓪
             </Link>
           </p>
         </div>
 
-        <div className="px-2 h-full hidden items-center justify-center lg:flex">
+        <div className="px-2 h-full hidden items-center justify-center lg:flex ">
           <Link
             href={"/"}
-            className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
-              router.pathname === "/" ? "text-sky-200 font-bold" : ""
+            className={`px-3 mx-1 text-xs font-medium transition-all duration-700 hover:translate-y-2 uppercase text-black ${
+              router.pathname === "/" ? "text-sky-300 font-bold" : ""
             }`}
           >
             Home
           </Link>
           <Link
             href={"/frontend/postAJob"}
-            className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+            className={`px-3 mx-2 text-xs font-medium transition-all duration-700 hover:translate-y-2 uppercase text-black ${
               router.pathname === "/frontend/postAJob"
-                ? "text-sky-200 font-bold"
+                ? "text-sky-300 font-bold"
                 : ""
             }`}
           >
@@ -122,9 +122,9 @@ export default function NavBar() {
           </Link>
           <Link
             href={"/frontend/displayJobs"}
-            className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+            className={`px-3 mx-2 text-xs font-medium transition-all duration-700 hover:translate-y-2 uppercase text-black ${
               router.pathname === "/frontend/displayJobs"
-                ? "text-sky-200 font-bold"
+                ? "text-sky-300 font-bold"
                 : ""
             }`}
           >
@@ -132,9 +132,9 @@ export default function NavBar() {
           </Link>
           <Link
             href={"/frontend/postedJob"}
-            className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+            className={`px-3 mx-2 text-xs font-medium transition-all duration-700 hover:translate-y-2 uppercase text-black ${
               router.pathname === "/frontend/postedJob"
-                ? "text-sky-200 font-bold"
+                ? "text-sky-300 font-bold"
                 : ""
             }`}
           >
@@ -142,9 +142,9 @@ export default function NavBar() {
           </Link>
           <Link
             href={"/frontend/dashboard"}
-            className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+            className={`px-3 mx-2 text-xs font-medium transition-all duration-700 hover:translate-y-2 uppercase text-black ${
               router.pathname === "/frontend/dashboard"
-                ? "text-sky-200 font-bold"
+                ? "text-sky-300 font-bold"
                 : ""
             }`}
           >
@@ -152,9 +152,9 @@ export default function NavBar() {
           </Link>
           <Link
             href={"/frontend/organizations"}
-            className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+            className={`px-3 mx-2 text-xs font-medium transition-all duration-700 hover:translate-y-2 uppercase text-black ${
               router.pathname === "/frontend/organizations"
-                ? "text-sky-200 font-bold"
+                ? "text-sky-300 font-bold"
                 : ""
             }`}
           >
@@ -175,15 +175,15 @@ export default function NavBar() {
             <>
               <Link
                 href={"/auth/login"}
-                className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4 transition-all duration-700 hover:bg-white font-semibold text-base hover:text-sky-700"
+                className="px-4 py-2 uppercase tracking-widest mx-2 transition-all duration-700 hover:underline font-semibold text-xs hover:text-sky-300 text-black"
               >
-                Login
+                Log in
               </Link>
               <Link
                 href={"/auth/register"}
-                className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4 transition-all duration-700 hover:bg-white font-semibold text-base hover:text-sky-700"
+                className="px-4 py-2 border  rounded uppercase bg-custom-color tracking-widest mx-4 transition-all duration-700 hover:bg-sky-300 font-semibold text-xs hover:text-sky-700"
               >
-                REGISTER
+               SIGN UP
               </Link>
             </>
           )}
@@ -206,7 +206,7 @@ export default function NavBar() {
                 href={"/"}
                 onClick={() => setIsOpen(false)}
                 className={`px-3  m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
-                  router.pathname === "/" ? "text-sky-200 font-bold" : ""
+                  router.pathname === "/" ? "text-sky-300 font-bold" : ""
                 }`}
               >
                 Home
@@ -225,7 +225,7 @@ export default function NavBar() {
                     onClick={() => setIsOpen(false)}
                     className={`px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
                       router.pathname === "/frontend/displayJobs"
-                        ? "text-sky-200 font-bold"
+                        ? "text-sky-300 font-bold"
                         : ""
                     }`}
                   >
@@ -234,9 +234,9 @@ export default function NavBar() {
                   <Link
                     href={"/frontend/postAJob"}
                     onClick={() => setIsOpen(false)}
-                    className={`px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+                    className={`px-3 m-4 text-xs font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
                       router.pathname === "/frontend/postAJob"
-                        ? "text-sky-200 font-bold"
+                        ? "text-sky-300 font-bold"
                         : ""
                     }`}
                   >
@@ -245,9 +245,9 @@ export default function NavBar() {
                   <Link
                     href={"/frontend/postedJob"}
                     onClick={() => setIsOpen(false)}
-                    className={`px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+                    className={`px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase text-black ${
                       router.pathname === "/frontend/postedJob"
-                        ? "text-sky-200 font-bold"
+                        ? "text-sky-300 font-bold"
                         : ""
                     }`}
                   >
@@ -258,9 +258,9 @@ export default function NavBar() {
               <Link
                 href={"/frontend/dashboard"}
                 onClick={() => setIsOpen(false)}
-                className={`px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+                className={`px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase text-black ${
                   router.pathname === "/frontend/dashboard"
-                    ? "text-sky-200 font-bold"
+                    ? "text-sky-300 font-bold"
                     : ""
                 }`}
               >
@@ -271,7 +271,7 @@ export default function NavBar() {
                 onClick={() => setIsOpen(false)}
                 className={`px-3 m-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
                   router.pathname === "/frontend/organizations"
-                    ? "text-sky-200 font-bold"
+                    ? "text-sky-300 font-bold"
                     : ""
                 }`}
               >
@@ -293,13 +293,13 @@ export default function NavBar() {
                     href={"/auth/login"}
                     className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4 transition-all duration-700 hover:bg-white font-semibold text-base hover:text-sky-700"
                   >
-                    Login
+                    Log in
                   </Link>
                   <Link
                     href={"/auth/register"}
                     className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4 text-sky-700 bg-white transition-all duration-700 hover:bg-transparent font-semibold text-base hover:text-white"
                   >
-                    REGISTER
+                    SIGN UP
                   </Link>
                 </>
               )}
