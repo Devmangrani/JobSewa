@@ -7,3 +7,10 @@
     background-color: #0369a0;
   }
 }
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+

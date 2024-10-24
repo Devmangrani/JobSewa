@@ -1,8 +1,7 @@
-import React from 'react'
-import NavBar from '@/components/NavBar';
-import NgosCard from '@/components/NgoCard';
-import { SeedData } from '@/Utils/NgoData';
-
+import React from "react";
+import NavBar from "@/components/NavBar";
+import NgosCard from "@/components/NgoCard";
+import { SeedData } from "@/Utils/NgoData";
 
 const NGOs = () => {
   return (
@@ -12,7 +11,8 @@ const NGOs = () => {
         <h1 className="px-4 mx-2 py-2 mt-8 mb-4 leading-relaxed uppercase tracking-wider border-b-2 border-b-indigo-600 text-3xl font-semibold">
           Available Organizations
         </h1>
-        <div className="w-full h-full py-4 flex  overflow-y-auto  items-center justify-center flex-wrap">
+
+        <div className="w-full h-full py-2 flex  overflow-y-auto  items-center justify-center flex-wrap">
           {SeedData.map((data, index) => (
             <NgosCard key={index} data={data} />
           ))}
@@ -20,6 +20,6 @@ const NGOs = () => {
       </div>
     </>
   );
-}
+};
 
-export default NGOs
+export default NGOs;
