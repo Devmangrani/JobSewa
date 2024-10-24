@@ -129,18 +129,21 @@ export default function PostAJob() {
     <>
       <NavBar />
       <div className="w-full  py-20 flex items-center  justify-center flex-col">
+        
         <h1 className="text-xl mt-20 text-center leading-snug font-semibold mb-2 md:text-2xl lg:text-4xl">
         Tell Us About <br className="hidden md:inline" /> Your Job!
         </h1>
-        <p className="mt-2  text-lg text-gray-600">
+        <div className="border-b-4 border-indigo-600  w-20 mt-2 ml-4"></div> 
+
+        <p className="mt-4  text-lg text-gray-600">
          Provide us with the details of your job opportunity so we can connect you with the best candidates.
         </p>
         <form
           onSubmit={handleSubmit}
-          className="sm:w-1/2 w-full px-10 py-8 bg-white rounded-lg mt-10"
+          className="sm:w-1/2 w-full px-10 py-8 bg-white rounded-lg mt-2"
         >
           <div className="w-full mb-4  flex flex-col items-start justify-center">
-            <label htmlFor="title" className="mb-1 text-base font-semibold">
+            <label htmlFor="title" className="mb-2 text-base font-semibold">
               Title 
             </label>
             <input

@@ -167,9 +167,9 @@ export default function NavBar() {
             <>
               <BiLogOut
                 onClick={handleLogout}
-                className="cursor-pointer text-3xl hover:text-red-500 transition-all duration-700"
+                className="cursor-pointer text-3xl text-black hover:text-red-500 transition-all duration-700"
               />
-              <p className="text-lg px-4 font-semibold">{user?.name}</p>
+              <p className="text-lg px-4 font-semibold text-black">{user?.name}</p>
             </>
           ) : (
             <>

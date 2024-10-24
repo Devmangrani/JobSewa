@@ -9,9 +9,10 @@ const NGOs = () => {
     <>
       <NavBar />
       <div className="w-full  py-20 flex items-center md:px-8 px-2  justify-center flex-col">
-        <h1 className="px-4 mx-2 py-2 mt-8 mb-4 leading-relaxed uppercase tracking-wider border-b-2 border-b-indigo-600 text-3xl font-semibold">
+        <h1 className="text-xl mt-20 text-center leading-snug font-semibold mb-2 md:text-2xl lg:text-4xl">
           Available Organizations
         </h1>
+        <div className="border-b-4 border-indigo-600  w-20 mt-2 ml-4"></div> 
         <div className="w-full h-full py-4 flex  overflow-y-auto  items-center justify-center flex-wrap">
           {SeedData.map((data, index) => (
             <NgosCard key={index} data={data} />
