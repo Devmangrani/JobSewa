@@ -96,7 +96,7 @@ export default function NavBar() {
               href={"/"}
               className="px-3 mx-4 text-2xl "
             >
-            <img src="./Jobsewa_logo.png" alt="JobSewa Logo"  
+            <img src="/Jobsewa_logo.png" alt="JobSewa Logo"  
             className="h-[7vw] w-[7vw]" />
 
              
