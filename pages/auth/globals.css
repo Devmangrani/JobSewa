@@ -1,0 +1,21 @@
+/* styles/globals.css */
+
+@keyframes futuristicGlow {
+    0% {
+      box-shadow: 0 0 5px #0fa, 0 0 10px #0fa, 0 0 20px #0fa;
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 20px #0fa, 0 0 40px #0fa, 0 0 60px #0fa;
+      transform: scale(1.1);
+    }
+    100% {
+      box-shadow: 0 0 5px #0fa, 0 0 10px #0fa, 0 0 20px #0fa;
+      transform: scale(1);
+    }
+  }
+  
+  .animate-glow {
+    animation: futuristicGlow 0.6s ease-in-out;
+  }
+  

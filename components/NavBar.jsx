@@ -300,6 +300,15 @@ export default function NavBar() {
                 Organizations
               </Link>
             </div>
+            <Link
+  href={"/about"}
+  className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase ${
+    router.pathname === "/about" ? "text-sky-200 font-bold" : ""
+  }`}
+>
+  About
+</Link>
+
             <div className="px-2 h-full  items-center justify-center flex">
               {user !== null ? (
                 <>
