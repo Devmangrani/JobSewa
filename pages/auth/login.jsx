@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
+import {Image} from "next/image";
 import Router from "next/router";
 import { login_me } from "@/Services/auth";
 import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { setUserData } from "@/Utils/UserSlice";
-import NavBar from "@/components/NavBar";
+import styles from "../../styles/Login.module.css";
 
 export default function Login() {
   const dispatch = useDispatch();
-
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState({ email: "", password: "" });
 
@@ -53,26 +53,22 @@ export default function Login() {
 
   return (
     <>
-      <NavBar />
-      <div className="w-full h-screen bg-gray-600">
-        <div className="flex flex-col items-center  text-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
-          <div className="w-full bg-white text-black rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 ">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
-                Sign in to your account
-              </h1>
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-4 md:space-y-6"
-                action="#"
-              >
-                <div className="text-left">
-                  <label
-                    htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Your email
-                  </label>
+      <div className={styles.pageContainer}>
+        <div className={styles.container}>
+          <div className={styles.leftSection}>
+            <h1>Welcome Back!</h1>
+            <img
+              src="/login-hero.svg"
+              alt="Login Hero"
+              className={styles.heroImage}
+            />
+          </div>
+          <div className={styles.rightSection}>
+            <div className={styles["login-box"]}>
+              <h2>Sign in to your account</h2>
+              <form onSubmit={handleSubmit} action="#">
+                <div className={styles["form-group"]}>
+                  <label htmlFor="email">Your email</label>
                   <input
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -80,21 +76,15 @@ export default function Login() {
                     type="email"
                     name="email"
                     id="email"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-600 focus:border-sky-700 block w-full p-2.5 "
                     placeholder="name@company.com"
                     required=""
                   />
                   {error.email && (
-                    <p className="text-sm text-red-500">{error.email}</p>
+                    <p className={styles["error-message"]}>{error.email}</p>
                   )}
                 </div>
-                <div className="text-left">
-                  <label
-                    htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 "
-                  >
-                    Password
-                  </label>
+                <div className={styles["form-group"]}>
+                  <label htmlFor="password">Password</label>
                   <input
                     onChange={(e) =>
                       setFormData({ ...formData, password: e.target.value })
@@ -103,54 +93,30 @@ export default function Login() {
                     name="password"
                     id="password"
                     placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-600 focus:border-sky-700 block w-full p-2.5"
                     required=""
                   />
                   {error.password && (
-                    <p className="text-sm text-red-500">{error.password}</p>
+                    <p className={styles["error-message"]}>{error.password}</p>
                   )}
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-start">
-                    <div className="flex items-center h-5">
-                      <input
-                        id="remember"
-                        aria-describedby="remember"
-                        type="checkbox"
-                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-indigo-300   dark:focus:ring-indigo-600 "
-                        required=""
-                      />
-                    </div>
-                    <div className="ml-3 text-sm">
-                      <label
-                        htmlFor="remember"
-                        className="text-gray-500 dark:text-gray-300"
-                      >
-                        Remember me
-                      </label>
-                    </div>
+                <div className={styles["remember-container"]}>
+                  <div>
+                    <input type="checkbox" id="remember" required="" />
+                    <label htmlFor="remember">Remember me</label>
                   </div>
                   <Link
                     href="/auth/forget-password"
-                    className="text-sm font-medium text-sky-700 hover:underline "
+                    className={styles["forgot-link"]}
                   >
                     Forgot password?
                   </Link>
                 </div>
-                <button
-                  type="submit"
-                  className="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
-                >
+                <button type="submit" className={styles["submit-btn"]}>
                   Sign in
                 </button>
-                <p className="text-sm font-light ">
+                <p className={styles["sign-up"]}>
                   Don’t have an account yet?{" "}
-                  <Link
-                    href="/auth/register"
-                    className="font-medium text-sky-700 hover:underline "
-                  >
-                    Sign up
-                  </Link>
+                  <Link href="/auth/register">Sign up</Link>
                 </p>
               </form>
             </div>
