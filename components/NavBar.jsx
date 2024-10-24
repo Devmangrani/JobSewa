@@ -87,7 +87,7 @@ export default function NavBar() {
     <>
       <div
         className={`w-full ${
-          scrolled ? "bg-gray-200" : "bg-transparent"
+          scrolled ? "bg-white" : "bg-white"
         } px-6 h-16  text-white flex items-center justify-between fixed top-0 left-0 z-50 shadow-md`}
       >
         <div className="px-2 h-full flex items-center justify-center">

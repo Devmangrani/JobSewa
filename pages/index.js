@@ -71,7 +71,8 @@ export default function Home() {
       ) : (
         <>
           <NavBar />
-          <div className="w-full min-h-screen bg-gray-200  text-black">
+          <div className="w-full min-h-screen bg-gradient-to-r from-white to-sky-700  text-black"
+            >
             <Intro />
           </div>
         </>
