@@ -8,7 +8,7 @@ const NGOs = () => {
     <>
       <NavBar />
       <div className="w-full  py-20 flex items-center md:px-8 px-2  justify-center flex-col">
-        <h1 className="px-4 mx-2 py-2 mt-8 mb-4 leading-relaxed uppercase tracking-wider border-b-2 border-b-indigo-600 text-3xl font-semibold">
+        <h1 className="text-xl mt-20 text-center text-indigo-800 leading-snug font-semibold mb-2 md:text-2xl lg:text-4xl">
           Available Organizations
         </h1>
 

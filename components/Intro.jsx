@@ -70,7 +70,7 @@ export default function Intro() {
             className="md:text-6xl text-3xl sm:text-2xl font-extrabold mb-4 text-black"
           >
             To Choose Right Jobs.{" "}
-            <span className="block text-sky-700"> JobSewa is for You</span>{" "}
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-700 via-indigo-400 to-indigo-400 "> JobSewa is for You</span>{" "}
           </motion.h1>
 
           <motion.p
@@ -83,7 +83,7 @@ export default function Intro() {
               stiffness: 100,
               delay: 0,
             }}
-            className="md:text-lg sm:text-sm text-xs mb-8 text-gray-400"
+            className="md:text-lg sm:text-sm text-xs font-medium mb-8 text-gray-500"
           >
             Thousands of people search for jobs daily on job portals on average.
           </motion.p>
@@ -121,7 +121,7 @@ export default function Intro() {
             {["Electrician", "Labourer", "Driver", "Plumber"].map((tag) => (
               <span
                 key={tag}
-                className="bg-blue-100 text-blue-800 py-1 px-3 rounded-full cursor-pointer hover:bg-blue-200"
+                className="bg-blue-100 text-blue-800 py-1 px-3 font-medium text-sm rounded-full cursor-pointer hover:bg-blue-200"
                 onClick={() => onTagClick(tag)}
               >
                 {tag}
@@ -139,7 +139,7 @@ export default function Intro() {
             stiffness: 100,
             delay: 0,
           }}
-          className="md:w-3/6 md:my-2 h-full bg-gray-200 items-center justify-center flex-col md:p-20 lg:flex"
+          className="md:w-3/6 md:my-2 h-full items-center justify-center flex-col md:p-20 lg:flex"
         >
           <Image
             width={1000}

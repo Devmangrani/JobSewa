@@ -87,8 +87,8 @@ export default function NavBar() {
     <>
       <div
         className={`w-full ${
-          scrolled ? "bg-custom-color shadow-lg backdrop-blur-lg bg-opacity-90" : "bg-custom-color bg-opacity-80"
-        } px-6 h-20 bg-gray-600 text-white flex items-center justify-between fixed top-0 left-0 z-50`}
+          scrolled ? "bg-white" : "bg-white"
+        } px-6 h-16 bg-gray-600 text-white flex items-center justify-between fixed top-0 left-0 z-50 shadow-md`}
       >
         <div className="px-2 h-full flex items-center justify-center">
           <p className="lowercase font-semibold tracking-widest text-lg">
@@ -97,7 +97,7 @@ export default function NavBar() {
               className="px-3 mx-4 text-2xl "
             >
             <img src="/Jobsewa_logo.png" alt="JobSewa Logo"  
-            className="h-[7vw] w-[7vw]" />
+            className="h-[6vw] w-[6vw]" />
 
              
             </Link>
@@ -115,9 +115,9 @@ export default function NavBar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 text-glow uppercase ${
+              className={`px-3 mx-2 text-xs text-base font-medium transition-all duration-700 hover:translate-y-2 text-glow uppercase text-black ${
                 router.pathname === item.href
-                  ? "text-sky-100 font-bold border-b-4 border-sky-500" : ""
+                  ? "text-sky-500 font-bold border-b-4 border-sky-700" : ""
               }`}
             >
               {item.label}
@@ -192,23 +192,23 @@ export default function NavBar() {
             <>
               <BiLogOut
                 onClick={handleLogout}
-                className="cursor-pointer text-3xl hover:text-red-500 transition-all duration-700"
+                className="cursor-pointer text-black text-3xl hover:text-red-500 transition-all duration-700"
               />
-              <p className="text-lg px-4 font-semibold">{user?.name}</p>
+              <p className="text-lg px-4 font-semibold text-sky-700">{user?.name}</p>
             </>
           ) : (
             <div className="flex items-center space-x-4">
               <Link
                 href={"/auth/login"}
-                className="px-4 py-2 border border-white rounded-md uppercase tracking-widest mx-4 transition-all duration-200 hover:bg-sky-200 font-semibold text-base hover:text-sky-700"
+                className="px-4 py-2 uppercase tracking-widest mx-2 transition-all duration-200 hover:underline font-semibold text-base hover:text-sky-700 text-black text-xs"
               >
-                Login
+                Log in
               </Link>
               <Link
                 href={"/auth/register"}
-                className="px-4 py-2 bg-sky-200 border border-sky-700 text-sky-700 rounded-md uppercase tracking-widest mx-4 transition-all duration-200 hover:bg-white font-semibold text-base hover:text-sky-700 hover:border-sky-500"
+                className="px-4 py-2 border  rounded uppercase bg-custom-color tracking-widest mx-4 transition-all duration-700 hover:bg-sky-300 font-semibold text-xs hover:text-sky-700"
               >
-                REGISTER
+                SIGN IN
               </Link>
             </div>
           )}
@@ -310,21 +310,21 @@ export default function NavBar() {
                     onClick={handleLogout}
                     className="cursor-pointer text-3xl hover:text-red-500 transition-all duration-700"
                   />
-                  <p className="text-lg px-4 font-semibold">{user?.name}</p>
+                  <p className="text-lg px-4 font-semibold text-sky-700">{user?.name}</p>
                 </>
               ) : (
                 <>
                   <Link
                     href={"/auth/login"}
-                    className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4 transition-all duration-700 hover:bg-white font-semibold text-base hover:text-sky-700"
+                    className="px-4 py-2 uppercase tracking-widest mx-2 transition-all duration-700 hover:underline font-semibold text-xs hover:text-sky-300 text-black"
                   >
-                    Login
+                    Log in
                   </Link>
                   <Link
                     href={"/auth/register"}
-                    className="px-4 py-2 border border-white rounded uppercase tracking-widest mx-4 text-sky-700 bg-white transition-all duration-700 hover:bg-transparent font-semibold text-base hover:text-white"
+                    className="px-4 py-2 border  rounded uppercase tracking-widest mx-4 text-sky-700 bg-white transition-all duration-700 hover:bg-transparent font-semibold text-base hover:text-white"
                   >
-                    REGISTER
+                    SIGN IN
                   </Link>
                 </>
               )}
