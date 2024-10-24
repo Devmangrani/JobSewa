@@ -167,7 +167,7 @@ export default function PostAJob() {
               type="number"
               id="salary"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Salary for this job"
+              placeholder="Enter salary for this job"
             />
             {error.salary && (
               <p className="text-sm text-red-500">{error.salary}</p>
@@ -184,7 +184,7 @@ export default function PostAJob() {
               type="email"
               id="email"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Email to be Contacted for this job"
+              placeholder="Enter email to be contacted for this job"
             />
             {error.email && (
               <p className="text-sm text-red-500">{error.email}</p>
@@ -201,7 +201,7 @@ export default function PostAJob() {
               type="text"
               id="company"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Organization name"
+              placeholder="Enter organization name"
             />
             {error.company && (
               <p className="text-sm text-red-500">{error.company}</p>
@@ -242,7 +242,7 @@ export default function PostAJob() {
               type="text"
               id="jobCategory"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Category of job"
+              placeholder="Enter category of job"
             />
             {error.job_category && (
               <p className="text-sm text-red-500">{error.job_category}</p>
@@ -250,7 +250,7 @@ export default function PostAJob() {
           </div>
           <Select
             onChange={(e) => setFormData({ ...formData, job_type: e.value })}
-            placeholder="Please Select Job type"
+            placeholder="Please select job type"
             options={options}
             styles={{
               control: (defaultstyle) => ({
@@ -286,7 +286,7 @@ export default function PostAJob() {
               type="text"
               id="jobExperience"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Experience Required for this job"
+              placeholder="Enter experience required for this job"
             />
             {error.job_experience && (
               <p className="text-sm text-red-500">{error.job_experience}</p>
@@ -303,7 +303,7 @@ export default function PostAJob() {
               type="number"
               id="jobva"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Number  of Vacancies"
+              placeholder="Enter number of vacancies"
             />
             {error.job_vacancy && (
               <p className="text-sm text-red-500">{error.job_vacancy}</p>
@@ -321,7 +321,7 @@ export default function PostAJob() {
               min={currentDate}
               id="jobva"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Deadline of job"
+              placeholder="Enter deadline of job"
             />
             {error.job_deadline && (
               <p className="text-sm text-red-500">{error.job_deadline}</p>
