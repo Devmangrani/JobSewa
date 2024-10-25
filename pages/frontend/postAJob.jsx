@@ -49,12 +49,12 @@ export default function PostAJob() {
     e.preventDefault();
 
     if (!formData.title) {
-      setError({ ...error, title: "Title Field is required" });
+      setError({ ...error, title: "Title Field is Required" });
       return;
     }
 
     if (!formData.salary) {
-      setError({ ...error, salary: "Salary Field is required" });
+      setError({ ...error, salary: "Salary Field is Required" });
       return;
     }else if(formData.salary < 1){
       setError({ ...error, salary: "Invalid Salary!" });
@@ -67,31 +67,31 @@ export default function PostAJob() {
     }
 
     if (!formData.company) {
-      setError({ ...error, company: "Organization Field is required" });
+      setError({ ...error, company: "Organization Field is Required" });
       return;
     }
     if (!formData.description) {
-      setError({ ...error, description: "Description Field is required" });
+      setError({ ...error, description: "Description Field is Required" });
       return;
     }
     if (!formData.job_category) {
-      setError({ ...error, job_category: "Job_category Field is required" });
+      setError({ ...error, job_category: "Job_category Field is Required" });
       return;
     }
     if (!formData.job_type) {
-      setError({ ...error, job_type: "Job_type Field is required" });
+      setError({ ...error, job_type: "Job_type Field is Required" });
       return;
     }
     if (!formData.job_experience) {
       setError({
         ...error,
-        job_experience: "Job_experience Field is required",
+        job_experience: "Job_experience Field is Required",
       });
       return;
     }
 
     if (!formData.job_vacancy) {
-      setError({ ...error, job_vacancy: "Job_vacancy Field is required" });
+      setError({ ...error, job_vacancy: "Job_vacancy Field is Required" });
       return;
     }else if(formData.job_vacancy < 1){
       setError({ ...error, job_vacancy: "Invalid Job Vacancy!" });
@@ -99,7 +99,7 @@ export default function PostAJob() {
     }
 
     if (!formData.job_deadline) {
-      setError({ ...error, job_deadline: "job_deadline Field is required" });
+      setError({ ...error, job_deadline: "job_deadline Field is Required" });
       return;
     }
 
@@ -129,7 +129,7 @@ export default function PostAJob() {
     <>
       <NavBar />
       <div className="w-full  py-20 flex items-center  justify-center flex-col">
-        <h1 className="text-xl mt-20 text-center leading-snug font-semibold mb-2 md:text-2xl lg:text-4xl">
+        <h1 className="text-xl mt-20 text-center text-indigo-800  leading-snug font-semibold mb-2 md:text-2xl lg:text-4xl">
         Tell Us About <br className="hidden md:inline" /> Your Job!
         </h1>
         <p className="mt-2  text-lg text-gray-600">
@@ -137,7 +137,7 @@ export default function PostAJob() {
         </p>
         <form
           onSubmit={handleSubmit}
-          className="sm:w-1/2 w-full px-10 py-8 bg-white rounded-lg mt-10"
+          className="sm:w-1/2 w-full px-10 py-8 bg-white rounded-lg mt-6"
         >
           <div className="w-full mb-4  flex flex-col items-start justify-center">
             <label htmlFor="title" className="mb-1 text-base font-semibold">
@@ -167,7 +167,7 @@ export default function PostAJob() {
               type="number"
               id="salary"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Salary for this job"
+              placeholder="Enter salary for this job"
             />
             {error.salary && (
               <p className="text-sm text-red-500">{error.salary}</p>
@@ -184,7 +184,7 @@ export default function PostAJob() {
               type="email"
               id="email"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Email to be Contacted for this job"
+              placeholder="Enter email to be contacted for this job"
             />
             {error.email && (
               <p className="text-sm text-red-500">{error.email}</p>
@@ -201,7 +201,7 @@ export default function PostAJob() {
               type="text"
               id="company"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Organization name"
+              placeholder="Enter organization name"
             />
             {error.company && (
               <p className="text-sm text-red-500">{error.company}</p>
@@ -242,7 +242,7 @@ export default function PostAJob() {
               type="text"
               id="jobCategory"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Category of job"
+              placeholder="Enter category of job"
             />
             {error.job_category && (
               <p className="text-sm text-red-500">{error.job_category}</p>
@@ -250,7 +250,7 @@ export default function PostAJob() {
           </div>
           <Select
             onChange={(e) => setFormData({ ...formData, job_type: e.value })}
-            placeholder="Please Select Job type"
+            placeholder="Please select job type"
             options={options}
             styles={{
               control: (defaultstyle) => ({
@@ -286,7 +286,7 @@ export default function PostAJob() {
               type="text"
               id="jobExperience"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Experience Required for this job"
+              placeholder="Enter experience required for this job"
             />
             {error.job_experience && (
               <p className="text-sm text-red-500">{error.job_experience}</p>
@@ -303,7 +303,7 @@ export default function PostAJob() {
               type="number"
               id="jobva"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Number  of Vacancies"
+              placeholder="enter number of vacancies"
             />
             {error.job_vacancy && (
               <p className="text-sm text-red-500">{error.job_vacancy}</p>
@@ -321,7 +321,7 @@ export default function PostAJob() {
               min={currentDate}
               id="jobva"
               className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter Deadline of job"
+              placeholder="Enter deadline of job"
             />
             {error.job_deadline && (
               <p className="text-sm text-red-500">{error.job_deadline}</p>
