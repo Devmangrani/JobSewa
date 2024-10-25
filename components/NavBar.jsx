@@ -85,6 +85,23 @@ export default function NavBar() {
 
   return (
     <>
+          <style>
+        body {
+            transition: background-color 0.5s, color 0.5s;
+            background-color: white; /* Day mode */
+            color: black; /* Day mode */
+        }
+        .night-mode {
+            background-color: black; /* Night mode */
+            color: white; /* Night mode */
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+
       <div
         className={`w-full ${
           scrolled ? "bg-white" : "bg-white"
@@ -326,6 +343,18 @@ export default function NavBar() {
                   >
                     SIGN IN
                   </Link>
+                  <button id="toggleButton">Switch to Night Mode</button>
+
+    <script>
+        const toggleButton = document.getElementById('toggleButton');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('night-mode');
+            toggleButton.textContent = body.classList.contains('night-mode') ? 'Switch to Day Mode' : 'Switch to Night Mode';
+        });
+    </script>
+
                 </>
               )}
             </div>
