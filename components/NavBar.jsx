@@ -77,6 +77,10 @@ export default function NavBar() {
     router.reload();
   };
 
+  const toggleNightMode = () => {
+    setNightMode((prevMode) => !prevMode);
+  };
+
   const handleClickOutside = () => {
     setIsOpen(false);
   };
@@ -85,22 +89,15 @@ export default function NavBar() {
 
   return (
     <>
-          <style>
-        body {
+      <style>
+        {`
+          body {
             transition: background-color 0.5s, color 0.5s;
-            background-color: white; /* Day mode */
-            color: black; /* Day mode */
-        }
-        .night-mode {
-            background-color: black; /* Night mode */
-            color: white; /* Night mode */
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-    </style>
+            background-color: ${isNightMode ? "black" : "white"};
+            color: ${isNightMode ? "white" : "black"};
+          }
+        `}
+      </style>
 
       <div
         className={`w-full ${
@@ -227,6 +224,9 @@ export default function NavBar() {
               >
                 SIGN IN
               </Link>
+        <button onClick={toggleNightMode} className="ml-4">
+          {nightMode ? "Switch to Day Mode" : "Switch to Night Mode"}
+        </button>
             </div>
           )}
         </div>
@@ -343,17 +343,9 @@ export default function NavBar() {
                   >
                     SIGN IN
                   </Link>
-                  <button id="toggleButton">Switch to Night Mode</button>
-
-    <script>
-        const toggleButton = document.getElementById('toggleButton');
-        const body = document.body;
-
-        toggleButton.addEventListener('click', () => {
-            body.classList.toggle('night-mode');
-            toggleButton.textContent = body.classList.contains('night-mode') ? 'Switch to Day Mode' : 'Switch to Night Mode';
-        });
-    </script>
+          <button onClick={toggleNightMode} className="ml-4 text-xs font-semibold">
+            {isNightMode ? "Switch to Day Mode" : "Switch to Night Mode"}
+          </button>
 
                 </>
               )}
