@@ -27,10 +27,10 @@ const NgosCard = ({ data }) => {
       }}
       className="w-full md:w-[420px] m-2"
     >
-      <Card className="h-full min-h-[300px] transition-all duration-400 hover:shadow-xl flex flex-col justify-between">
-        <div>
+      <Card className="h-full min-h-[300px] transition-all duration-400 hover:shadow-xl flex flex-col justify-between bg-white bg-opacity-40 backdrop-filter backdrop-blur-lg rounded-2xl border border-white border-opacity-20 shadow-lg">
+        <div className="bg-white bg-opacity-60 backdrop-filter backdrop-blur-xl rounded-t-2xl">
           <CardHeader className="flex flex-col items-center space-y-4 pb-2">
-            <div className="h-20 w-20 shrink-0 overflow-hidden rounded-full">
+            <div className="h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-white border-opacity-50">
               <img
                 src={data.image}
                 alt={data.name}
@@ -38,24 +38,24 @@ const NgosCard = ({ data }) => {
               />
             </div>
             <div className="space-y-2 text-center w-full">
-              <h3 className="font-semibold text-xl leading-tight min-h-[3rem] flex items-center justify-center">
+              <h3 className="font-bold text-xl leading-tight min-h-[3rem] flex items-center justify-center text-gray-800">
                 {data.name}
               </h3>
-              <Badge variant="secondary" className="text-xs bg-[#C9D3FA]">
+              <Badge variant="secondary" className="text-xs bg-white bg-opacity-70 text-gray-700">
                 {data.category}
               </Badge>
             </div>
           </CardHeader>
 
-          <CardContent className="pb-4">
-            <div className="text-md text-gray-600 leading-relaxed">
+          <CardContent className="pb-4 bg-white bg-opacity-50 backdrop-filter backdrop-blur-xl">
+            <div className="text-md text-gray-700 leading-relaxed">
               {isExpanded ? data.description : `${data.description.substring(0, 200)}`}
               {data.description.length > 150 && (
                 <>
                   {!isExpanded && "..."}
                   <button
                     onClick={toggleReadMore}
-                    className="ml-1 text-indigo-600 hover:text-indigo-800 font-medium text-sm"
+                    className="ml-1 text-blue-600 hover:text-blue-800 font-medium text-sm"
                   >
                     {isExpanded ? "Read less" : "Read more"}
                   </button>
@@ -64,21 +64,8 @@ const NgosCard = ({ data }) => {
             </div>
           </CardContent>
         </div>
-        {/* <div className="mb-4 flex   items-start justify-center py-2 flex-col">
-//         <div className="flex  px-2 py-2 items-center justify-center ">
-//           <BsDot className="text-4xl font-extrabold text-sky-700" />
-//           <h1 className="text-lg text-gray-900">Salary :</h1>
-//           <p className="text-base  font-semibold">10$ / month</p>
-//         </div>
-//         <div className="flex px-2 py-2 items-center  justify-center">
-//           <BsDot className="text-4xl font-extrabold text-sky-700" />
-//           <h1 className="text-lg text-gray-900">Deadline :</h1>
-//           <p className="text-base  font-semibold">
-//             {new Date(Date.now()).toLocaleDateString("en-GB")}
-//           </p>
-//         </div>
-//       </div> */}
-        <CardFooter className="mt-auto">
+       
+        <CardFooter className="mt-auto bg-white bg-opacity-60 backdrop-filter backdrop-blur-xl rounded-b-2xl">
           <a
             href={data.link}
             target="_blank"
@@ -87,7 +74,7 @@ const NgosCard = ({ data }) => {
           >
             <Button
               variant="outline"
-              className="w-full group transition-all duration-200 hover:bg-[#C9D3FA] hover:text-[#343680]"
+              className="w-full group transition-all duration-200 bg-white bg-opacity-70 hover:bg-opacity-90 text-gray-800 border border-white border-opacity-50 rounded-xl"
             >
               More details
               <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
