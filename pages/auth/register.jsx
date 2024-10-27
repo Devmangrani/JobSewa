@@ -48,7 +48,21 @@ export default function Register() {
   return (
     <>
       <div className={styles.pageContainer}>
+        <Link
+          href={"/"}
+          className="absolute top-0 left-[5px] sm:top-0 sm:left-0" 
+        >
+          <img src="/Jobsewa_logo.png" alt="JobSewa Logo"  
+          className="h-[35px] w-[35px] sm:h-[6vw] sm:w-[6vw]" />
+        </Link>
         <div className={styles.container}>
+          <Link
+            href={"/"}
+            className="absolute left-[2%] top-[2%] min-[769px]:left-[51%] w-[35px] h-[35px]" 
+          >
+            <img src="/back-arrow.svg" alt="back arrow"  
+            className="" />
+          </Link>
           <div className={styles.leftSection}>
             <h1>Welcome Aboard!</h1>
             <img
