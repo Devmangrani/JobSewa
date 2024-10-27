@@ -6,10 +6,7 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import JobsCard from "./JobsCard";
 import { motion } from "framer-motion";
-import { FiTwitter } from "react-icons/fi";
-import { GrLinkedin } from "react-icons/gr";
-import { BsFacebook } from "react-icons/bs";
-
+import Footer from "./Footer";
 
 
 
@@ -177,25 +174,7 @@ export default function Intro() {
         )}
 
         {/* Footer Component */}
-        <footer className="w-full h-20 px-6 flex justify-between text-lg items-center bg-[#1B263B] text-[#D3D3D3]">
-          <div className="left gap-6">
-             &copy; {new Date().getFullYear()} JobSewa. All rights reserved.
-          </div>
-
-          <div className="right flex gap-11">
-            <a href="https://twitter.com" target="_blank" className="hover:text-[#3A7CA5] transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-            <FiTwitter size={22} />
-            </a>
-
-            <a href="https://linkedin.com" target="_blank" className="hover:text-[#3A7CA5] transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-            <GrLinkedin size={22} />
-            </a>
-
-            <a href="https://facebook.com" target="_blank" className="hover:text-[#3A7CA5] transform hover:translate-y-[-5px] transition-transform duration-300 ease-in-out">
-            <BsFacebook size={22} />
-            </a>
-          </div>
-        </footer>
+        <Footer/>
       </div>
       
     </>
