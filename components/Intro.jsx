@@ -55,10 +55,8 @@ export default function Intro() {
 
   return (
     <>
-      
-
       <div className="w-full min-h-screen flex flex-col justify-between bg-gradient-to-br from-sky-100 to-indigo-200">
-        <div className="flex-grow flex flex-col items-center justify-center">
+        <div className="flex-grow flex flex-col items-center justify-center pt-24"> {/* Added pt-24 for padding from navbar */}
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
