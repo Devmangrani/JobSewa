@@ -1,0 +1,343 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(89.9deg, rgb(208, 246, 255) 0.1%, rgb(255, 237, 237) 47.9%, rgb(255, 255, 231) 100.2%);
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.mainContainer {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px;
+    gap: 2rem;
+}
+
+.leftSection {
+    padding-top: 80px;
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.rightSection {
+    padding-top: 80px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heroImage {
+    max-width: 100%;
+    height: auto;
+    animation: moveUpDown 3s ease-in-out infinite;
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContainer {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .leftSection,
+    .rightSection {
+        width: 100%;
+    }
+
+    .rightSection {
+        padding-top: 0px;
+    }
+
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .description {
+        font-size: 1.2rem;
+    }
+
+    .searchContainer {
+        max-width: 100%;
+        flex-direction: column;
+    }
+}
+
+.motionDiv {
+    width: 100%;
+    max-width: 1200px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.highlight {
+    color: transparent;
+    background: linear-gradient(to right, #3b82f6, #6366f1, #4f46e5);
+    -webkit-background-clip: text;
+}
+
+.description {
+    font-size: 1.4rem;
+    color: #4b5563;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.searchContainer {
+    background: white;
+    border-radius: 80px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 30rem;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 0.5rem;
+    font-size: 1.2rem;
+    color: #3b82f6;
+}
+
+.input {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 80px;
+    padding-left: 2rem;
+    background-color: #f3f4f6;
+    border: none;
+    outline: none;
+}
+
+.clearIcon {
+    position: absolute;
+    right: 0.5rem;
+    font-size: 1.2rem;
+    color: rgb(0, 0, 183);
+    cursor: pointer;
+}
+
+.searchButton {
+    padding: 0.6rem 1.5rem;
+    background-color: rgb(0, 0, 183);
+    color: white;
+    border-radius: 80px;
+    font-weight: 500;
+    font-family: 'poppins', sans-serif;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.searchButton:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.tagsContainer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.tagsTitle {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: #4b5563;
+    margin-right: 0.5rem;
+}
+
+.tag {
+    background-color: #e0f2fe;
+    color: rgb(0, 0, 183);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0.25rem;
+}
+
+.tag:hover {
+    background-color: #bae6fd;
+}
+
+.resultsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem 1rem;
+}
+
+.resultsInner {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+.resultsTitle {
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.jobsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.noJobsMessage {
+    font-size: 1.25rem;
+    text-align: center;
+    font-weight: 600;
+    color: #ef4444;
+}
+
+.footer {
+    width: 100%;
+    background-color: #01102d;
+    color: #d3d3d3;
+    padding-top: 20px;
+}
+
+.footerContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 2rem;
+    text-align: center;
+}
+
+.footerSection {
+    flex: 1 1 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footerSection h3 {
+    font-size: 1.4rem;
+    font-family: 'poppins', sans-serif;
+    color: #999;
+    font-weight: bold;
+}
+
+.logo {
+    width: 120px;
+    margin: 0.5rem 0;
+}
+
+.quickLinks {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+
+.quickLinks li {
+    margin-bottom: 0.5rem;
+}
+
+.quickLinks a {
+    color: #ddd;
+    font-size: 14px;
+    font-family: 'poppins', sans-serif;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.quickLinks a:hover {
+    color: #ffffff;
+}
+
+.socialLinks {
+    margin-top: 20px;
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.iconLink {
+    color: inherit;
+    transition: transform 0.3s;
+}
+
+.iconLink:hover {
+    transform: translateY(-5px);
+}
+
+.bottomFooter {
+    border-top: 1px solid #666666;
+    padding: 10px;
+    margin-top: 1rem;
+    font-family: 'poppins', sans-serif;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #aaaaaa;
+}
+
+@media (max-width: 768px) {
+    .footerContainer {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .footerSection {
+        align-items: center;
+        text-align: center;
+    }
+
+    .bottomFooter {
+        font-size: 0.8rem;
+    }
+}
