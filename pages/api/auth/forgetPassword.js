@@ -22,7 +22,7 @@ export default async (req, res) => {
         const ifExist = await User.findOne({ email });
         if(!ifExist) return res.status(404).json({ success: false, message: "Email Not Found" });
         const hashedPassword = await hash(password, 12)
-        const updatePassword =  await User.findOneAndUpdate({email  , password : hashedPassword });
+        const updatePassword =  await User.findOneAndUpdate({email},{password: hashedPassword});
         return res.status(201).json({ success: true, message: "Password Updated Successfully"  });
         
     } catch (error) {
