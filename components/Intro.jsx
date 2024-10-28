@@ -60,13 +60,13 @@ export default function Intro() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="w-full max-w-4xl px-4 sm:px-6 lg:px-8 flex flex-col items-center"
+            className="w-full max-w-5xl px-4 sm:px-6 lg:px-8 flex flex-col items-center"
           >
             <motion.h1
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center mb-8"
+              className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center mb-4 mt-14"
             >
               Find Your Perfect Job with{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-700 via-indigo-600 to-indigo-800">
