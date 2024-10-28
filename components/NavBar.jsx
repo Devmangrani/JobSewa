@@ -7,7 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { setUserData } from "@/Utils/UserSlice";
-import styles from "./Navbar.module.css";
+import styles from "../styles/Navbar.module.css";
 
 export default function NavBar() {
   const dispatch = useDispatch();
@@ -67,7 +67,7 @@ export default function NavBar() {
     <div className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.logo}>
         <Link href="/">
-          <img src="/logo.svg" alt="JobSewa Logo" className={styles.logoImg} />
+          <img src="/Jobsewa_logo.png" alt="JobSewa Logo" className={styles.logoImg} />
         </Link>
       </div>
 

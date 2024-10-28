@@ -16,3 +16,17 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  backdrop-filter: blur(10px);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #01102d;
+  border-radius: 5px;
+}
