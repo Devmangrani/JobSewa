@@ -50,7 +50,6 @@ export default function Intro() {
   return (
     <div className={styles.container}>
       <div className={styles.mainContainer}>
-        {/* Left Section */}
         <div className={styles.leftSection}>
           <motion.div
             initial={{ opacity: 0, y: 50 }}

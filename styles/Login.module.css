@@ -19,6 +19,7 @@
   border-radius: 30px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  position: relative;
 }
 
 .leftSection {
@@ -149,6 +150,10 @@
 }
 
 @media (max-width: 768px) {
+  .pageContainer{
+    padding: 40px 20px 20px;
+  }
+
   .container {
     flex-direction: column;
     height: auto;
@@ -165,6 +170,7 @@
 
   .login-box {
     margin-top: 20px;
+    padding: 20px 30px;
   }
 
   .leftSection h1 {
