@@ -345,8 +345,8 @@ export default function NavBar() {
                   >
                     SIGN IN
                   </Link>
-          <button onClick={toggleNightMode} className="ml-4 text-xs font-semibold">
-            {isNightMode ? "Switch to Day Mode" : "Switch to Night Mode"}
+          <button onClick={toggleNightMode} className={styles.nightModeToggle}>
+            {isNightMode ? "Day Mode" : "Night Mode"}
           </button>
 
                 </>
