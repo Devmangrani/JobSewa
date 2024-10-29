@@ -39,7 +39,7 @@
 }
 
 .heroImage {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     animation: moveUpDown 3s ease-in-out infinite;
 }

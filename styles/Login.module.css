@@ -149,6 +149,19 @@
   text-decoration: underline;
 }
 
+.backToHome {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 14px;
+  font-family: 'poppins', sans-serif;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: #fff;
+  background: rgb(7, 0, 48);
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   .pageContainer{
     padding: 40px 20px 20px;
@@ -177,8 +190,15 @@
     font-size: 1.6rem;
     margin-top: 20px;
   }
-  
+
   .heroImage {
     height: 220px;
-  }  
+  }
+
+  .backToHome {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 10px;
+  }
 }
