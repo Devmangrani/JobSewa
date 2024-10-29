@@ -44,7 +44,7 @@ export default function DisplayJobs() {
         <h1 className="text-xl mt-20 text-center text-indigo-800  leading-snug font-semibold mb-2 md:text-2xl lg:text-4xl">
           Available Roles
         </h1>
-        <div className="ml-auto flex justify-center items-center w-72 border-b-2 border-sky-700">
+        <div className="flex justify-center items-center w-80 border-b-2 border-sky-700">
           <BiSearch className="text-2xl text-sky-700" />
           <input
             className="py-2 px-2 outline-none flex-1"
