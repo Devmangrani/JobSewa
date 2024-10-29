@@ -27,6 +27,8 @@ export default function NavBar() {
   const user = useSelector((state) => state.User.userData);
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, isScrolled] = useState(false);
+  const [isNightMode, setNightMode] = useState(false);
+  
   const hamburgerRef = React.useRef(null);
 
   const useOutsideClick = (callback, exceptions) => {
@@ -76,11 +78,10 @@ export default function NavBar() {
     localStorage.removeItem("user");
     router.reload();
   };
-
   const toggleNightMode = () => {
     setNightMode((prevMode) => !prevMode);
   };
-
+  
   const handleClickOutside = () => {
     setIsOpen(false);
   };
@@ -224,9 +225,10 @@ export default function NavBar() {
               >
                 SIGN IN
               </Link>
-        <button onClick={toggleNightMode} className="ml-4">
-          {nightMode ? "Switch to Day Mode" : "Switch to Night Mode"}
-        </button>
+          <button onClick={toggleNightMode} className={styles.nightModeToggle}>
+            {isNightMode ? "Day Mode" : "Night Mode"}
+          </button>
+
             </div>
           )}
         </div>
