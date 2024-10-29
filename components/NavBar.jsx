@@ -16,6 +16,8 @@ export default function NavBar() {
   const [openJobs, setOpenJobs] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isNightMode, setNightMode] = useState(false);
+
 
   const hamburgerRef = useRef(null);
   const dropdownRef = useRef(null);
@@ -54,6 +56,11 @@ export default function NavBar() {
     localStorage.removeItem("user");
     router.reload();
   };
+  
+  const toggleNightMode = () => {
+    setNightMode((prevMode) => !prevMode);
+  };
+
 
   const handleLogin = () => {
     router.push("/auth/login");
@@ -64,6 +71,17 @@ export default function NavBar() {
   };
 
   return (
+    <>
+      <style>
+        {`
+          body {
+            transition: background-color 0.5s, color 0.5s;
+            background-color: ${isNightMode ? "black" : "white"};
+            color: ${isNightMode ? "white" : "black"};
+          }
+        `}
+      </style>
+
     <div className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.logo}>
         <Link href="/">
@@ -108,6 +126,9 @@ export default function NavBar() {
             </button>
           </div>
         )}
+        <button onClick={toggleNightMode} className={styles.toggleNightMode}>
+            {isNightMode ? "Switch to Day Mode" : "Switch to Night Mode"}
+        </button>
       </div>
 
       <div
