@@ -16,8 +16,8 @@ export default function Register() {
     }
   }, [router]);
 
-  const [formData, setFormData] = useState({ email: "", password: "", name: "" });
-  const [error, setError] = useState({ email: "", password: "", name: "" });
+  const [formData, setFormData] = useState({ email: "", password: "", name: "", jobCategories: [] });
+  const [error, setError] = useState({ email: "", password: "", name: "", jobCategories: [] });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,6 +43,18 @@ export default function Register() {
     } else {
       toast.error(data.message);
     }
+  };
+
+
+  // adding interested job select multi select 
+  const handleJobCategoryChange = (e) => {
+    const { value, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      jobCategories: checked
+        ? [...prev.jobCategories, value]
+        : prev.jobCategories.filter((category) => category !== value)
+    }));
   };
 
   return (
@@ -123,6 +135,53 @@ export default function Register() {
                     <p className={styles["error-message"]}>{error.password}</p>
                   )}
                 </div>
+
+                {/* New Section for Job Notifications */}
+                <div className={styles["form-group"]}>
+                  <label>Get notified about jobs related to field:</label>
+                  <div className={styles.checkboxContainer}> {/* Apply scrollbar styling */}
+                    <div className={styles.checkboxItem}>
+                      <label>
+                        <input
+                          type="checkbox"
+                          value="electrician"
+                          onChange={handleJobCategoryChange}
+                        />
+                        Electrician
+                      </label>
+                    </div>
+                    <div className={styles.checkboxItem}>                      <label>
+                        <input
+                          type="checkbox"
+                          value="plumber"
+                          onChange={handleJobCategoryChange}
+                        />
+                        Plumber
+                      </label>
+                    </div>
+                    <div className={styles.checkboxItem}>
+                      <label>
+                        <input
+                          type="checkbox"
+                          value="labourer"
+                          onChange={handleJobCategoryChange}
+                        />
+                        Labourer
+                      </label>
+                    </div>
+                    <div className={styles.checkboxItem}>
+                      <label>
+                        <input
+                          type="checkbox"
+                          value="driver"
+                          onChange={handleJobCategoryChange}
+                        />
+                        Driver
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
                 <button type="submit" className={styles["submit-btn"]}>
                   Sign Up
                 </button>

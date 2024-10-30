@@ -7,15 +7,17 @@ import { hash } from 'bcryptjs';
 const schema = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().min(8).required(),
-    name: Joi.string().required()
+    name: Joi.string().required(),
+    jobCategories: Joi.array().items(Joi.string().valid('electrician', 'plumber', 'labourer', 'driver')).required()
+
 });
 
 
 export default async (req, res) => {
     await ConnectDB();
 
-    const { email, password, name } = req.body;
-    const { error } = schema.validate({ email, password, name });
+    const { email, password, name, jobCategories } = req.body;
+    const { error } = schema.validate({ email, password, name, jobCategories });
 
     if (error) return res.status(401).json({ success: false, message: error.details[0].message.replace(/['"]+/g, '') });
 
@@ -28,7 +30,7 @@ export default async (req, res) => {
 
         else {
             const hashedPassword = await hash(password, 12)
-            const createUser = await User.create({ email, name, password: hashedPassword });
+            const createUser = await User.create({ email, name, password: hashedPassword, jobCategories });
             return res.status(201).json({ success: true, message: "Account created successfully" });
         }
     } catch (error) {
