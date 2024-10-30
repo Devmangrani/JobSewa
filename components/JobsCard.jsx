@@ -9,7 +9,7 @@ export default function JobsCard({ job, posted }) {
   return (
     <div
       key={job._id}
-      className="w-full mx-auto transition-all duration-1000 shadow-2xl p-2 rounded-md"
+      className="mx-auto transition-all duration-1000 shadow-2xl p-2 rounded-md"
     >
       <div className="mx-auto justify-center p-2 flex items-center">
         <Image
@@ -49,7 +49,7 @@ export default function JobsCard({ job, posted }) {
         </div>
       </div>
       <div className="flex flex-col gap-5">
-        <div className="text-center w-[50%] mx-auto px-6 rounded-2xl py-1 bg-indigo-200 text-indigo-900 capitalize">
+        <div className="text-center min-w-max mx-auto px-6 rounded-2xl py-1 bg-indigo-200 text-indigo-900 capitalize">
           <p>{job?.title} </p>
         </div>
         {posted ? (
