@@ -126,12 +126,7 @@ export default function PostAJob() {
     { value: "contract", label: "Contract" },
   ];
 
-  const jobCategoryOptions = [
-    { value: "electrician", label: "Electrician" },
-    { value: "labourer", label: "Labourer" },
-    { value: "driver", label: "Driver" },
-    { value: "plumber", label: "Plumber" },
-  ];
+  
 
   return (
     <>
@@ -237,35 +232,6 @@ export default function PostAJob() {
             )}
           </div>
 
-          <div className="w-full mb-4 flex flex-col items-start justify-center">
-          <label htmlFor="jobCategory" className="mb-1 text-base font-semibold">
-            Job Category
-          </label>
-          <Select
-            id="jobCategory"
-            options={jobCategoryOptions}
-            onChange={(selectedOption) =>
-              setFormData({ ...formData, job_category: selectedOption.value })
-            }
-            placeholder="Select job category"
-            styles={{
-              control: (defaultStyle) => ({
-                ...defaultStyle,
-                border: '1px solid #D1D5DB',
-                borderRadius: '0.5rem',
-                padding: '0.4rem',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-              }),
-              placeholder: (defaultStyle) => ({
-                ...defaultStyle,
-                color: '#A0AEC0',
-              }),
-            }}
-          />
-          {error.job_category && (
-            <p className="text-sm text-red-500">{error.job_category}</p>
-          )}
-          </div>
           
           <Select
             onChange={(e) => setFormData({ ...formData, job_type: e.value })}

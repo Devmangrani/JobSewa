@@ -184,22 +184,4 @@
 }
 
 
-/* CSS for job Category checkboxes added on signup page */
-.checkboxContainer {
-  max-height: 80px; /* Adjust height as needed */
-  overflow-y: auto;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  display: flex;
-  flex-wrap: wrap; /* Allows items to wrap to the next line */
-  gap: 8px; /* Space between each checkbox-item pair */
-}
 
-.checkboxItem {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Space between checkbox and label */
-  width: 48%; /* Each item takes around half of the container width */
-  box-sizing: border-box; /* Ensures padding and borders are included in width */
-}

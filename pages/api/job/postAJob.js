@@ -56,35 +56,36 @@ const postAJob =  async (req, res) => {
 
     if (error) return res.status(401).json({ success: false, message: error.details[0].message.replace(/['"]+/g, '') });
 
-    try {
-        const creatingJob =  await Job.create({user , title,description , salary , company , email , job_category , job_type , job_experience , job_vacancy , job_deadline  });
+    // try {
+    //     const creatingJob =  await Job.create({user , title,description , salary , company , email , job_category , job_type , job_experience , job_vacancy , job_deadline  });
         
-        // Fetch users with matching job category
-        const users = await User.find({ jobCategories: job_category });
+    //     // Fetch users with matching job category
+    //     const users = await User.find({ jobCategories: job_category });
         
 
-        // Send email to each user
-        const emailPromises = users.map(user => {
-            console.log(user.email);
-            return client.bulk.send({
-              from: sender,
-              to: [{ email: user.email }],
-              subject: `New Job Posting: ${title}`,
-              text: `Hello ${user.name},\n\nA new job in your interested category (${job_category}) has been posted.\n\nJob Title: ${title}\nCompany: ${company}\nDescription: ${description}\nDeadline: ${job_deadline}\n\nBest regards,\nJobSewa`,
-              category: "Job Notification",
-            });
-          });
+    //     // Send email to each user
+    //     const emailPromises = users.map(user => {
+    //         console.log(user.email);
+    //         return client.bulk.send({
+    //           from: sender,
+    //           to: [{ email: user.email }],
+    //           subject: `New Job Posting: ${title}`,
+    //           text: `Hello ${user.name},\n\nA new job in your interested category (${job_category}) has been posted.\n\nJob Title: ${title}\nCompany: ${company}\nDescription: ${description}\nDeadline: ${job_deadline}\n\nBest regards,\nJobSewa`,
+    //           category: "Job Notification",
+    //         });
+    //       });
 
         // Wait for all emails to be sent
-        await Promise.all(emailPromises)
-            .then(() => console.log("All emails sent successfully"))
-            .catch(console.error);
+        // await Promise.all(emailPromises)
+        //     .then(() => console.log("All emails sent successfully"))
+        //     .catch(console.error);
 
 
-        return res.status(200).json({ success: true, message: "Job Posted Successfully !" })
-    } catch (error) {
-        console.log('Error in posting a job (server) => ', error);
-        return res.status(500).json({ success: false, message: "Something Went Wrong Please Retry login !" })
-    }
+    //     return res.status(200).json({ success: true, message: "Job Posted Successfully !" })
+    // } catch (error) {
+    //     console.log('Error in posting a job (server) => ', error);
+    //     return res.status(500).json({ success: false, message: "Something Went Wrong Please Retry login !" })
+    // }
+    return res.status(200).json({ success: true, message: "Job Posted Successfully !" })
 }
 
