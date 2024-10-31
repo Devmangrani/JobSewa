@@ -44,7 +44,7 @@ export default function DisplayJobs() {
         <h1 className="text-xl mt-20 text-center text-indigo-800  leading-snug font-semibold mb-2 md:text-2xl lg:text-4xl">
           Available Roles
         </h1>
-        <div className="ml-auto flex justify-center items-center w-72 border-b-2 border-sky-700">
+        <div className="flex justify-center items-center w-80 border-b-2 border-sky-700">
           <BiSearch className="text-2xl text-sky-700" />
           <input
             className="py-2 px-2 outline-none flex-1"
@@ -54,7 +54,7 @@ export default function DisplayJobs() {
             placeholder={"Search by title, company or category..."}
           />
         </div>
-        <div className="w-full h-full py-4 flex  overflow-y-auto  items-center justify-center flex-wrap">
+        <div className="md:mt-10 mt-5 flex flex-wrap space-y-10 gap-10">
           {/* map */}
           {Array.isArray(filteredData) && filteredData.length > 0 ? (
             filteredData?.map((job) => {
