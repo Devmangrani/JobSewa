@@ -72,6 +72,88 @@ const SeedData = [
     category: "NGO",
     link: "https://www.smilefoundationindia.org/",
   },
+// new NGOs added, upload these logos in your cloudinary Jansewa folder to dsipaly them on site
+  {
+    name: "Skill India",
+    image:
+      "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684300900/Janseva/skill_india_logo_uksgxv.jpg",
+    description:
+      "Skill India is a government initiative aiming to train over 40 crore people in India in different skills by 2022. The program seeks to provide training and certification to enhance employability for individuals across various sectors.",
+    category: "Government",
+    link: "https://www.skillindia.gov.in/",
+  },
+  {
+    name: "LabourNet",
+    image:
+      "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684300941/Janseva/labournet_yizv8z.jpg",
+    description:
+      "LabourNet focuses on building sustainable livelihoods for informal workers through skill development, employment, and entrepreneurship initiatives. They provide a wide range of services including financial literacy and healthcare.",
+    category: "NGO",
+    link: "https://www.labournet.in/",
+  },
+  {
+    name: "Khadi and Village Industries Commission (KVIC)",
+    image:
+      "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684300984/Janseva/kvic_logo_lf2qrs.png",
+    description:
+      "KVIC promotes khadi and village industries to improve rural employment opportunities and empower artisans. The commission provides financial support, skill development, and market linkage for artisans and rural workers.",
+    category: "Government",
+    link: "https://www.kvic.gov.in/",
+  },
+  {
+    name: "GiveIndia",
+    image:
+      "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684301023/Janseva/giveindia_kx9aob.jpg",
+    description:
+      "GiveIndia is a nonprofit that connects donors with NGOs across India. They support various causes including livelihood programs for workers and skill training for low-income communities. Through partnerships, they help improve the standard of living for many.",
+    category: "NGO",
+    link: "https://www.giveindia.org/",
+  },
+  {
+    name: "Youth4Jobs",
+    image:
+      "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684301057/Janseva/youth4jobs_hmlcdg.jpg",
+    description:
+      "Youth4Jobs focuses on the economic empowerment of differently-abled youth by providing training and linking them to employment opportunities. The organization also works with companies to create inclusive workspaces.",
+    category: "NGO",
+    link: "https://www.youth4jobs.org/",
+  },
+  {
+    name: "Central Board for Workers Education (CBWE)",
+    image:
+      "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684301094/Janseva/cbwe_logo_b6exrh.png",
+    description:
+      "CBWE is a government organization promoting workers' education. It aims to equip workers with the knowledge and skills needed to improve their employability and contribute effectively to the industry.",
+    category: "Government",
+    link: "https://cbwe.gov.in/",
+  },
+  {
+    name: "Hand in Hand India",
+    image:
+      "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684301134/Janseva/handinhand_kxtfsy.jpg",
+    description:
+      "Hand in Hand India focuses on eradicating poverty and empowering marginalized communities through programs in education, skill development, job creation, and community health.",
+    category: "NGO",
+    link: "https://www.hihindia.org/",
+  },
+  {
+    name: "Swarnjayanti Gram Swarozgar Yojana (SGSY)",
+    image:
+      "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684301187/Janseva/sgsy_y7vibz.jpg",
+    description:
+      "SGSY aims to promote self-employment among the rural poor through the formation of self-help groups, capacity building, and financial assistance to enhance rural livelihoods.",
+    category: "Government",
+    link: "https://rural.nic.in/",
+  },
+  {
+    name: "Digital Empowerment Foundation (DEF)",
+    image:
+      "https://res.cloudinary.com/dw2dqblhs/image/upload/v1684301234/Janseva/def_logo_awlgwh.png",
+    description:
+      "DEF aims to reduce India's digital divide through skills training in digital literacy, especially in underserved communities. Their focus is on empowering workers with digital tools to improve their employability.",
+    category: "NGO",
+    link: "https://defindia.org/",
+  },
 ];
 
 module.exports = {SeedData}
