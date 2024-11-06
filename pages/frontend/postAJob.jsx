@@ -103,7 +103,6 @@ export default function PostAJob() {
       return;
     }
 
-
     if (formData.user == null) {
       return toast.error("Please Login First");
     }
@@ -125,8 +124,6 @@ export default function PostAJob() {
     { value: "internship", label: "Internship" },
     { value: "contract", label: "Contract" },
   ];
-
-  
 
   return (
     <>
@@ -231,8 +228,26 @@ export default function PostAJob() {
               <p className="text-sm text-red-500">{error.description}</p>
             )}
           </div>
-
-          
+          <div className="w-full mb-4  flex flex-col items-start justify-center">
+            <label
+              htmlFor="jobCategory"
+              className="mb-1 text-base font-semibold"
+            >
+              Job Category 
+            </label>
+            <input
+              onChange={(e) =>
+                setFormData({ ...formData, job_category: e.target.value })
+              }
+              type="text"
+              id="jobCategory"
+              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
+              placeholder="Enter category of job"
+            />
+            {error.job_category && (
+              <p className="text-sm text-red-500">{error.job_category}</p>
+            )}
+          </div>
           <Select
             onChange={(e) => setFormData({ ...formData, job_type: e.value })}
             placeholder="Please select job type"
