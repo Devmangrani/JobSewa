@@ -16,8 +16,8 @@ export default function Register() {
     }
   }, [router]);
 
-  const [formData, setFormData] = useState({ email: "", password: "", name: "", jobCategories: [] });
-  const [error, setError] = useState({ email: "", password: "", name: "", jobCategories: [] });
+  const [formData, setFormData] = useState({ email: "", password: "", name: "" });
+  const [error, setError] = useState({ email: "", password: "", name: "" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,9 +44,6 @@ export default function Register() {
       toast.error(data.message);
     }
   };
-
-
-  
 
   return (
     <>
@@ -126,9 +123,6 @@ export default function Register() {
                     <p className={styles["error-message"]}>{error.password}</p>
                   )}
                 </div>
-
-                
-
                 <button type="submit" className={styles["submit-btn"]}>
                   Sign Up
                 </button>
