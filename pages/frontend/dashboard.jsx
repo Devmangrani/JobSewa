@@ -58,22 +58,26 @@ export default function Dashboard() {
               {/* applied Jobs */}
               <div
                 onClick={() => setShowTable("appliedJobs")}
-                className="py-2 cursor-pointer border-sky-700 border-b-2 px-2 w-60 h-32 rounded mx-2 my-2 bg-white flex items-center justify-center"
+                className="py-2 cursor-pointer border-sky-700 border-b-2 px-2 w-60 h-10 lg:h-24 rounded mx-2 my-2 bg-white flex items-center justify-center"
               >
-                <GiSuitcase className="bg-gray-50 text-sky-700 rounded-full w-10 h-10" />
-                <div className="flex  flex-col mx-2 items-start justify-start px-2 ">
-                  <p className="text-xl font-semibold">Total Applied</p>
+                <GiSuitcase className="bg-gray-50 text-sky-700 rounded-full w-10 h-6 lg:h-10" />
+                <div className="flex  flex-col lg:mx-2 items-start justify-start px-2">
+                  <p className="lg:text-xl text-base font-semibold -translate-x-2 lg:translate-x-0">
+                    Total Applied
+                  </p>
                 </div>
               </div>
 
               {/* applied Jobs */}
               <div
                 onClick={() => setShowTable("savedJobs")}
-                className="py-2 cursor-pointer border-b-teal-600 border-b-2 px-2 w-60 h-32 rounded mx-2 my-2 bg-white flex items-center justify-center"
+                className="py-2 cursor-pointer border-b-teal-600 border-b-2 px-2 w-60 h-10 lg:h-24 rounded mx-2 my-2 bg-white flex items-center justify-center "
               >
-                <BsFillBookmarkStarFill className="bg-gray-50 text-sky-700 rounded-full w-10 h-10" />
+                <BsFillBookmarkStarFill className="bg-gray-50 text-sky-700 rounded-full w-10 h-5 lg:h-10" />
                 <div className="flex  flex-col items-start mx-2 justify-start px-2 ">
-                  <p className="text-xl font-semibold">Save Jobs</p>
+                  <p className="lg:text-xl text-base font-semibold -translate-x-3 lg:translate-x-0">
+                    Save Jobs
+                  </p>
                 </div>
               </div>
 

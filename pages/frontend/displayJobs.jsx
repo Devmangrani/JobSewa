@@ -54,7 +54,7 @@ export default function DisplayJobs() {
             placeholder={"Search by title, company or category..."}
           />
         </div>
-        <div className="w-full h-full py-4 flex  overflow-y-auto  items-center justify-center flex-wrap">
+        <div className="md:mt-10 mt-5 flex flex-wrap space-y-10 gap-10">
           {/* map */}
           {Array.isArray(filteredData) && filteredData.length > 0 ? (
             filteredData?.map((job) => {
