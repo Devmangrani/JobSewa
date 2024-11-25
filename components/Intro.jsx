@@ -138,7 +138,7 @@ export default function Intro() {
             transition={{ duration: 0.8 }}
           >
             <img
-              src="/hero-image.png"
+              src="/hero-image-2.png"
               alt="Hero Image"
               className={styles.heroImage}
             />
