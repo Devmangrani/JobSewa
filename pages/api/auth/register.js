@@ -1,7 +1,7 @@
 import ConnectDB from '@/DB/connectDB';
 import User from '@/models/User';
 import Joi from 'joi';
-import { hash } from 'bcryptjs';
+import argon2 from 'argon2';
 
 
 const schema = Joi.object({
@@ -27,13 +27,21 @@ export default async (req, res) => {
         }
 
         else {
-            const hashedPassword = await hash(password, 12)
+            // Use Argon2 to hash the password
+            const hashedPassword = await argon2.hash(password, {
+                type: argon2.argon2id,
+                memoryCost: 2 ** 16,  // 64MB
+                timeCost: 5,  // iterations
+                parallelism: 1  // Number of threads (1 in this case)
+            });
+
             const createUser = await User.create({ email, name, password: hashedPassword });
             return res.status(201).json({ success: true, message: "Account created successfully" });
         }
     } catch (error) {
         console.log('Error in register (server) => ', error);
-        return res.status(500).json({ success: false, message: "Something Went Wrong Please Retry Later !" })
+        return res.status(500).json({ success: false, message: "Something Went Wrong Please Retry Later !" });
     }
 }
+
 
