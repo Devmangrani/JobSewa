@@ -19,12 +19,12 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/80">
+        <nav className="sticky top-0 py-3 bg-gray-950/75">
             <div className="container px-3 mx-auto relative text-sm">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center flex-shrink-0">
-                        <img className="h-10 w-10 mr-2" src={logo} alt="logo"></img>
-                        <span className="text-xl tracking right">Rodella</span>
+                        <img className="h-10 w-10 mr-2 bg-gray-200 rounded-full" src={logo} alt="logo"></img>
+                        <span className="text-2xl tracking right text-white">Rodella</span>
                     </div>
                     <ul className="hidden lg:flex ml-14 space-x-8">
                         {navItems.map((item, index) => (
