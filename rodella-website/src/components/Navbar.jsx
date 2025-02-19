@@ -24,12 +24,14 @@ const Navbar = () => {
       <div className="container px-3 mx-auto relative text-sm">
         <div className="flex justify-between items-center">
           <div className="flex items-center flex-shrink-0">
-            <img
-              className="h-10 w-10 mr-2 bg-gray-200 rounded-full"
-              src={logo}
-              alt="logo"
-            ></img>
-            <span className="text-2xl tracking right text-white">Rodella</span>
+            <Link to="/" className="flex items-center">
+              <img
+                className="h-10 w-10 mr-2 bg-gray-200 rounded-full"
+                src={logo}
+                alt="logo"
+              ></img>
+              <span className="text-2xl tracking right text-white">Rodella</span>
+            </Link>
           </div>
           <ul className="hidden lg:flex ml-14 space-x-8">
             {navItems.map((item, index) => (
