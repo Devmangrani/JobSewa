@@ -4,6 +4,14 @@ import React, { useState } from "react";
 import menuIcon from "../assets/images/menu.png";
 import closeIcon from "../assets/images/close.png";
 import { Link } from "react-router-dom";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaFacebook,
+  FaYoutube,
+  FaInstagram,
+  FaLinkedin,
+} from "react-icons/fa";
 
 const Navbar = () => {
   const [isAircraftOpen, setIsAircraftOpen] = useState(null);
@@ -24,7 +32,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 py-3 bg-gray-950/75">
+    <nav className="sticky top-0 py-3 bg-gray-950/75 z-50">
       <div className="container px-3 mx-auto relative text-sm">
         <div className="flex justify-between items-center">
           <div className="flex items-center flex-shrink-0">
@@ -145,6 +153,30 @@ const Navbar = () => {
           </div>
         )}
       </div>
+
+      {/* Footer for Small Screens */}
+      <footer className="fixed bottom-0 left-0 right-0 text-white py-2 flex justify-around items-center lg:hidden z-40">
+        <Link to="#" className="flex flex-col items-center">
+          <FaPhone />
+          <span className="text-xs">Call</span>
+        </Link>
+        <Link to="#" className="flex flex-col items-center">
+          <FaEnvelope />
+          <span className="text-xs">Email</span>
+        </Link>
+        <Link to="#" className="flex flex-col items-center">
+          <FaInstagram />
+          <span className="text-xs">Insta</span>
+        </Link>
+        <Link to="#" className="flex flex-col items-center">
+          <FaLinkedin />
+          <span className="text-xs">LinkedIn</span>
+        </Link>
+        <Link to="#" className="flex flex-col items-center">
+          <FaYoutube />
+          <span className="text-xs">YouTube</span>
+        </Link>
+      </footer>
     </nav>
   );
 };
