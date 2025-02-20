@@ -9,5 +9,5 @@ export const navItems = [
    },
   { label: "Composite Mart", href: "#" },
   { label: "Services", href: "#" },
-  { label: "About", href: "#" }
+  { label: "About", href: "/about" }
 ];

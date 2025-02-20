@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:host": "vite --host",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",
-    "framer-motion": "^12.4.4",
+    "framer-motion": "^12.4.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
