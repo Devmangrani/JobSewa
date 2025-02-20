@@ -32,14 +32,13 @@ const ContactUs = () => {
 
   return (
     <div className="flex flex-col h-[95vh] justify-between items-center">
-      <div className=" h-screen overflow-hidden w-screen">
-        <video
+      <div className=" h-screen overflow-hidden w-screen bg-black">
+        {/* <video
           className="absolute top-0 left-0 w-full h-full object-cover brightness-45 -z-50"
           src={HomeBgVideo}
           autoPlay
           muted
-          loop
-        ></video>
+        ></video> */}
         <div className="flex flex-col lg:flex-row items-center justify-center  text-white bg-opacity-70">
           <div className="w-full lg:w-1/2 flex justify-center">
             <motion.img
