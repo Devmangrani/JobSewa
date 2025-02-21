@@ -155,7 +155,7 @@ const Navbar = () => {
       </div>
 
       {/* Footer for Small Screens */}
-      <footer className="fixed bottom-0 left-0 right-0 text-white py-2 flex justify-around items-center lg:hidden z-40">
+      {/* <footer className="fixed bottom-0 left-0 right-0 text-white py-2 flex justify-around items-center lg:hidden z-40">
         <Link to="#" className="flex flex-col items-center">
           <FaPhone />
           <span className="text-xs">Call</span>
@@ -176,7 +176,7 @@ const Navbar = () => {
           <FaYoutube />
           <span className="text-xs">YouTube</span>
         </Link>
-      </footer>
+      </footer> */}
     </nav>
   );
 };

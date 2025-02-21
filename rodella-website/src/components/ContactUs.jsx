@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import droneImage from "../assets/images/drone.png"; // Ensure this path is correct
 import HomeBgVideo from "../assets/videos/video1.mp4"; // Import the video
+import Footer from "./footer.jsx";
 import {
   FaPhone,
   FaEnvelope,
@@ -30,6 +31,7 @@ const ContactUs = () => {
   };
 
   return (
+    <div>
     <div className="relative h-screen overflow-hidden">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover brightness-50 -z-10"
@@ -104,42 +106,10 @@ const ContactUs = () => {
           </form>
         </div>
       </div>
-      <footer className="bg-transparent text-white py-4 px-4 mb-4 hidden lg:flex">
-        <div className="flex md:flex-row lg:flex-row justify-between items-center">
-          <ul className="flex space-x-15">
-            <li>
-              <a href="#">
-                <FaPhone className="inline-block mr-2"></FaPhone>
-                (+91)628163817
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <FaEnvelope className="inline-block mr-2"></FaEnvelope>
-                Rodella@gmail.com
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <FaInstagram className="inline-block mr-2"></FaInstagram>
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/company/roedlla-aerospace-labs/">
-                <FaLinkedin className="inline-block mr-2"></FaLinkedin>
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <FaYoutube className="inline-block mr-2"> </FaYoutube>
-                Youtube
-              </a>
-            </li>
-          </ul>
-        </div>
-      </footer>
+    </div>
+    <section>
+        <Footer />
+      </section>
     </div>
   );
 };

@@ -2,9 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion"; // Import motion from framer-motion
 import teamImage from "../assets/images/drone.png"; // Ensure you have a high-quality image in this path
+import Footer from "./footer.jsx";
 
 const AboutUs = () => {
   return (
+    <div>
     <div className="relative min-h-screen overflow-hidden ">
       {/* Background Section */}
       <div className="absolute inset-0 z-0"></div> {/* Fixed background */}
@@ -106,6 +108,10 @@ const AboutUs = () => {
           </div>
         </nav>
       </div>
+    </div>
+    <section>
+        <Footer />
+      </section>
     </div>
   );
 };
