@@ -16,7 +16,6 @@ const Footer = () => {
     <footer className="bg-gray-800">
       <div className="flex flex-col items-center">
         <div className="flex flex-col justify-center pb-20 pt-15 pr-5 pl-5 text-center">
-        <div className="flex flex-col justify-center pb-20 pt-15 pr-5 pl-5 text-center">
           <h1 className="text-3xl text-white mb-4">
             We would love to partner with you!
           </h1>
@@ -113,6 +112,7 @@ const Footer = () => {
             {currentYear} Rodella Pvt. Ltd. All rights reserved
           </p>
         </div>
+      </div>
       </div>
     </footer>
   );
