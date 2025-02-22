@@ -1,80 +1,75 @@
-import { FaPhone, FaEnvelope, FaInstagram, FaFacebook, FaLinkedin, FaCopyright, FaYoutube } from "react-icons/fa";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaInstagram,
+  FaFacebook,
+  FaLinkedin,
+  FaCopyright,
+  FaYoutube,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-    
-    const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
 
-    return (
-        <footer className="bg-gray-800">
-            <div>
-                <div className="flex flex-row justify-between">
-                    <div className="flex flex-col justify-between">
-                    <div className="flex flex-col justify-center pb-20 pt-15 pr-30 pl-30">
-                        <h1 className="text-3xl text-white mb-4">Ready to partner with us?</h1>
-                        <p className="text-sm text-white pb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eveniet velit veniam!</p>
-                        <p className="text-sm text-white pb-6">Lorem ipsum dolor sit amet consectetur!</p>
-                        <div className="flex space-x-6">
-                            <Link
-                                to="/contact"
-                                className="bg-gradient-to-r from-purple-200 to-purple-700 py-3 px-12 rounded-full"
-                                onClick="#"
-                            >
-                                Get in touch with us
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="ml-30 pb-5">
-                        <p className="text-neutral-500">
-                            <FaCopyright className="inline-block mr-2" />{currentYear} Rodella Pvt. Ltd. All rights reserved
-                        </p>
-                        </div>
-                        </div>
-
-                    <div className=" pb-20 pt-15 pr-50 pl-30">
-                        <ul className="space-y-5">
-                            <li>
-                                <a href="#" className="text-white text-xl">
-                                    <FaPhone className="inline-block mr-6 text-white text-2xl"></FaPhone>
-                                    (+91)628163817
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-white text-xl">
-                                    <FaEnvelope className="inline-block mr-6 text-white text-2xl"></FaEnvelope>
-                                    Rodella@gmail.com
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-white text-xl">
-                                    <FaInstagram className="inline-block mr-6 text-white text-2xl"></FaInstagram>
-                                    Instagram
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.linkedin.com/company/roedlla-aerospace-labs/" className="text-white text-xl">
-                                    <FaLinkedin className="inline-block mr-6 text-white text-2xl"></FaLinkedin>
-                                    LinkedIn
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-white text-xl">
-                                    <FaFacebook className="inline-block mr-6 text-white text-2xl"></FaFacebook>
-                                    Facebook
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-white text-xl">
-                                    <FaYoutube className="inline-block mr-6 text-white text-2xl"></FaYoutube>
-                                    Youtube
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    )
-}
+  return (
+    <footer className="bg-gray-800">
+      <div className="flex flex-col items-center">
+        <div className="flex flex-col justify-center pb-20 pt-15 pr-30 pl-30 text-center">
+          <h1 className="text-3xl text-white mb-4">
+            We would love to partner with you!
+          </h1>
+          <p className="text-sm text-white pb-2">
+            At Rodella, we truly value and care for our partners. Our commitment to you is rooted in respect and collaboration.
+          </p>
+          <p className="text-sm text-white pb-6">
+            Specializing in custom-based drone solutions, we are here to support your unique needs and aspirations.
+          </p>
+          <div className="flex space-x-6 justify-center">
+            <Link
+              to="/contact"
+              className="bg-gradient-to-r from-purple-200 to-purple-700 py-3 px-12 rounded-full"
+              onClick="#"
+            >
+              Get in touch with us
+            </Link>
+          </div>
+        </div>
+        <div className="flex flex-row justify-center pb-5 gap-x-10">
+          <a href="#" className="text-white text-xl mx-2 flex items-center">
+            <FaPhone className="mr-2" /> (+91)628163817
+          </a>
+          <a href="#" className="text-white text-xl mx-2 flex items-center">
+            <FaEnvelope className="mr-2" /> Rodella@gmail.com
+          </a>
+          <a
+            href="https://www.instagram.com"
+            className="text-white text-xl mx-2 flex items-center"
+          >
+            <FaInstagram className="mr-2" /> Instagram
+          </a>
+          <a
+            href="https://www.linkedin.com/company/roedlla-aerospace-labs/"
+            className="text-white text-xl mx-2 flex items-center"
+          >
+            <FaLinkedin className="mr-2" /> LinkedIn
+          </a>
+          <a href="#" className="text-white text-xl mx-2 flex items-center">
+            <FaFacebook className="mr-2" /> Facebook
+          </a>
+          <a href="#" className="text-white text-xl mx-2 flex items-center">
+            <FaYoutube className="mr-2" /> Youtube
+          </a>
+        </div>
+        <div className="ml-30 pb-5">
+          <p className="text-neutral-500 text-center">
+            <FaCopyright className="inline-block mr-2" />
+            {currentYear} Rodella Pvt. Ltd. All rights reserved
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;
