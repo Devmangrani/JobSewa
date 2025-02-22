@@ -19,7 +19,7 @@ const AboutUs = () => {
           animate={{ opacity: 1, y: 0 }} // Animate to this state
           transition={{ duration: 0.5 }} // Duration of the animation
         >
-          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text">
+          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-purple-700 text-transparent bg-clip-text">
             Our Mission
           </h1>
           <p className="text-lg max-w-2xl mx-auto">
@@ -34,7 +34,7 @@ const AboutUs = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }} // Delay for staggered effect
         >
-          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text">
+          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r  from-purple-400 to-purple-700 text-transparent bg-clip-text">
             About Us
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-white">

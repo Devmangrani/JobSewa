@@ -97,7 +97,7 @@ const ContactUs = () => {
             />
             <motion.button
               type="submit"
-              className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 rounded-md hover:opacity-80 transition"
+              className="bg-gradient-to-r  from-purple-200 to-purple-700 text-black py-2 rounded-md hover:opacity-80 transition"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
