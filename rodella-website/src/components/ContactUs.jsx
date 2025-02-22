@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import droneImage from "../assets/images/drone.png"; // Ensure this path is correct
-import Footer from "./footer.jsx";
 import {
-  FaPhone,
-  FaEnvelope,
-  FaFacebook,
+  FaLinkedin,
+  FaTwitter,
   FaYoutube,
   FaInstagram,
-  FaLinkedin,
+  FaPhone,
+  FaEnvelope,
 } from "react-icons/fa";
 
 const ContactUs = () => {
@@ -30,79 +28,98 @@ const ContactUs = () => {
   };
 
   return (
-    <div>
-    <div className="relative h-screen overflow-hidden">
-    
-      <div className="flex flex-col lg:flex-row items-center justify-center h-full text-white bg-opacity-70">
-        <div className="w-full lg:w-1/2 flex justify-center lg:flex">
-          <motion.img
-            src={droneImage}
-            alt="Drone"
-            className="w-5/5 h-auto"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          />
+    <div className="flex flex-col md:flex-row h-auto md:h-screen bg-gray-900 text-white">
+      {/* Left Section: Contact Information */}
+      <div className="flex-1 flex flex-col justify-start p-8">
+        <h1 className="section-title text-white text-5xl font-Gilroy mb-10 text-center">
+          Contact Us
+        </h1>
+
+        <div className="contact__us_text bg-[#24253C] p-4 rounded-lg mb-10 text-center">
+          <p className="text-white text-lg font-Gilroy">
+            Have a question about our custom drone solutions? Fill out the form
+            below, and our experts will get back to you as soon as possible. For
+            urgent inquiries, reach us through the contact details provided.
+          </p>
         </div>
-        <div className="flex flex-col items-center justify-center w-full max-w-md p-6">
-          <motion.h1
-            className="text-5xl mb-4"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+
+        <div className="contact_us_contacts bg-[#24253C] p-4 rounded-lg mb-10 text-center">
+          <p className="text-white text-lg font-Gilroy mb-2">
+            Contact Details:
+          </p>
+          <p className="text-white text-lg font-Gilroy mb-2">
+            4, Mount View Villas, Kolar Rd, Chuna Bhatti, Bhopal, Madhya Pradesh
+            462016
+          </p>
+          <div className="flex items-center justify-center mb-2">
+            <FaPhone className="text-blue-400 mr-2 text-xl" />
+            <p className="text-white text-lg font-Gilroy">063808 97553</p>
+          </div>
+          <div className="flex items-center justify-center mb-4">
+            <FaEnvelope className="text-blue-400 mr-2 text-xl" />
+            <p className="text-white text-lg font-Gilroy">
+              support@rodella.com
+            </p>
+          </div>
+        </div>
+
+        <div className="contact_us_socials bg-[#24253C] p-4 rounded-lg mb-4 text-center">
+          <h3 className="contact__us_socials--title text-white text-lg font-Gilroy mb-2">
+            Follow us for updates
+          </h3>
+          <div className="flex space-x-4 justify-center">
+            <FaLinkedin className="text-white hover:text-blue-500 transition text-2xl" />
+            <FaTwitter className="text-white hover:text-blue-400 transition text-2xl" />
+            <FaYoutube className="text-white hover:text-red-600 transition text-2xl" />
+            <FaInstagram className="text-white hover:text-pink-500 transition text-2xl" />
+          </div>
+        </div>
+      </div>
+
+      {/* Right Section: Contact Form */}
+      <div className="flex-1 flex flex-col items-center justify-center p-8 w-full md:w-1/2">
+        <div className="contact_us_form bg-[#24253C] p-8 rounded-lg w-full">
+          <form
+            className="flex flex-col w-full space-y-4"
+            onSubmit={handleSubmit}
           >
-            Get in Touch
-          </motion.h1>
-          <p className="text-lg mb-6">We'd love to hear from you!</p>
-          <form className="flex flex-col w-full" onSubmit={handleSubmit}>
             <motion.input
               type="text"
               name="name"
-              placeholder="Your Name"
+              placeholder="Name"
               value={formData.name}
               onChange={handleChange}
-              className="p-3 mb-4 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              className="bg-[#1C1B2C] p-4 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+              style={{ height: "54px" }}
             />
             <motion.input
               type="email"
               name="email"
-              placeholder="Your Email"
+              placeholder="Your Email Address"
               value={formData.email}
               onChange={handleChange}
-              className="p-3 mb-4 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              className="bg-[#1C1B2C] p-4 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+              style={{ height: "54px" }}
             />
             <motion.textarea
               name="message"
-              placeholder="Your Message"
+              placeholder="Tell us about your project..."
               value={formData.message}
               onChange={handleChange}
-              className="p-3 mb-4 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
-              rows="4"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              className="bg-[#1C1B2C] p-4 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+              rows="8"
+              style={{ height: "350px" }}
             />
             <motion.button
               type="submit"
-              className="bg-gradient-to-r  from-purple-200 to-purple-700 text-black py-2 rounded-md hover:opacity-80 transition"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 rounded-md mt-4 w-full"
+              style={{ height: "48px" }}
             >
-              Send Message
+              Submit
             </motion.button>
           </form>
         </div>
       </div>
-    </div>
-    <section>
-        <Footer />
-      </section>
     </div>
   );
 };
