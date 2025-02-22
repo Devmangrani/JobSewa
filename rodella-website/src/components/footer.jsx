@@ -16,14 +16,19 @@ const Footer = () => {
     <footer className="bg-gray-800">
       <div className="flex flex-col items-center">
         <div className="flex flex-col justify-center pb-20 pt-15 pr-5 pl-5 text-center">
+        <div className="flex flex-col justify-center pb-20 pt-15 pr-5 pl-5 text-center">
           <h1 className="text-3xl text-white mb-4">
             We would love to partner with you!
           </h1>
           <p className="text-sm text-white pb-2">
             At Rodella, we truly value and care for our partners. Our commitment
             to you is rooted in respect and collaboration.
+            At Rodella, we truly value and care for our partners. Our commitment
+            to you is rooted in respect and collaboration.
           </p>
           <p className="text-sm text-white pb-6">
+            Specializing in custom-based drone solutions, we are here to support
+            your unique needs and aspirations.
             Specializing in custom-based drone solutions, we are here to support
             your unique needs and aspirations.
           </p>
@@ -37,7 +42,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row justify-center pb-5 gap-x-10 ">
+        <div className="flex flex-col sm:flex-row justify-center pb-5 gap-x-10 gap-y-4">
           <div className="flex items-center gap-x-10">
             <a
               href="#"
@@ -101,6 +106,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
+        <div className="ml-5 pb-5">
         <div className="ml-5 pb-5">
           <p className="text-neutral-500 text-center">
             <FaCopyright className="inline-block mr-2" />
