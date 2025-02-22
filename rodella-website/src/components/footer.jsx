@@ -24,10 +24,10 @@ const Footer = () => {
             to you is rooted in respect and collaboration.
             At Rodella, we truly value and care for our partners. Our commitment
             to you is rooted in respect and collaboration.
+            At Rodella, we truly value and care for our partners. Our commitment
+            to you is rooted in respect and collaboration.
           </p>
           <p className="text-sm text-white pb-6">
-            Specializing in custom-based drone solutions, we are here to support
-            your unique needs and aspirations.
             Specializing in custom-based drone solutions, we are here to support
             your unique needs and aspirations.
           </p>
@@ -106,13 +106,11 @@ const Footer = () => {
           </div>
         </div>
         <div className="ml-5 pb-5">
-        <div className="ml-5 pb-5">
           <p className="text-neutral-500 text-center">
             <FaCopyright className="inline-block mr-2" />
             {currentYear} Rodella Pvt. Ltd. All rights reserved
           </p>
         </div>
-      </div>
       </div>
     </footer>
   );
