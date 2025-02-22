@@ -19,17 +19,12 @@ const Footer = () => {
           <h1 className="text-3xl text-white mb-4">
             We would love to partner with you!
           </h1>
-          <p className="text-sm text-white pb-2">
-            At Rodella, we truly value and care for our partners. Our commitment
-            to you is rooted in respect and collaboration.
-            At Rodella, we truly value and care for our partners. Our commitment
-            to you is rooted in respect and collaboration.
+          <p className="text-sm text-white pb-2 pr-10 pl-10">
             At Rodella, we truly value and care for our partners. Our commitment
             to you is rooted in respect and collaboration.
           </p>
           <p className="text-sm text-white pb-6">
-            Specializing in custom-based drone solutions, we are here to support
-            your unique needs and aspirations.
+            Specializing in custom-based drone solutions
           </p>
           <div className="flex space-x-6 justify-center">
             <Link
