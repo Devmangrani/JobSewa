@@ -41,7 +41,7 @@ const ContactUs = () => {
         loop
       ></video>
       <div className="flex flex-col lg:flex-row items-center justify-center h-full text-white bg-opacity-70">
-        <div className="w-full lg:w-1/2 flex justify-center hidden lg:flex">
+        <div className="w-full lg:w-1/2 flex justify-center lg:flex">
           <motion.img
             src={droneImage}
             alt="Drone"

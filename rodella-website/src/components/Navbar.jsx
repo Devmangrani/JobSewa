@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 
 const Navbar = () => {
-  const [isAircraftOpen, setIsAircraftOpen] = useState(null);
+  // const [isAircraftOpen, setIsAircraftOpen] = useState(null);
 
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
@@ -22,10 +22,10 @@ const Navbar = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);
   };
 
-  const handleAircraftsClickMobile = (e) => {
-    e.preventDefault(); // Prevent default link behavior
-    setIsAircraftOpen(!isAircraftOpen);
-  };
+  // const handleAircraftsClickMobile = (e) => {
+  //   e.preventDefault(); // Prevent default link behavior
+  //   setIsAircraftOpen(!isAircraftOpen);
+  // };
 
   const closeMobileMenu = () => {
     setMobileDrawerOpen(false);
@@ -52,16 +52,16 @@ const Navbar = () => {
               <li
                 key={index}
                 className="relative"
-                onMouseEnter={() => {
-                  if (item.submenu) {
-                    setIsAircraftOpen(item.label === "Aircrafts");
-                  }
-                }}
-                onMouseLeave={() => {
-                  if (item.submenu) {
-                    setIsAircraftOpen(false);
-                  }
-                }}
+                // onMouseEnter={() => {
+                //   if (item.submenu) {
+                //     setIsAircraftOpen(item.label === "Aircrafts");
+                //   }
+                // }}
+                // onMouseLeave={() => {
+                //   if (item.submenu) {
+                //     setIsAircraftOpen(false);
+                //   }
+                // }}
               >
                 <Link
                   to={item.href}
@@ -70,7 +70,7 @@ const Navbar = () => {
                 >
                   {item.label}
                 </Link>
-                {item.submenu && isAircraftOpen && (
+                {/* {item.submenu && isAircraftOpen && (
                   <ul className="absolute z-10 bg-gray-800 rounded-md shadow-lg mt-2 w-25 left-0">
                     {item.submenu.map((subItem) => (
                       <li key={subItem.label}>
@@ -84,7 +84,7 @@ const Navbar = () => {
                       </li>
                     ))}
                   </ul>
-                )}
+                )} */}
               </li>
             ))}
           </ul>
@@ -92,7 +92,7 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <Link
               to="/contact"
-              className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md"
+              className="bg-gradient-to-r from-purple-200 to-purple-700 py-2 px-3 rounded-md"
               onClick={closeMobileMenu} // Close mobile menu on click
             >
               Contact Us
@@ -154,7 +154,7 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* Footer for Small Screens */}
+      {/* Footer for Small Screens */} {/* use the new footer design}
       {/* <footer className="fixed bottom-0 left-0 right-0 text-white py-2 flex justify-around items-center lg:hidden z-40">
         <Link to="#" className="flex flex-col items-center">
           <FaPhone />

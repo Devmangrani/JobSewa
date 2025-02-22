@@ -17,7 +17,7 @@ const Footer = () => {
                         <div className="flex space-x-6">
                             <Link
                                 to="/contact"
-                                className="bg-gradient-to-r from-orange-500 to-orange-800 py-3 px-12 rounded-full"
+                                className="bg-gradient-to-r from-purple-200 to-purple-700 py-3 px-12 rounded-full"
                                 onClick="#"
                             >
                                 Get in touch with us

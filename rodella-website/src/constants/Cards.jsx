@@ -1,8 +1,10 @@
-export const cards = [
+import droneImageUrl1 from "./../assets/images/design.jpg";
+
+ const cards = [
 
     {
-        url: "./../assets/images/drone.png",
-        title: "Title 1",
+        url: droneImageUrl1,
+        title: "Design & Development",
         id: 1,
     },
     {
@@ -35,11 +37,6 @@ export const cards = [
         id: 6,
     },
 
-    {
-        url:"./../assets/images/drone.png",
-        title: "Title 7",
-        id: 7,
-    },
-
 ];
 
+export default cards;
