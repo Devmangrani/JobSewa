@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import droneImage from "../assets/images/drone.png"; // Ensure this path is correct
-import HomeBgVideo from "../assets/videos/video1.mp4"; // Import the video
 import Footer from "./footer.jsx";
 import {
   FaPhone,
@@ -33,13 +32,7 @@ const ContactUs = () => {
   return (
     <div>
     <div className="relative h-screen overflow-hidden">
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover brightness-50 -z-10"
-        src={HomeBgVideo}
-        autoPlay
-        muted
-        loop
-      ></video>
+    
       <div className="flex flex-col lg:flex-row items-center justify-center h-full text-white bg-opacity-70">
         <div className="w-full lg:w-1/2 flex justify-center lg:flex">
           <motion.img
