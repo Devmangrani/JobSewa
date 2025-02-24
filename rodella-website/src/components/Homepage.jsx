@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "./footer";
+import Navbar from "./Navbar";
 
 
 const Homepage = () => {
@@ -22,7 +23,8 @@ const Homepage = () => {
 
   return (
     <div>
-      <section className="h-screen relative">
+      <section className="h-screen relative pt-2">
+        <Navbar />
         <img className="absolute top-0 left-0 w-full h-full object-cover brightness-60 -z-50" src={BackgroundImage} ></img>
         <div className="flex flex-col h-full">
           <div className="flex flex-row items-center ml-30 h-full">
@@ -138,10 +140,6 @@ const Homepage = () => {
             ))}
           </Slider>
         </div>
-      </section>
-
-      <section>
-        <Footer />
       </section>
     </div>
   );
