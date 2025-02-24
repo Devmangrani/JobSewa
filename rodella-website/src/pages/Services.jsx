@@ -1,13 +1,15 @@
 import React from "react"
 import ServicesBgImg from "./../assets/images/services.jpg"
 import Footer from "../components/footer"
+import Navbar from "../components/Navbar"
 
 
 const Services = () => {
 
     return (
         <div>
-            <section className="lg:h-screen relative">
+            <section className="lg:h-screen relative pt-2">
+                <Navbar />
                 <img src={ServicesBgImg} className="object-cover lg:h-full -z-50 w-full absolute top-0 left-0" alt="main bg image"></img>
                 <div className="flex flex-row justify-center items-center lg:h-full pb-50">
                     <div className="flex flex-col justify-between h-full">
