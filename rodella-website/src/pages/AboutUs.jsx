@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion"; // Import motion from framer-motion
 import teamImage from "../assets/images/drone.png"; // Ensure you have a high-quality image in this path
-import Footer from "./footer.jsx";
+
 
 const AboutUs = () => {
   return (

@@ -2,12 +2,12 @@ import BackgroundImage from "./../assets/images/homepage-bg1.jpg";
 import ChooseUsImage from "./../assets/images/homepage-bg2.jpeg";
 import { Link } from "react-router-dom";
 import AchivementImage from "./../assets/images/achievment.jpg"
-import cards from "./../constants/Cards.jsx";
+import cards from "../constants/Cards.jsx";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Footer from "./footer";
-import Navbar from "./Navbar";
+import Footer from "../components/footer.jsx";
+import Navbar from "../components/Navbar.jsx";
 
 
 const Homepage = () => {

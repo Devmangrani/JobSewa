@@ -1,6 +1,6 @@
 import React from "react"
 import ServicesBgImg from "./../assets/images/services.jpg"
-import Footer from "./footer"
+import Footer from "../components/footer"
 
 
 const Services = () => {

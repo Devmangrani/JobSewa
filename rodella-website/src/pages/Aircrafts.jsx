@@ -6,7 +6,7 @@ import FixedWingDrone1 from "./../assets/images/fixed-wing1.png";
 import FixedWingDrone2 from "./../assets/images/fixed-wing2.jpg";
 import RovDrone1 from "./../assets/images/rov1.jpeg";
 import RovDrone2 from "./../assets/images/rov2.jpeg";
-import Footer from "./footer";
+
 
 
 const Aircrafts = () => {
