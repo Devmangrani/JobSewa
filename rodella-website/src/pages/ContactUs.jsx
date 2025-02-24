@@ -8,6 +8,7 @@ import {
   FaPhone,
   FaEnvelope,
 } from "react-icons/fa";
+import Navbar from "../components/Navbar";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -28,6 +29,11 @@ const ContactUs = () => {
   };
 
   return (
+    <div>
+      <div className="pt-2  bg-gray-900">
+      <Navbar />
+      </div>
+      
     <div className="flex flex-col md:flex-row h-auto md:h-screen bg-gray-900 text-white">
       {/* Left Section: Contact Information */}
       <div className="flex-1 flex flex-col justify-start p-8">
@@ -120,6 +126,7 @@ const ContactUs = () => {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 };

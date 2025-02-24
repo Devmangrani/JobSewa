@@ -6,14 +6,15 @@ import FixedWingDrone1 from "./../assets/images/fixed-wing1.png";
 import FixedWingDrone2 from "./../assets/images/fixed-wing2.jpg";
 import RovDrone1 from "./../assets/images/rov1.jpeg";
 import RovDrone2 from "./../assets/images/rov2.jpeg";
-
+import Navbar from "../components/Navbar";
 
 
 const Aircrafts = () => {
 
     return (
         <div>
-            <section className="lg:h-screen relative">
+            <section className="lg:h-screen relative pt-2">
+            <Navbar />
                 <img src={MainBgImg} className="absolute top-0 left-0 w-full h-full -z-50 object-cover brightness-80"></img>
                 <div className="flex flex-col lg:h-full pr-30 pl-30 justify-between pb-30">
                     <h1 className="text-9xl bg-gradient-to-b from-purple-300 to-purple-900 bg-clip-text text-center lg:mt-30 font-bold text-transparent lg:h-1/2">
