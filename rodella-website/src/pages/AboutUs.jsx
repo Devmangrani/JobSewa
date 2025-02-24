@@ -167,11 +167,13 @@ const AboutUs = () => {
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion"; // Import motion from framer-motion
 import teamImage from "../assets/images/drone.png"; // Ensure you have a high-quality image in this path
+import Navbar from "../components/Navbar";
 
 
 const AboutUs = () => {
   return (
-    <div>
+    <div className="pt-2 relative">
+      <Navbar />
     <div className="relative min-h-screen overflow-hidden ">
       {/* Background Section */}
       <div className="absolute inset-0 z-0"></div> {/* Fixed background */}
