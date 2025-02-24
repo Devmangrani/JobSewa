@@ -204,13 +204,7 @@ const Aircrafts = () => {
                         </div>
                     </div>
                 </div>
-            </section>  
-
-            <section>
-                <div>
-                    <Footer />
-                </div>
-            </section>          
+            </section>      
         </div>
     )
 }

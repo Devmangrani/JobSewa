@@ -109,9 +109,6 @@ const AboutUs = () => {
         </nav>
       </div>
     </div>
-    <section>
-        <Footer />
-      </section>
     </div>
   );
 };

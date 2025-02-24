@@ -101,12 +101,6 @@ const Services = () => {
                     </div>
                 </div>
             </section>
-            
-            <section>
-                <div>
-                    <Footer />
-                </div>
-            </section>
         </div>
     )
 }
