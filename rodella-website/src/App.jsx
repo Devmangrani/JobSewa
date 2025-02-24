@@ -6,12 +6,14 @@ import ContactUs from "./components/ContactUs";
 import AboutUs from "./components/AboutUs";
 import Aircrafts from "./components/Aircrafts";
 import Services from "./components/Services";
+import Footer from "./components/footer";
+
 
 const App = () => {
+
   return (
     <Router>
       <div>
-        <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/aircrafts" element={<Aircrafts />} />
@@ -19,6 +21,7 @@ const App = () => {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/about" element={<AboutUs />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
