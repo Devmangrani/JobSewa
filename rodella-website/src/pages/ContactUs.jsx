@@ -29,12 +29,9 @@ const ContactUs = () => {
   };
 
   return (
-    <div>
-      <div className="pt-2 bg-gray-900">
+    <section className="pt-2 bg-gray-900">
       <Navbar />
-      </div>
-      
-    <div className="flex flex-col md:flex-row h-auto md:h-screen bg-gray-900 text-white">
+    <div className="flex flex-col md:flex-row h-auto md:h-screen text-white">
       {/* Left Section: Contact Information */}
       <div className="flex-1 flex flex-col justify-start p-8">
         <h1 className="section-title text-white text-5xl font-Gilroy mb-10 text-center">
@@ -83,7 +80,7 @@ const ContactUs = () => {
       </div>
 
       {/* Right Section: Contact Form */}
-      <div className="flex-1 flex flex-col items-center justify-center p-8 w-full md:w-1/2">
+      <div className="flex-1 flex flex-col items-center p-8 w-full md:w-1/2">
         <div className="contact_us_form bg-[#24253C] p-8 rounded-lg w-full">
           <form
             className="flex flex-col w-full space-y-4"
@@ -126,8 +123,9 @@ const ContactUs = () => {
           </form>
         </div>
       </div>
+      
     </div>
-    </div>
+    </section>
   );
 };
 
