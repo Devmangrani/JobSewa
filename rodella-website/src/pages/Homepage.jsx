@@ -2,7 +2,7 @@ import BackgroundImage from "./../assets/images/homepage-bg1.jpg";
 import ChooseUsImage from "./../assets/images/homepage-bg2.jpeg";
 import { Link } from "react-router-dom";
 import AchivementImage from "./../assets/images/achievment.jpg"
-import cards from "../constants/Cards.jsx";
+import cards from "../constants/AircraftData.jsx";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -64,7 +64,7 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-      <section className="bg-neutral-300 pt-10 pb-10">
+      {/* <section className="bg-black pt-10 pb-10 text-white">
         <div className="flex flex-col mt-30">
           <div className="flex flex-row justify-between lg:ml-30 lg:mr-60">
             <div className="flex flex-col">
@@ -121,9 +121,9 @@ const Homepage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="bg-neutral-300 pt-10 pb-10">
+      {/* <section className="bg-neutral-300 pt-10 pb-10">
         <div className="lg:mr-30 lg:ml-30 lg:mt-20 flex flex-col items-center">
           <h1 className="text-5xl font-semibold">Services we provide</h1>
           <p className="lg:mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -140,7 +140,7 @@ const Homepage = () => {
             ))}
           </Slider>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
