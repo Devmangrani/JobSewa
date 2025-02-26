@@ -6,7 +6,6 @@ import closeIcon from "../assets/images/close.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -35,10 +34,7 @@ const Navbar = () => {
           </div>
           <ul className="hidden lg:flex space-x-8">
             {navItems.map((item, index) => (
-              <li
-                key={index}
-                className="relative"
-              >
+              <li key={index} className="relative">
                 <Link
                   to={item.href}
                   className="text-white hover:text-gray-300 px-3 py-2 rounded flex items-center"
@@ -58,49 +54,47 @@ const Navbar = () => {
               Contact Us
             </Link>
           </div>
+        </div>
 
+        <div className="lg:hidden md:flex flex-col justify-end">
+          <button onClick={toggleNavbar}>
+            {mobileDrawerOpen ? (
+              <img src={closeIcon} alt="close-menu" className="h-6 w-6" />
+            ) : (
+              <img src={menuIcon} alt="open-menu" className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+      </div>
+      {mobileDrawerOpen && (
+        <div
+          className="fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden"
+          onClick={closeMobileMenu} // Close mobile menu on click outside
+        >
+          <ul className="flex flex-col items-center">
+            {navItems.map((item) => (
+              <li key={item.label} className="py-4 w-full text-center">
+                <Link
+                  to={item.href}
+                  onClick={closeMobileMenu} // Close mobile menu on click
+                  className="text-white hover:text-gray-300 block"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="flex space-x-6">
+            <Link
+              to="/contact"
+              className="bg-gradient-to-r from-purple-200 to-purple-700 py-2 px-3 rounded-md"
+              onClick={closeMobileMenu} // Close mobile menu on click
+            >
+              Contact Us
+            </Link>
           </div>
-          
-           <div className="lg:hidden md:flex flex-col justify-end">
-            <button onClick={toggleNavbar}>
-              {mobileDrawerOpen ? (
-                <img src={closeIcon} alt="close-menu" className="h-6 w-6" />
-              ) : (
-                <img src={menuIcon} alt="open-menu" className="h-6 w-6" />
-              )}
-            </button>
-          </div>
-          </div>
-        {mobileDrawerOpen && (
-          <div
-            className="fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden"
-            onClick={closeMobileMenu} // Close mobile menu on click outside
-          >
-            <ul className="flex flex-col items-center">
-              {navItems.map((item) => (
-                <li key={item.label} className="py-4 w-full text-center">
-                  <Link
-                    to={item.href}
-                    onClick={closeMobileMenu} // Close mobile menu on click
-                    className="text-white hover:text-gray-300 block"
-                  >
-                    {item.label}
-                  </Link>
-                 
-                 </li>
-              ))}
-            </ul>
-            <div className="flex space-x-6">
-              <Link
-                to="/contact"
-                className="bg-gradient-to-r from-purple-200 to-purple-700 py-2 px-3 rounded-md"
-                onClick={closeMobileMenu} // Close mobile menu on click
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div> 
-        )}
+        </div>
+      )}
       {/* </div> */}
     </nav>
   );
