@@ -1,13 +1,8 @@
-import BackgroundImage from "./../assets/images/homepage-bg1.jpg";
-import ChooseUsImage from "./../assets/images/homepage-bg2.jpeg";
-import { Link } from "react-router-dom";
-import AchivementImage from "./../assets/images/achievment.jpg"
-import cards from "../constants/AircraftData.jsx";
-import Slider from "react-slick";
+import MakeInIndia from "./../assets/images/make-in-india.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Footer from "../components/footer.jsx";
 import Navbar from "../components/Navbar.jsx";
+import HomePageVideo from "./../assets/videos/demo1.mp4"
 
 
 const Homepage = () => {
@@ -25,10 +20,16 @@ const Homepage = () => {
     <div>
       <section className="h-screen relative pt-2">
         <Navbar />
-        <img className="absolute top-0 left-0 w-full h-full object-cover brightness-60 -z-50" src={BackgroundImage} ></img>
+        <video className="absolute top-0 left-0 w-full h-full object-cover brightness-50 -z-50"
+          src={HomePageVideo}
+          muted
+          autoPlay
+          loop
+        >
+        </video>
         <div className="flex flex-col h-full ">
-          <div className="flex flex-row items-center ml-50 h-full">
-            <div className="flex flex-col w-fit lg:mb-30">
+          <div className="flex flex-row items-center pl-50 h-full">
+            <div className="flex flex-col w-fit">
               <h1 className="text-4xl sm:text-6xl lg:text-9xl tracking-wide text-neutral-100 opacity-10 font-bold">
                 CRAFTING FOR
               </h1>
@@ -47,7 +48,7 @@ const Homepage = () => {
               </p>
               <div className="flex my-10 flex-row">
                 <a
-                  href="#"
+                  href="/contact"
                   className="text-black bg-gradient-to-r from-purple-50 to-purple-200 px-4 py-4 rounded-md mr-4"
                 >
                   Get in touch
@@ -58,8 +59,11 @@ const Homepage = () => {
                 >
                   Explore our products
                 </a>
-
+               
               </div>
+              <img src={MakeInIndia} className="h-[70px] w-[150px] z-50 mt-10">
+              </img>
+              <h1 className="text-neutral-300 mt-2">We proudly announce that all our products are manufacured entirely in house</h1>
             </div>
           </div>
         </div>
