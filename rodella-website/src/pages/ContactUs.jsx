@@ -29,17 +29,17 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="pt-2 bg-gray-900">
+    <section className="pt-2 bg-neutral-300">
       <Navbar />
-      <div className="container mx-auto max-w-4xl px-4 py-8 text-white">
-        <h1 className="section-title text-white text-5xl font-Gilroy mb-10 text-center">
+      <div className="container mx-auto max-w-4xl px-4 py-8 text-gray-800">
+        <h1 className="section-title text-gray-800 text-5xl font-Gilroy mb-10 text-center">
           Contact Us
         </h1>
 
         <div className="grid gap-8">
           {/* Info Section */}
-          <div className="bg-[#24253C] p-6 rounded-lg text-center">
-            <p className="text-white text-lg font-Gilroy">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <p className="text-gray-800 text-lg font-Gilroy">
               Have a question about our custom drone solutions? Fill out the
               form below, and our experts will get back to you as soon as
               possible. For urgent inquiries, reach us through the contact
@@ -48,7 +48,7 @@ const ContactUs = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-[#24253C] p-8 rounded-lg">
+          <div className="bg-white p-8 rounded-lg shadow-lg">
             <form
               className="flex flex-col w-full space-y-4"
               onSubmit={handleSubmit}
@@ -59,7 +59,7 @@ const ContactUs = () => {
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="bg-[#1C1B2C] p-4 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                className="bg-gray-100 p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
                 style={{ height: "54px" }}
               />
               <motion.input
@@ -68,7 +68,7 @@ const ContactUs = () => {
                 placeholder="Your Email Address"
                 value={formData.email}
                 onChange={handleChange}
-                className="bg-[#1C1B2C] p-4 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                className="bg-gray-100 p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
                 style={{ height: "54px" }}
               />
               <motion.textarea
@@ -76,7 +76,7 @@ const ContactUs = () => {
                 placeholder="Tell us about your project..."
                 value={formData.message}
                 onChange={handleChange}
-                className="bg-[#1C1B2C] p-4 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                className="bg-gray-100 p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
                 rows="8"
                 style={{ height: "200px" }}
               />
@@ -91,24 +91,22 @@ const ContactUs = () => {
           </div>
 
           {/* Contact Details */}
-          <div className="bg-[#24253C] p-6 rounded-lg text-center">
-            <p className="text-white text-lg font-Gilroy mb-2">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <p className="text-gray-800 text-lg font-Gilroy mb-2">
               Contact Details:
             </p>
-           
+
             <div className="flex items-center justify-center mb-2">
-              <FaPhone className="text-blue-400 mr-2 text-xl" />
-              <p className="text-white text-lg font-Gilroy">063808 97553</p>
+              <FaPhone className="text-blue-500 mr-2 text-xl" />
+              <p className="text-gray-800 text-lg font-Gilroy">063808 97553</p>
             </div>
             <div className="flex items-center justify-center mb-4">
-              <FaEnvelope className="text-blue-400 mr-2 text-xl" />
-              <p className="text-white text-lg font-Gilroy">
+              <FaEnvelope className="text-blue-500 mr-2 text-xl" />
+              <p className="text-gray-800 text-lg font-Gilroy">
                 support@rodella.com
               </p>
             </div>
           </div>
-
-          
         </div>
       </div>
     </section>
