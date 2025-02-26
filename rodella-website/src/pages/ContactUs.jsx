@@ -31,6 +31,7 @@ const ContactUs = () => {
   return (
     <section className="pt-2 bg-neutral-300">
       <Navbar />
+ 
       <div className="container mx-auto max-w-4xl px-4 py-8 text-gray-800">
         <h1 className="section-title text-gray-800 text-5xl font-Gilroy mb-10 text-center">
           Contact Us

@@ -7,7 +7,7 @@ export const navItems = [
     //   {label: "Aircraft 4", href: "#"}
     // ]
    },
-  // { label: "Composite Mart", href: "#" }, //will be added later on
+  //  { label: "Composite Mart", href: "" }, //will be added later on
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" }
 ];
