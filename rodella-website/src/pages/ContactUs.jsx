@@ -29,7 +29,7 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="pt-2 bg-gray-900">
+    <section className="pt-2 bg-black">
       <Navbar />
     <div className="flex flex-col md:flex-row h-auto md:h-screen text-white">
       {/* Left Section: Contact Information */}

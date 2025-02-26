@@ -26,8 +26,8 @@ const Homepage = () => {
       <section className="h-screen relative pt-2">
         <Navbar />
         <img className="absolute top-0 left-0 w-full h-full object-cover brightness-60 -z-50" src={BackgroundImage} ></img>
-        <div className="flex flex-col h-full">
-          <div className="flex flex-row items-center ml-30 h-full">
+        <div className="flex flex-col h-full ">
+          <div className="flex flex-row items-center ml-50 h-full">
             <div className="flex flex-col w-fit lg:mb-30">
               <h1 className="text-4xl sm:text-6xl lg:text-9xl tracking-wide text-neutral-100 opacity-10 font-bold">
                 CRAFTING FOR

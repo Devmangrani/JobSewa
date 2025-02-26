@@ -92,11 +92,11 @@ const leadershipTeam = [
 
 const AboutUs = () => {
   return (
-    <section className="bg-gray-900 text-white pt-2">
+    <section className="bg-black text-white pt-2">
       <Navbar />
       {/* Page Header */}
       <div className="text-center py-12">
-        <h1 className="text-4xl font-bold text-blue-400">About Us</h1>
+        <h1 className="text-4xl font-bold text-white">About Us</h1>
       </div>
 
       {/* Alternating Sections */}
@@ -125,7 +125,7 @@ const AboutUs = () => {
 
           {/* Content Section */}
           <div className="w-full lg:w-1/2">
-            <h2 className="text-3xl font-bold text-blue-300">
+            <h2 className="text-3xl font-bold text-white">
               {section.title}
             </h2>
             <p className="mt-4 text-gray-300">{section.content}</p>
@@ -135,7 +135,7 @@ const AboutUs = () => {
 
       {/* Leadership Team Section */}
       <div className="text-center py-12">
-        <h2 className="text-4xl font-bold text-blue-400">
+        <h2 className="text-4xl font-bold text-white">
           Meet Our Leadership Team
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
@@ -150,7 +150,7 @@ const AboutUs = () => {
               <img
                 src={member.img}
                 alt={member.name}
-                className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-blue-400"
+                className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white"
               />
               <h3 className="text-xl font-semibold">{member.name}</h3>
               <p className="text-gray-300">{member.title}</p>

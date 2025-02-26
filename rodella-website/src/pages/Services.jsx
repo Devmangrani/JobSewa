@@ -44,33 +44,33 @@ const Services = () => {
             </section>
 
             <section>
-                <div className="flex flex-row bg-neutral-300 justify-between pb-30 pt-30 pl-30 pr-30 ">
+                <div className="flex flex-row bg-black justify-between pb-30 pt-30 pl-30 pr-30">
                     <div>
                         <h1 className="text-4xl bg-gradient-to-r from-purple-500 to-purple-900 text-transparent font-bold bg-clip-text">Our Services</h1>
-                        <h2 className="text-6xl text-gray-900 mt-5">We provide a wide range of services</h2>
+                        <h2 className="text-6xl text-white mt-5">We provide a wide range of services</h2>
                         {/* <h2 className="text-6xl text-gray-900">of services</h2> */}
-                        <p className="text-2xl text-wrap text-gray-700 mt-10 mr-10 text-left">Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                        <p className="text-2xl text-wrap text-neutral-300 mt-10 mr-10 text-left">Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
                             Illum quasi ullam hic numquam labore illo doloremque fugit molestias cupiditate voluptatibus nobis, 
                             facilis debitis ab corporis aliquam omnis veniam itaque commodi velit. Magnam?</p>
                     </div>
                     <div className="flex flex-col">
                     <div className="flex flex-row"> {/* switch to grid layout for this later on*/}
-                    <div className="h-[400px] w-[350px] bg-gray-100 mr-10 rounded-2xl flex flex-col items-center p-5">
-                        <div className="h-[150px] w-[150px] bg-gray-600 rounded-full mt-5"></div>
+                    <div className="h-[400px] w-[350px] bg-gray-600 mr-10 rounded-2xl flex flex-col items-center p-5 text-white">
+                        <div className="h-[150px] w-[150px] bg-gray-100 rounded-full mt-5"></div>
                         <h1 className="mt-5">Drone Surveillance</h1>
                         <p className="mt-5 text-sm text-wrap text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                              Molestiae eveniet recusandae 
                             voluptates autem ad explicabo, aut itaque eum?</p>
                     </div>
-                    <div className="h-[400px] w-[350px] bg-gray-100 mr-10 rounded-2xl flex flex-col items-center p-5">
-                        <div className="h-[150px] w-[150px] bg-gray-600 rounded-full mt-5"></div>
+                    <div className="h-[400px] w-[350px] bg-gray-600 mr-10 rounded-2xl flex flex-col items-center p-5 text-white">
+                        <div className="h-[150px] w-[150px] bg-gray-100 rounded-full mt-5"></div>
                         <h1 className="mt-5">Drone Surveillance</h1>
                         <p className="mt-5 text-sm text-wrap text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                              Molestiae eveniet recusandae 
                             voluptates autem ad explicabo, aut itaque eum?</p>
                     </div>
-                    <div className="h-[400px] w-[350px] bg-gray-100 mr-10 rounded-2xl flex flex-col items-center p-5">
-                        <div className="h-[150px] w-[150px] bg-gray-600 rounded-full mt-5"></div>
+                    <div className="h-[400px] w-[350px] bg-gray-600 mr-10 rounded-2xl flex flex-col items-center p-5 text-white">
+                        <div className="h-[150px] w-[150px] bg-gray-100 rounded-full mt-5"></div>
                         <h1 className="mt-5">Drone Surveillance</h1>
                         <p className="mt-5 text-sm text-wrap text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                              Molestiae eveniet recusandae 
@@ -78,22 +78,22 @@ const Services = () => {
                     </div>
                     </div>
                     <div className="flex flex-row mt-10"> {/* switch to grid layout for this later on*/}
-                    <div className="h-[400px] w-[350px] bg-gray-100 mr-10 rounded-2xl flex flex-col items-center p-5">
-                        <div className="h-[150px] w-[150px] bg-gray-600 rounded-full mt-5"></div>
+                    <div className="h-[400px] w-[350px] bg-gray-600 mr-10 rounded-2xl flex flex-col items-center p-5 text-white">
+                        <div className="h-[150px] w-[150px] bg-gray-100 rounded-full mt-5"></div>
                         <h1 className="mt-5">Drone Surveillance</h1>
                         <p className="mt-5 text-sm text-wrap text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                              Molestiae eveniet recusandae 
                             voluptates autem ad explicabo, aut itaque eum?</p>
                     </div>
-                    <div className="h-[400px] w-[350px] bg-gray-100 mr-10 rounded-2xl flex flex-col items-center p-5">
-                        <div className="h-[150px] w-[150px] bg-gray-600 rounded-full mt-5"></div>
+                    <div className="h-[400px] w-[350px] bg-gray-600 mr-10 rounded-2xl flex flex-col items-center p-5 text-white">
+                        <div className="h-[150px] w-[150px] bg-gray-100 rounded-full mt-5"></div>
                         <h1 className="mt-5">Drone Surveillance</h1>
                         <p className="mt-5 text-sm text-wrap text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                              Molestiae eveniet recusandae 
                             voluptates autem ad explicabo, aut itaque eum?</p>
                     </div>
-                    <div className="h-[400px] w-[350px] bg-gray-100 mr-10 rounded-2xl flex flex-col items-center p-5">
-                        <div className="h-[150px] w-[150px] bg-gray-600 rounded-full mt-5"></div>
+                    <div className="h-[400px] w-[350px] bg-gray-600 mr-10 rounded-2xl flex flex-col items-center p-5 text-white">
+                        <div className="h-[150px] w-[150px] bg-gray-100 rounded-full mt-5"></div>
                         <h1 className="mt-5">Drone Surveillance</h1>
                         <p className="mt-5 text-sm text-wrap text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                              Molestiae eveniet recusandae 
