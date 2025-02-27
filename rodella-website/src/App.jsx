@@ -7,6 +7,8 @@ import AboutUs from "./pages/AboutUs";
 import Aircrafts from "./pages/Aircrafts";
 import Services from "./pages/Services";
 import Footer from "./components/footer";
+import Multirotor from "./pages/Multirotors";
+import FixedWing from "./pages/FixedWing";
 
 
 const App = () => {
@@ -20,6 +22,8 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/multirotor" element={<Multirotor />} />
+          <Route path="/fixedwing" element={<FixedWing />} />
         </Routes>
         <Footer />
       </div>
