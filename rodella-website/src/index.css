@@ -14,16 +14,3 @@
 
     margin: 0 10px;
 }
-
-@keyframes fade {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 2;
-    }
-  }
-  
-  .fade-animation {
-    animation: fade 1s ease-in-out;
-  }
