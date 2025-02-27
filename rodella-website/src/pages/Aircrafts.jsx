@@ -22,9 +22,9 @@ const Aircrafts = () => {
     }, [AirCraftData.length]);
 
     return (
-        <div>
+        <div >
             <section className="lg:h-screen relative pt-2">
-                <Navbar />
+            <Navbar /> 
                 <img src={AirCraftData[currentImageIndex].url} className="absolute top-0 left-0 w-full h-full -z-50 object-cover brightness-50 "></img>
                 <div className="flex flex-col lg:h-full pr-50 pl-50 justify-between pb-30">
                     <h1 className="text-9xl bg-gradient-to-b from-purple-300 to-purple-900 bg-clip-text text-center lg:mt-30 font-bold text-transparent lg:h-1/2">
@@ -130,7 +130,7 @@ const Aircrafts = () => {
                             </div>
                             
                             <div className="flex flex-row text-black bg-gradient-to-r from-purple-200 to-purple-700 px-5 py-4 rounded-full mr-4 items-center">
-                                <a href="#">
+                                <a href="/multirotor">
                                     Know more
                                 </a>
                                 <ArrowRightIcon className="h-5 w-5 ml-2" />
@@ -211,7 +211,7 @@ const Aircrafts = () => {
                             </div>
                             
                             <div className="flex flex-row text-black bg-gradient-to-r from-purple-200 to-purple-700 px-5 py-4 rounded-full mr-4 items-center">
-                                <a href="#">
+                                <a href="/fixedwing">
                                     Know more
                                 </a>
                                 <ArrowRightIcon className="h-5 w-5 ml-2" />
@@ -442,7 +442,9 @@ const Aircrafts = () => {
                         </div>
                     </div>
                 </div>
-            </section>       */}
+            </section>  
+                 */}
+                
         </div>
     )
 }
