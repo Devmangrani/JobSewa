@@ -10,7 +10,7 @@ const Multirotor = () => {
             <Navbar />
             <section>
                 <div className="p-50">
-                    <h1 className="text-6xl font-bold text-white text-center underline">Multirotors</h1>
+                <h1 className="text-6xl font-bold text-white text-center underline">Multirotors</h1>
                     {/* <p className="text-neutral-400 text-xl text-center mt-2">COMPACT | SWIFT | UTILITARIAN</p> */}
                     <div className="mt-20">
                         <h1 className="text-4xl font-bold text-white">MQ650LV </h1>
@@ -28,25 +28,26 @@ const Multirotor = () => {
                         </p>
                         <h2 className="text-neutral-400 text-xl mt-5 underline">KEY HIGHLIGHTS</h2>
                         <div className="flex flex-row items-center mt-5">
-                            <div className="bg-neutral-300 rounded-full w-4 h-4"></div>
-                            <p className="text-xl bg-gradient-to-r font-bold from-purple-300 to-purple-700 bg-clip-text text-transparent ml-2">Quick Deplyment</p>
+                            <div className="bg-neutral-300 rounded-full w-3 h-3"></div>
+                            <p className="text-xl text-neutral-100 font-bold ml-2">Quick Deplyment</p>
                         </div>
                         <div className="flex flex-row items-center mt-5">
-                            <div className="bg-neutral-300 rounded-full w-4 h-4"></div>
-                            <p className="text-xl bg-gradient-to-r font-bold from-purple-300 to-purple-700 bg-clip-text text-transparent ml-2">Tool-Less Assembly</p>
+                            <div className="bg-neutral-300 rounded-full w-3 h-3"></div>
+                            <p className="text-xl text-neutral-100 font-bold ml-2">Tool-Less Assembly</p>
                         </div>
                         <div className="flex flex-row items-center mt-5">
-                            <div className="bg-neutral-300 rounded-full w-4 h-4"></div>
-                            <p className="text-xl bg-gradient-to-r font-bold from-purple-300 to-purple-700 bg-clip-text text-transparent ml-2">Swappable Battery</p>
+                            <div className="bg-neutral-300 rounded-full w-3 h-3"></div>
+                            <p className="text-xl text-neutral-100 font-bold ml-2">Swappable Battery</p>
                         </div>
                         <div className="flex flex-row items-center mt-5">
-                            <div className="bg-neutral-300 rounded-full w-4 h-4"></div>
-                            <p className="text-xl bg-gradient-to-r font-bold from-purple-300 to-purple-700 bg-clip-text text-transparent ml-2">Hot Swappable Payloads</p>
+                            <div className="bg-neutral-300 rounded-full w-3 h-3"></div>
+                            <p className="text-xl text-neutral-100 font-bold ml-2">Hot Swappable Payloads</p>
                         </div>
                         <div className="mt-5">
                             <img src={MQ650LVpic1} className="object-cover h-180 w-full rounded-xl"></img>
                         </div>
-                        <h3 className=" pt-30 bg-gradient-to-r from-purple-300 to-purple-700 bg-clip-text text-transparent text-5xl ml-15">Technical Details</h3>
+                        <div className="flex flex-col w-full justify-center items-center">
+                        <h3 className=" pt-30 text-white text-5xl ml-15">Technical Details</h3>
                         <div className="w-110 h-[2px] bg-neutral-400 ml-15 mt-2"></div>
                         <div className="flex flex-row pr-15 pl-15 pb-15 pt-10">
                             <div className="flex flex-col">
@@ -110,9 +111,9 @@ const Multirotor = () => {
                             <img src={MQ650LVpic2} className="h-120 w-170 rounded-2xl"></img>
                         </div>
 
-                        <h3 className=" pt-30 bg-gradient-to-r from-purple-300 to-purple-700 bg-clip-text text-transparent text-5xl ml-15">Features</h3>
+                        <h3 className=" pt-30 text-white text-5xl ml-15">Features</h3>
                         <div className="w-55 h-[2px] bg-neutral-400 ml-15 mt-2"></div>
-                        <div className="flex flex-row p-10 justify-between">
+                        <div className="flex flex-row p-10">
                             <img src={MQ650LVpic3} className="h-120 w-170 rounded-2xl"></img>
                             <div className="flex flex-col">
 
@@ -152,10 +153,10 @@ const Multirotor = () => {
                                     <p className="text-neutral-300 text-xl mr-30">Operating Environment - Multi Terrain</p>
                                 </div>
                             </div>
-
+                        </div>
                         </div>
                         <div className="pt-30 flex flex-col ml-15">
-                            <h1 className="text-4xl bg-gradient-to-r from-purple-300 to-purple-700 bg-clip-text text-transparent">Use Cases</h1>
+                            <h1 className="text-4xl text-white">Use Cases</h1>
                             <div className="w-55 h-[2px] bg-neutral-400 mt-2"></div>
                             <div className="flex flex-row items-center mt-10">
                                 <div className="bg-neutral-300 rounded-full w-4 h-4 mr-2"></div>
@@ -186,6 +187,8 @@ const Multirotor = () => {
                         </div>
                     </div>
                 </div>
+
+                
             </section>
         </div>
     )
