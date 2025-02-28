@@ -83,7 +83,7 @@ const ContactUs = () => {
               />
               <motion.button
                 type="submit"
-                className=" bg-gradient-to-r from-purple-200 to-purple-700 text-white py-2 rounded-md mt-4 w-full"
+                className=" bg-black text-white py-2 rounded-md mt-4 w-full"
                 style={{ height: "48px" }}
               >
                 Submit
