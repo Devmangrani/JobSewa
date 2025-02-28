@@ -18,18 +18,21 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 py-3 bg-gray-950/75 z-50 rounded-2xl ml-50 mr-50 px-5 shadow-xs shadow-gray-600">
-      <div className=" px-3 flex justify-between items-center text-sm lg:block ">
+      <div className=" px-5 flex justify-between items-center text-sm lg:block ">
         <div className="flex justify-between items-center">
-          <div className="flex items-center flex-shrink-0">
-            <Link to="/" className="flex items-center">
-              <img
+          <div className="flex flex-shrink-0">
+            <Link to="/" className="flex flex-col">
+              {/* <img
                 className="h-10 w-10 mr-2 bg-gray-200 rounded-full"
                 src={logo}
                 alt="logo"
-              />
-              <span className="text-2xl tracking right text-white">
-                Rodella
-              </span>
+              /> */}
+              <h1 className="text-2xl tracking right text-white">
+                rodella
+              </h1>
+              {/* <h2 className="text-[10px] tracking right text-white">
+                AEROSPACE LABS
+              </h2> */}
             </Link>
           </div>
           <ul className="hidden lg:flex space-x-8">
@@ -48,7 +51,7 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <Link
               to="/contact"
-              className="bg-gradient-to-r from-purple-200 to-purple-700 py-2 px-3 rounded-md"
+              className="bg-gradient-to-r bg-white py-2 px-3 rounded-md"
               onClick={closeMobileMenu} // Close mobile menu on click
             >
               Contact Us
@@ -87,7 +90,7 @@ const Navbar = () => {
           <div className="flex space-x-6">
             <Link
               to="/contact"
-              className="bg-gradient-to-r from-purple-200 to-purple-700 py-2 px-3 rounded-md"
+              className="bg-gradient-to-r bg-white py-2 px-3 rounded-md"
               onClick={closeMobileMenu} // Close mobile menu on click
             >
               Contact Us
