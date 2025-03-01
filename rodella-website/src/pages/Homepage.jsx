@@ -1,4 +1,3 @@
-import MakeInIndia from "./../assets/images/make-in-india.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Navbar from "../components/Navbar.jsx";
@@ -28,42 +27,50 @@ const Homepage = () => {
         >
         </video>
         <div className="flex flex-col h-full ">
-          <div className="flex flex-row items-center pl-50 h-full">
-            <div className="flex flex-col w-fit">
-              <h1 className="text-4xl sm:text-6xl lg:text-9xl tracking-wide text-neutral-100 opacity-10 font-bold">
-                CRAFTING FOR
+          <div className="flex flex-row items-center h-full justify-center">
+            <div className="flex flex-col w-fit items-center">
+              <h1 className="text-4xl sm:text-6xl lg:text-9xl tracking-wide text-neutral-100 ">
+               rodella
               </h1>
-              <h2 className="text-4xl sm:text-6xl lg:text-7xl tracking-wide text-white font-semibold">
-                NEXT GENERATIONS
+              <h2 className="text-4xl sm:text-6xl lg:text-5xl tracking-wide text-white font-semibold mt-5">
+              AEROSPACE LABS
               </h2>
-
-              <p className="mt-25 text-lg text-neutral-100 max-w-4xl">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius atque
+              
+              <p className="mt-10 text-2xl text-neutral-100 max-w-4xl ">
+                DELIVERING SUPREME  BEYOND THE CALL OF DUTY
+                
               </p>
-              <p className="mt-1 text-lg text-neutral-100 max-w-4xl">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit adipisicing elit. Eius atque
+              <p className="mt-1 text-3xl text-neutral-100 max-w-4xl">
+               
               </p>
-              <p className="mt-1 text-lg text-neutral-100 max-w-4xl">
-                Lorem ipsum dolor sit amet consectetur,
-              </p>
-              <div className="flex my-10 flex-row">
-                <a
+              {/* <p className="mt-1 text-lg text-neutral-100 max-w-4xl">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit adipisicing elit. Eius atque
+              </p> */}
+              <div className="flex my-3 flex-col items-center">
+                {/* <a
                   href="/contact"
-                  className="text-black bg-gradient-to-r from-purple-50 to-purple-200 px-4 py-4 rounded-md mr-4"
+                  className="text-black bg-white px-4 py-4 rounded-md"
                 >
                   Get in touch
+                </a> */}
+                <a
+                  href="/aircrafts"
+                  className="text-black bg-neutral-400 px-4 py-3 rounded-md text-xl w-140 text-center opacity-70"
+                >
+                  Aircrafts
                 </a>
+
                 <a
                   href="#"
-                  className="text-black bg-gradient-to-r from-purple-300 to-purple-700 px-4 py-4 rounded-md"
+                  className="text-black bg-neutral-400 px-4 py-3 rounded-md mt-5 text-xl w-140 text-center opacity-70"
                 >
-                  Explore our products
+                  Engineering
                 </a>
                
               </div>
-              <img src={MakeInIndia} className="h-[70px] w-[150px] z-50 mt-10">
+              {/* <img src={MakeInIndia} className="h-[70px] w-[150px] z-50 mt-10">
               </img>
-              <h1 className="text-neutral-300 mt-2">We proudly announce that all our products are manufacured entirely in house</h1>
+              <h1 className="text-neutral-300 mt-2">We proudly announce that all our products are manufacured entirely in house</h1> */}
             </div>
           </div>
         </div>

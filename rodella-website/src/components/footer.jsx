@@ -29,7 +29,7 @@ const Footer = () => {
           <div className="flex space-x-6 justify-center">
             <Link
               to="/contact"
-              className="bg-gradient-to-r from-purple-200 to-purple-700 py-3 px-12 rounded-full"
+              className="bg-gradient-to-r bg-white py-3 px-12 rounded-full"
               onClick="#"
             >
               Get in touch with us

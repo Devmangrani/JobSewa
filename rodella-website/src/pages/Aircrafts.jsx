@@ -24,96 +24,106 @@ const Aircrafts = () => {
     return (
         <div >
             <section className="lg:h-screen relative pt-2">
-            <Navbar /> 
+                <Navbar />
                 <img src={AirCraftData[currentImageIndex].url} className="absolute top-0 left-0 w-full h-full -z-50 object-cover brightness-50 "></img>
                 <div className="flex flex-col lg:h-full pr-50 pl-50 justify-between pb-30">
-                    <h1 className="text-9xl bg-gradient-to-b from-purple-300 to-purple-900 bg-clip-text text-center lg:mt-30 font-bold text-transparent lg:h-1/2">
+                    <h1 className="text-9xl bg-gradient-to-b text-neutral-200 bg-clip-text text-center lg:mt-30 font-bold lg:h-1/2">
                         Let's fly higher</h1>
                     <p className="text-xl text-center text-neutral-300 text-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Ipsam fugiat est maiores! Aut molestiae amet nisi omnis, accusantium placeat blanditiis sunt perferendis adipisci temporibus,
                     </p>
-                    <p className="text-4xl bg-gradient-to-t from-purple-200 to-purple-700 bg-clip-text font-bold text-center text-transparent">{AirCraftData[currentImageIndex].title}</p>
+                    <p className="text-4xl font-bold text-center text-white">{AirCraftData[currentImageIndex].title}</p>
                     <div className="grid grid-cols-4 gap-4 divide-x divide-neutral-300">
                         <div className="text-center flex flex-col">
-                            <p className="bg-gradient-to-t from-purple-200 to-purple-700 bg-clip-text font-bold text-transparent text-center text-2xl mb-5">{AirCraftData[currentImageIndex].flightTime}</p>
+                            <p className="text-white font-bold text-center text-2xl mb-5">{AirCraftData[currentImageIndex].flightTime}</p>
                             <p className="text-neutral-300 text-xl text-center">Longer Flight Time</p>
                         </div>
                         <div className="text-center flex flex-col">
-                            <p className="bg-gradient-to-t from-purple-200 to-purple-700 bg-clip-text font-bold text-transparent text-center text-2xl mb-5">{AirCraftData[currentImageIndex].TransmissionRange}</p>
+                            <p className="text-white font-bold text-center text-2xl mb-5">{AirCraftData[currentImageIndex].TransmissionRange}</p>
                             <p className="text-neutral-300 text-xl text-center">Video Transmission Range</p>
                         </div>
                         <div className="text-center flex flex-col">
-                            <p className="bg-gradient-to-t from-purple-200 to-purple-700 bg-clip-text font-bold text-transparent text-center text-2xl mb-5">{AirCraftData[currentImageIndex].LiveFeed}</p>
+                            <p className="text-white font-bold text-center text-2xl mb-5">{AirCraftData[currentImageIndex].LiveFeed}</p>
                             <p className="text-neutral-300 text-xl text-center">High-res Live Feed</p>
                         </div>
                         <div className="text-center flex flex-col">
-                            <p className="bg-gradient-to-r from-purple-200 to-purple-700 bg-clip-text font-bold text-transparent text-center text-2xl mb-5">{AirCraftData[currentImageIndex].Positioning}</p>
+                            <p className="text-white font-bold text-center text-2xl mb-5">{AirCraftData[currentImageIndex].Positioning}</p>
                             <p className="text-neutral-300 text-xl text-center">Positioning Technology</p>
                         </div>
                     </div>
                 </div>
             </section>
             <section className="pl-50 pr-50 pt-50 pb-50 bg-black">
-            <div>
-                <h1 className="text-bold text-6xl text-white">We have a wide range of custom based drone solutions</h1>
-                <h2 className="text-xl text-neutral-300 mt-4">As of now we excels at 2 categories of drones</h2>
-                <div className="text-xs text-neutral-300 mt-4 border-2 rounded-full p-4 flex flex-row items-center w-fit">
+                <div>
+                    <h1 className="text-bold text-6xl text-white">We have a wide range of custom based drone solutions</h1>
+                    <h2 className="text-xl text-neutral-300 mt-4">As of now we excel at 2 categories of drones</h2>
+                    <div className="text-xs text-neutral-300 mt-4 border-2 rounded-full p-4 flex flex-row items-center w-fit">
                         <p>
-                        Go ahead and took a look for yourslef
+                            Go ahead and took a look for yourslef
                         </p>
                         <ArrowDownIcon className="h-5 w-5 ml-2" />
                     </div>
-            </div>
+                </div>
             </section>
             <section className="pl-50 pr-50 bg-black pb-50">
-                <h1 className="text-white text-5xl lg:mb-2 text-center">Multirotors</h1>
-                <h2 className="text-neutral-400 text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
-                <div className="flex flex-col border-gray-500 border-5 rounded-2xl p-10 shadow-gray-600 shadow-2xl lg:mt-15 ">
-                    <div className="flex flex:row">
+                <h1 className="text-white text-5xl lg:mb-2 underline pl-20">Multirotors</h1>
+                <h2 className="text-neutral-400 pl-20">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
+                <h3 className="text-xl text-neutral-400 mt-5 pl-20">We specialize in crafting custom-based multirotor drone solutions, tailored precisely to your unique needs.
+                    Our expertise ensures that your multirotor platform is optimized for performance, reliability, and the specific demands of your application.
+                </h3>
+                <div className="flex flex-col rounded-2xl p-20 lg:mt-15 ">
+                    <div className="flex flex:row justify-center">
                         <img src={MultirotorDrone2} className="w-180 h-120 object-cover rounded-2xl"></img>
 
 
                         <div className="flex flex-col">
                             <p className="text-sm text-neutral-200 lg:ml-30 lg:mb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <div className="flex flex-col w-full justify-center lg:ml-30">
+                            <div className="flex flex-col lg:ml-30">
 
-                                <div className="flex flex-row bg-gradient-to-r from-purple-400 to-purple-900 bg-clip-text font-bold text-transparent text-xl">
-                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gradient-to-b from-purple-200 to-purple-700 rounded-full mr-6 self-center"></img>
+                                <div className="flex flex-row font-bold text-white text-xl">
+                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
                                     <p>Vertical Takeoff and Landing</p>
                                 </div>
-                                <div className="flex flex-row bg-gradient-to-r from-purple-400 to-purple-900 bg-clip-text font-bold text-transparent text-xl mt-5">
-                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gradient-to-b from-purple-200 to-purple-700 rounded-full mr-6 self-center"></img>
+                                <div className="flex flex-row font-bold text-white text-xl mt-5">
+                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
                                     Improved Flight Controllers
                                 </div>
-                                <div className="flex flex-row bg-gradient-to-r from-purple-400 to-purple-900 bg-clip-text font-bold text-transparent text-xl mt-5 ">
-                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gradient-to-b from-purple-200 to-purple-700 rounded-full mr-6 self-center"></img>
+                                <div className="flex flex-row font-bold text-white text-xl mt-5 ">
+                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
                                     Better Improved Batteries
                                 </div>
-                                <div className="flex flex-row bg-gradient-to-r from-purple-400 to-purple-900 bg-clip-text font-bold text-transparent text-xl mt-5 ">
-                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gradient-to-b from-purple-200 to-purple-700 rounded-full mr-6 self-center"></img>
+                                <div className="flex flex-row font-bold text-white text-xl mt-5">
+                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
                                     Enhanced Cameras & Sensors
                                 </div>
-                                <div className="flex flex-row bg-gradient-to-r from-purple-400 to-purple-900 bg-clip-text font-bold text-transparent text-xl mt-5">
+                                <div className="flex flex-row font-bold text-white text-xl mt-5">
+                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
+                                    Cost-Effective Solutions
+                                </div>
+                                {/* <div className="flex flex-row bg-gradient-to-r from-purple-400 to-purple-900 bg-clip-text font-bold text-transparent text-xl mt-5">
                                     <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gradient-to-b from-purple-200 to-purple-700 rounded-full mr-6 self-center"></img>
                                     Cost-Effective Solutions
                                 </div>
                                 <div className="flex flex-row bg-gradient-to-r from-purple-400 to-purple-900 bg-clip-text font-bold text-transparent text-xl mt-5">
                                     <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gradient-to-b from-purple-200 to-purple-700 rounded-full mr-6 self-center"></img>
                                     Cost-Effective Solutions
-                                </div>
-                                <div className="flex flex-row bg-gradient-to-r from-purple-400 to-purple-900 bg-clip-text font-bold text-transparent text-xl mt-5">
-                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gradient-to-b from-purple-200 to-purple-700 rounded-full mr-6 self-center"></img>
-                                    Cost-Effective Solutions
-                                </div>
+                                </div> */}
+
                             </div>
-                            <div></div>
+                            <div className="flex flex-row text-black bg-neutral-300 px-5 py-4 rounded-full mr-4 items-center justify-center mt-5 ml-30">
+                                <a href="/multirotor">
+                                    Know more
+                                </a>
+                                <ArrowRightIcon className="h-5 w-5 ml-2" />
+                            </div>
+
                         </div>
                     </div>
-                    <h3 className="text-xl text-neutral-400 mt-25">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    {/* <h3 className="text-xl text-neutral-400 mt-25">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
                         Consectetur aspernatur temporibus unde quasi modi alias consequatur dolorem? 
                         Corrupti nemo laborum saepe officiis ut adipisci, 
-                        </h3>
-                    <div className="flex flex-row lg:mt-15 justify-between">
+                        </h3> */}
+                    {/* <div className="flex flex-row lg:mt-15 justify-between">
                         <div className="flex lg:flex-col justify-between items-center">
                             <div className="flex flex-col">
                             <h3 className="text-xl text-neutral-400 mr-8 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -139,14 +149,105 @@ const Aircrafts = () => {
 
                         <img src={MultirotorDrone3} className="w-180 h-120 object-cover rounded-2xl"></img>
 
+                    </div> */}
+                </div>
+
+
+            </section>
+            
+
+            <section className="pl-50 pr-50 bg-black pb-50">
+                <h1 className="text-white text-5xl lg:mb-2 underline pl-20">Fixed Wings</h1>
+                <h2 className="text-neutral-400 pl-20">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
+                <h3 className="text-xl text-neutral-400 mt-5 pl-20">We specialize in crafting custom-based multirotor drone solutions, tailored precisely to your unique needs.
+                    Our expertise ensures that your multirotor platform is optimized for performance, reliability, and the specific demands of your application.
+                </h3>
+                <div className="flex flex-col rounded-2xl p-20 lg:mt-15 ">
+                    <div className="flex flex:row justify-center">
+                        <img src={FixedWingDrone1} className="w-180 h-120 object-cover rounded-2xl"></img>
+
+
+                        <div className="flex flex-col">
+                            <p className="text-sm text-neutral-200 lg:ml-30 lg:mb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <div className="flex flex-col lg:ml-30">
+
+                            <div className="flex flex-row font-bold text-white text-xl">
+                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
+                                    <p>Vertical Takeoff and Landing</p>
+                                </div>
+                                <div className="flex flex-row font-bold text-white text-xl mt-5">
+                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
+                                    Improved Flight Controllers
+                                </div>
+                                <div className="flex flex-row font-bold text-white text-xl mt-5 ">
+                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
+                                    Better Improved Batteries
+                                </div>
+                                <div className="flex flex-row font-bold text-white text-xl mt-5">
+                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
+                                    Enhanced Cameras & Sensors
+                                </div>
+                                <div className="flex flex-row font-bold text-white text-xl mt-5">
+                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
+                                    Cost-Effective Solutions
+                                </div>
+                                {/* <div className="flex flex-row bg-gradient-to-r from-purple-400 to-purple-900 bg-clip-text font-bold text-transparent text-xl mt-5">
+                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gradient-to-b from-purple-200 to-purple-700 rounded-full mr-6 self-center"></img>
+                                    Cost-Effective Solutions
+                                </div>
+                                <div className="flex flex-row bg-gradient-to-r from-purple-400 to-purple-900 bg-clip-text font-bold text-transparent text-xl mt-5">
+                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gradient-to-b from-purple-200 to-purple-700 rounded-full mr-6 self-center"></img>
+                                    Cost-Effective Solutions
+                                </div> */}
+
+                            </div>
+                            <div className="flex flex-row text-black bg-neutral-300 px-5 py-4 rounded-full mr-4 items-center justify-center mt-5 ml-30">
+                                <a href="/multirotor">
+                                    Know more
+                                </a>
+                                <ArrowRightIcon className="h-5 w-5 ml-2" />
+                            </div>
+
+                        </div>
                     </div>
+                    {/* <h3 className="text-xl text-neutral-400 mt-25">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Consectetur aspernatur temporibus unde quasi modi alias consequatur dolorem? 
+                        Corrupti nemo laborum saepe officiis ut adipisci, 
+                        </h3> */}
+                    {/* <div className="flex flex-row lg:mt-15 justify-between">
+                        <div className="flex lg:flex-col justify-between items-center">
+                            <div className="flex flex-col">
+                            <h3 className="text-xl text-neutral-400 mr-8 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Est rem quibusdam numquam quis voluptates accusantium tenetur in.
+                                </h3>
+                                <h3 className="text-xl text-white mr-8 mt-8 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                                <h3 className="text-xl text-white mr-8 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                                <h3 className="text-xl text-white mr-8 mt-2 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                                <h3 className="text-xl text-white mr-8 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                                <h3 className="text-xl text-white mr-8 mt-2 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                                <h3 className="text-xl text-white mr-8 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                                <h3 className="text-xl text-white mr-8 mt-2 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                                <h3 className="text-xl text-white mr-8 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                            </div>
+                            
+                            <div className="flex flex-row text-black bg-gradient-to-r from-purple-200 to-purple-700 px-5 py-4 rounded-full mr-4 items-center">
+                                <a href="/multirotor">
+                                    Know more
+                                </a>
+                                <ArrowRightIcon className="h-5 w-5 ml-2" />
+                            </div>
+                        </div>
+
+                        <img src={MultirotorDrone3} className="w-180 h-120 object-cover rounded-2xl"></img>
+
+                    </div> */}
                 </div>
 
 
             </section>
 
 
-            <section className="pl-50 pr-50 bg-black pb-50">
+            {/* <section className="pl-50 pr-50 bg-black pb-50">
                 <h1 className="text-white text-5xl lg:mb-2 text-center">Fixed Wing Drones</h1>
                 <h2 className="text-neutral-400 text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
                 <div className="flex flex-col border-gray-500 border-5 rounded-2xl p-10 shadow-gray-600 shadow-2xl lg:mt-15 ">
@@ -190,15 +291,15 @@ const Aircrafts = () => {
                             <div></div>
                         </div>
                     </div>
-                    <h3 className="text-xl text-neutral-400 mt-25">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                        Consectetur aspernatur temporibus unde quasi modi alias consequatur dolorem? 
-                        Corrupti nemo laborum saepe officiis ut adipisci, 
-                        </h3>
+                    <h3 className="text-xl text-neutral-400 mt-25">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Consectetur aspernatur temporibus unde quasi modi alias consequatur dolorem?
+                        Corrupti nemo laborum saepe officiis ut adipisci,
+                    </h3>
                     <div className="flex flex-row lg:mt-15 justify-between">
                         <div className="flex lg:flex-col justify-between items-center">
                             <div className="flex flex-col">
-                            <h3 className="text-xl text-neutral-400 mr-8 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Est rem quibusdam numquam quis voluptates accusantium tenetur in.
+                                <h3 className="text-xl text-neutral-400 mr-8 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Est rem quibusdam numquam quis voluptates accusantium tenetur in.
                                 </h3>
                                 <h3 className="text-xl text-white mr-8 mt-8 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
                                 <h3 className="text-xl text-white mr-8 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
@@ -209,7 +310,7 @@ const Aircrafts = () => {
                                 <h3 className="text-xl text-white mr-8 mt-2 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
                                 <h3 className="text-xl text-white mr-8 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
                             </div>
-                            
+
                             <div className="flex flex-row text-black bg-gradient-to-r from-purple-200 to-purple-700 px-5 py-4 rounded-full mr-4 items-center">
                                 <a href="/fixedwing">
                                     Know more
@@ -224,7 +325,7 @@ const Aircrafts = () => {
                 </div>
 
 
-            </section>
+            </section> */}
 
             {/* <section className="pl-50 pr-50 bg-black pt-50 pb-50">
                 <h1 className="text-white text-5xl lg:mb-2 text-center">Fixed Wing Drones</h1>
@@ -444,7 +545,7 @@ const Aircrafts = () => {
                 </div>
             </section>  
                  */}
-                
+
         </div>
     )
 }
