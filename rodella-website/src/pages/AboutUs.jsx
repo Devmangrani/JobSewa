@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion"; // Import framer-motion for animations
-import Footer from "./../components/footer"
+import Footer from "./../components/footer";
 // Import images
 import MissionImg from "./../assets/images/ServiceImg2.png";
 import VisionImg from "./../assets/images/achievment.jpg";
@@ -14,57 +14,6 @@ import CEOImg from "./../assets/images/services.jpg"; // Add CEO image
 import CTOImg from "./../assets/images/services.jpg"; // Add CTO image
 import COOImg from "./../assets/images/services.jpg"; // Add COO image
 import Navbar from "../components/Navbar";
-
-const sections = [
-  {
-    title: "Our Mission",
-    content:
-      "At Rodella, our mission is to establish India as a global leader in drone technology by developing fully customized, high-performance UAVs for defense, surveillance, and industrial applications. We are committed to manufacturing every component in India, ensuring complete self-reliance from raw materials to finished products.",
-    img: MissionImg,
-  },
-  {
-    title: "Our Vision",
-    content:
-      "We envision a future where India no longer relies on foreign drone technology. By creating state-of-the-art drones tailored to the specific needs of the Indian Armed Forces and industries, we aim to strengthen national security, enhance operational efficiency, and drive innovation in aerial technology.",
-    img: VisionImg,
-  },
-  {
-    title: "Who We Are",
-    content:
-      "Rodella is a specialized drone manufacturing company focused on delivering advanced, custom-built UAV solutions. Our team comprises aerospace engineers, AI specialists, and military experts working together to push the boundaries of drone technology.",
-    img: WhoWeAreImg,
-  },
-  // {
-  //   title: "What We Do",
-  //   content: `We design and manufacture drones customized for various applications, including:
-  //     - Defense & Security – High-endurance surveillance drones, tactical UAVs, and autonomous combat systems.
-  //     - Industrial Solutions – Inspection, monitoring, and logistics support for industries like energy, agriculture, and infrastructure.
-  //     - AI & Automation – Smart drone systems with advanced navigation, object detection, and swarm technology.
-  //     - Indigenous Manufacturing – 100% Indian-made drones, from core electronics to propulsion systems.`,
-  //   img: WhatWeDoImg,
-  // },
-  // {
-  //   title: "Why Choose Us",
-  //   content: `- Fully Made in India – Every component, from materials to software, is manufactured locally.
-  //     - Custom Drone Solutions – Tailored UAVs to meet specific mission requirements.
-  //     - Military-Grade Technology – Secure, high-performance drones built for extreme conditions.
-  //     - AI-Powered Systems – Intelligent drones with real-time analytics and autonomous capabilities.
-  //     - Commitment to Innovation – Investing in next-gen aerial solutions for defense and commercial use.`,
-  //   img: WhyChooseUsImg,
-  // },
-  // {
-  //   title: "Our Commitment to National Security",
-  //   content:
-  //     "Rodella is dedicated to empowering India's defense forces with cutting-edge drone technology. Our UAVs provide real-time intelligence, enhanced surveillance, and tactical support to safeguard national interests and ensure operational superiority.",
-  //   img: SecurityImg,
-  // },
-  // {
-  //   title: "Join Us in Building India's Drone Future",
-  //   content:
-  //     "We are on a journey to redefine India's drone industry. Whether you are a defense organization, a private enterprise, or a technology enthusiast, we invite you to collaborate with us and shape the future of aerial technology. Proudly Made in India, Engineered for Excellence.",
-  //   img: FutureImg,
-  // },
-];
 
 const leadershipTeam = [
   {
@@ -99,40 +48,6 @@ const AboutUs = () => {
         <h1 className="text-4xl font-bold text-white">About Us</h1>
       </div>
 
-      {/* Alternating Sections */}
-      {sections.map((section, index) => (
-        <motion.div
-          key={index}
-          className={`flex flex-col lg:flex-row items-center gap-10 px-6 lg:px-16 py-12 ${
-            index % 2 === 0 ? "lg:flex-row-reverse" : ""
-          }`}
-          initial={{ opacity: 0, y: 50 }} // Initial state for animation
-          animate={{ opacity: 1, y: 0 }} // Animate to this state
-          transition={{ duration: 0.5 }} // Duration of the animation
-        >
-          {/* Image Section */}
-          <motion.div
-            className="w-full lg:w-1/2"
-            whileHover={{ scale: 1.05 }} // Scale effect on hover
-            transition={{ duration: 0.3 }} // Duration of the hover effect
-          >
-            <img
-              src={section.img}
-              alt={section.title}
-              className="w-full h-80 object-cover rounded-2xl shadow-lg transition-transform duration-300 ease-in-out"
-            />
-          </motion.div>
-
-          {/* Content Section */}
-          <div className="w-full lg:w-1/2">
-            <h2 className="text-3xl font-bold text-white">
-              {section.title}
-            </h2>
-            <p className="mt-4 text-gray-300">{section.content}</p>
-          </div>
-        </motion.div>
-      ))}
-
       {/* Leadership Team Section */}
       <div className="text-center py-12">
         <h2 className="text-4xl font-bold text-white">
@@ -158,10 +73,22 @@ const AboutUs = () => {
             </motion.div>
           ))}
         </div>
-        
+      </div>
+
+      {/* Video Section */}
+      <div className="flex flex-col items-center justify-center py-16 ">
+        <h2 className="text-4xl font-bold text-white mb-8">Meet Our Team</h2>
+        <div className="w-full max-w-4xl mx-auto px-4">
+          <video
+            className="w-full rounded-lg shadow-xl"
+            controls
+            src="/src/assets/videos/demo1.mp4"
+          >
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
     </section>
-    
   );
 };
 
