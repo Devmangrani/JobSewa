@@ -4,7 +4,7 @@ import MainBgImg from "./../assets/images/aircraftsBG.jpg";
 import droneImageUrl3 from "./../assets/images/fixed-wing1.png"
 import droneImageUrl4 from "./../assets/images/fixed-wing2.jpg"
 
- const cards = [
+ const AircraftData = [
 
     {
         url: MainBgImg,
@@ -67,4 +67,4 @@ import droneImageUrl4 from "./../assets/images/fixed-wing2.jpg"
 
 ];
 
-export default cards;
+export default AircraftData;
