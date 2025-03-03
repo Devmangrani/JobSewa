@@ -7,11 +7,12 @@ import AboutUs from "./pages/AboutUs";
 import Aircrafts from "./pages/Aircrafts";
 import Services from "./pages/Services";
 import Footer from "./components/footer";
-import Multirotor from "./pages/Multirotors";
-import FixedWing from "./pages/FixedWing";
+import Multirotor from "./components/Multirotors";
+import FixedWing from "./components/FixedWing";
 import Engineering from "./pages/Engineering";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import AircraftPageBGItem from "./components/AircraftPageBGItems";
 
 const App = () => {
   return (
@@ -21,11 +22,11 @@ const App = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/aircrafts" element={<Aircrafts />} />
           <Route path="/multirotor/:id" element={<Multirotor />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/fixedwing/:id" element={<FixedWing />} />
+          <Route path="/aircrafts/:id" element={<AircraftPageBGItem />} />
+          {/* <Route path="/services" element={<Services />} /> */}
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/about" element={<AboutUs />} />
-          {/* <Route path="/multirotor" element={<Multirotor />} /> */}
-          <Route path="/fixedwing" element={<FixedWing />} />
           <Route path="/engineering" element={<Engineering />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
