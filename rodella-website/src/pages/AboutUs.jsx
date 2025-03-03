@@ -49,7 +49,7 @@ const AboutUs = () => {
       </div>
 
       {/* Leadership Team Section */}
-      <div className="text-center py-12">
+      <div className="text-center py-12 px-50">
         <h2 className="text-4xl font-bold text-white">
           Meet Our Leadership Team
         </h2>
