@@ -1,7 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Navbar from "../components/Navbar.jsx";
-import HomePageVideo from "./../assets/videos/demo1.mp4"
+import HomePageVideo from "./../assets/videos/pkv3.mp4"
 
 
 const Homepage = () => {
@@ -16,10 +16,10 @@ const Homepage = () => {
   };
 
   return (
-    <div>
+    <div >
       <section className="h-screen relative pt-2">
-        <Navbar />
-        <video className="absolute top-0 left-0 w-full h-full object-cover brightness-50 -z-50"
+      <Navbar />
+        <video className="absolute top-0 left-0 w-full h-full object-cover brightness-35 -z-50"
           src={HomePageVideo}
           muted
           autoPlay
@@ -29,20 +29,18 @@ const Homepage = () => {
         <div className="flex flex-col h-full ">
           <div className="flex flex-row items-center h-full justify-center">
             <div className="flex flex-col w-fit items-center">
-              <h1 className="text-4xl sm:text-6xl lg:text-9xl tracking-wide text-neutral-100 ">
+              <h1 className="text-4xl sm:text-6xl lg:text-9xl tracking-wide text-white ">
                rodella
               </h1>
               <h2 className="text-4xl sm:text-6xl lg:text-5xl tracking-wide text-white font-semibold mt-5">
               AEROSPACE LABS
               </h2>
               
-              <p className="mt-10 text-2xl text-neutral-100 max-w-4xl ">
+              <p className="mt-10 text-2xl text-white max-w-4xl ">
                 DELIVERING SUPREME  BEYOND THE CALL OF DUTY
                 
               </p>
-              <p className="mt-1 text-3xl text-neutral-100 max-w-4xl">
-               
-              </p>
+             
               {/* <p className="mt-1 text-lg text-neutral-100 max-w-4xl">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit adipisicing elit. Eius atque
               </p> */}
@@ -55,14 +53,14 @@ const Homepage = () => {
                 </a> */}
                 <a
                   href="/aircrafts"
-                  className="text-black bg-neutral-400 px-4 py-3 rounded-md text-xl w-140 text-center opacity-70"
+                  className="text-white bg-neutral-600 px-4 py-3 rounded-md text-xl w-140 text-center opacity-70"
                 >
                   Aircrafts
                 </a>
 
                 <a
                   href="#"
-                  className="text-black bg-neutral-400 px-4 py-3 rounded-md mt-5 text-xl w-140 text-center opacity-70"
+                  className="text-white bg-neutral-600 px-4 py-3 rounded-md mt-5 text-xl w-140 text-center opacity-70"
                 >
                   Engineering
                 </a>
