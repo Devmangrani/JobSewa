@@ -1,20 +1,29 @@
+import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import MQ650LVpic1 from "./../assets/images/MQ650LV.jpg";
 import MQ650LVpic2 from "./../assets/images/achievment.jpg"
 import MQ650LVpic3 from "./../assets/images/2.png";
+import MultirotorProducts from "../constants/MultirotorProducts";
 
 const Multirotor = () => {
 
+    const { id } = useParams();
+    const product = MultirotorProducts.find((p) => p.id === parseInt(id))
+
+    if(!product){
+        return <div>Eror:404 Product Not Found</div>
+    }
+
     return (
-        <div className="bg-black pt-2">
+        <div className="pt-2">
             <Navbar />
             <section>
-                <div className="p-50">
-                <h1 className="text-6xl font-bold text-white text-center underline">Multirotors</h1>
+                <div className="px-50 py-30">
+                {/* <h1 className="text-6xl font-bold text-white text-center underline">Multirotors</h1> */}
                     {/* <p className="text-neutral-400 text-xl text-center mt-2">COMPACT | SWIFT | UTILITARIAN</p> */}
-                    <div className="mt-20">
-                        <h1 className="text-4xl font-bold text-white">MQ650LV </h1>
-                        <p className="text-neutral-400 text-xl mt-2 underline">COMPACT | SWIFT | UTILITARIAN</p>
+                    <div>
+                        <h1 className="text-4xl font-bold text-white text-center">{product.name}</h1>
+                        <p className="text-neutral-400 text-xl mt-2 underline text-center">COMPACT | SWIFT | UTILITARIAN</p>
                         <p className="text-xl mt-10 text-neutral-200 ">MQ650LV is a light weight micro-category variant
                             borrowing its structural toughness ffrom MQ750+
                             Developed for quick deployment and versatile
@@ -44,7 +53,7 @@ const Multirotor = () => {
                             <p className="text-xl text-neutral-100 font-bold ml-2">Hot Swappable Payloads</p>
                         </div>
                         <div className="mt-5">
-                            <img src={MQ650LVpic1} className="object-cover h-180 w-full rounded-xl"></img>
+                            <img src={product.img} className="object-cover h-180 w-full rounded-xl"></img>
                         </div>
                         <div className="flex flex-col w-full justify-center items-center">
                         <h3 className=" pt-30 text-white text-5xl ml-15">Technical Details</h3>
@@ -190,6 +199,7 @@ const Multirotor = () => {
 
                 
             </section>
+            
         </div>
     )
 }
