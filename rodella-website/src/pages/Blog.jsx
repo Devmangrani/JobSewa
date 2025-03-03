@@ -2,7 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
-
+import fixedwing from "../assets/images/fixed-wing2.jpg";
+import services from "../assets/images/services.jpg";
+import achievment from "../assets/images/achievment.jpg";
+import homepagedrone from "../assets/images/homepagedrone.png";
+import MQ650LV from "../assets/images/MQ650LV.jpg";
+import ServiceImg2 from "../assets/images/ServiceImg2.png";
+import design from "../assets/images/design.jpg";
 // Sample blog data - you can replace this with your actual blog data
 const blogPosts = [
     {
@@ -12,7 +18,7 @@ const blogPosts = [
         "Exploring the latest innovations in drone technology and their impact on various industries.",
       category: "Technology",
       date: "March 15, 2024",
-      imageUrl: "/src/assets/images/fixed-wing2.jpg",
+      imageUrl: fixedwing,
       readTime: "5 min read",
       author: "John Smith",
     },
@@ -23,7 +29,7 @@ const blogPosts = [
         "A comprehensive guide to modern aircraft navigation technologies and their applications.",
       category: "Education",
       date: "March 12, 2024",
-      imageUrl: "/src/assets/images/services.jpg",
+      imageUrl: services,
       readTime: "7 min read",
       author: "Sarah Johnson",
     },
@@ -34,7 +40,7 @@ const blogPosts = [
         "Essential information about current drone regulations and best practices for safe operation.",
       category: "Safety",
       date: "March 10, 2024",
-      imageUrl: "/src/assets/images/ServiceImg2.png",
+      imageUrl: ServiceImg2,
       readTime: "6 min read",
       author: "Mike Anderson",
     },
@@ -45,7 +51,7 @@ const blogPosts = [
         "Discover how businesses are leveraging drone technology to revolutionize their operations.",
       category: "Business",
       date: "March 8, 2024",
-      imageUrl: "/src/assets/images/achievment.jpg",
+      imageUrl: achievment,
       readTime: "8 min read",
       author: "Emily Chen",
     },
@@ -56,7 +62,7 @@ const blogPosts = [
         "An in-depth look at how artificial intelligence is reshaping the aviation industry, from autopilot systems to predictive maintenance.",
       category: "Technology",
       date: "March 5, 2024",
-      imageUrl: "/src/assets/images/2.png",
+      imageUrl: design,
       readTime: "7 min read",
       author: "David Lee",
     },
@@ -67,7 +73,7 @@ const blogPosts = [
         "Exploring how drones are being used for disaster relief, search-and-rescue operations, and emergency response.",
       category: "Emergency Response",
       date: "March 2, 2024",
-      imageUrl: "/src/assets/images/MQ650LV.jpg",
+      imageUrl: MQ650LV,
       readTime: "6 min read",
       author: "Sophia Martinez",
     },
@@ -78,7 +84,7 @@ const blogPosts = [
         "A look at upcoming technological advancements in aerospace engineering, including supersonic travel and sustainable aviation.",
       category: "Engineering",
       date: "February 28, 2024",
-      imageUrl: "/src/assets/images/homepagedrone.png",
+      imageUrl: homepagedrone,
       readTime: "9 min read",
       author: "Robert Walker",
     },
