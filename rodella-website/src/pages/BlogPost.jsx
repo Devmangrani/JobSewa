@@ -2,6 +2,13 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
+import fixedwing from "../assets/images/fixed-wing2.jpg";
+import services from "../assets/images/services.jpg";
+import achievment from "../assets/images/achievment.jpg";
+import homepagedrone from "../assets/images/homepagedrone.png";
+import MQ650LV from "../assets/images/MQ650LV.jpg";
+import ServiceImg2 from "../assets/images/ServiceImg2.png";
+import design from "../assets/images/design.jpg";
 
 // Sample detailed blog data - you can replace this with your actual blog data or fetch from an API
 const blogPostsData = {
@@ -43,7 +50,7 @@ const blogPostsData = {
         `,
         category: "Technology",
         date: "March 15, 2024",
-        imageUrl: "/src/assets/images/fixed-wing2.jpg",
+        imageUrl: fixedwing,
         author: "Dr. John Smith, Aerospace Engineering Specialist",
         readTime: "8 min read",
         tags: ["Drones", "Technology", "Innovation", "UAS", "Autonomous Systems", "AI Integration"],
@@ -73,7 +80,7 @@ const blogPostsData = {
       `,
       category: "Education",
       date: "March 12, 2024",
-      imageUrl: "/src/assets/images/services.jpg",
+      imageUrl: services,
       author: "Sarah Johnson",
       readTime: "7 min read",
       tags: ["Navigation", "Aviation", "Technology", "Education"],
@@ -103,7 +110,7 @@ const blogPostsData = {
       `,
       category: "Safety",
       date: "March 10, 2024",
-      imageUrl: "/src/assets/images/ServiceImg2.png",
+      imageUrl: ServiceImg2,
       author: "Mike Anderson",
       readTime: "6 min read",
       tags: ["Drones", "Safety", "Regulations", "Compliance"],
@@ -133,7 +140,7 @@ const blogPostsData = {
       `,
       category: "Business",
       date: "March 8, 2024",
-      imageUrl: "/src/assets/images/achievment.jpg",
+      imageUrl: achievment,
       author: "Emily Chen",
       readTime: "8 min read",
       tags: ["Drones", "Business", "Technology", "UAV"],
@@ -163,7 +170,7 @@ const blogPostsData = {
       `,
       category: "Technology",
       date: "March 5, 2024",
-      imageUrl: "/src/assets/images/2.png",
+      imageUrl: design,
       author: "David Lee",
       readTime: "7 min read",
       tags: ["AI", "Aviation", "Technology", "Innovation"],
@@ -193,7 +200,7 @@ const blogPostsData = {
       `,
       category: "Emergency Response",
       date: "March 2, 2024",
-      imageUrl: "/src/assets/images/MQ650LV.jpg",
+      imageUrl: MQ650LV,
       author: "Sophia Martinez",
       readTime: "6 min read",
       tags: ["Drones", "Disaster Management", "Emergency Response", "Technology"],
@@ -223,7 +230,7 @@ const blogPostsData = {
       `,
       category: "Engineering",
       date: "February 28, 2024",
-      imageUrl: "/src/assets/images/homepagedrone.png",
+      imageUrl: homepagedrone,
       author: "Robert Walker",
       readTime: "9 min read",
       tags: ["Aerospace", "Engineering", "Technology", "Innovation"],
