@@ -76,7 +76,7 @@ const Aircrafts = () => {
                 {/* <h3 className="text-xl text-neutral-400 mt-2 text-center">We specialize in crafting custom-based multirotor drone solutions, tailored precisely to your unique needs.
                 </h3> */}
 
-                <div className="grid grid-cols-3 gap-x-5 mt-15">
+                <div className="grid grid-cols-3 gap-x-5 gap-y-5 mt-15">
                     {MultirotorProducts.map((item) => {
                         return(
                         <div key={item.id} className="flex flex-col items-center shadow-lg bg-neutral-900 rounded-sm">
@@ -98,7 +98,7 @@ const Aircrafts = () => {
                 <h2 className="text-neutral-400 text-center mt-5">We specialize in crafting custom-based multirotor drone solutions, tailored precisely to your unique needs.</h2>
                 {/* <h3 className="text-xl text-neutral-400 mt-2 text-center">We specialize in crafting custom-based multirotor drone solutions, tailored precisely to your unique needs.
                 </h3> */}
-               <div className="grid grid-cols-3 gap-x-5 mt-15">
+               <div className="grid grid-cols-3 gap-x-5 gap-y-5 mt-15">
                 {FixedWingProducts.map((item) => {
                     return(
                         <div key={item.id} className="flex flex-col items-center bg-neutral-900">
