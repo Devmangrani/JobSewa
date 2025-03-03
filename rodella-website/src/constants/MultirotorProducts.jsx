@@ -115,7 +115,6 @@ const MultirotorProducts = [
         UseCases4: "For tactical law enforcement, the MQ650lv drone offers invaluable aerial perspective,during high-risk operations,  aiding in suspect apprehension and ensuring officer safety.",
         UseCases5: "The MQ650lv drone is exceptionally well-suited for the use case of tactical traffic monitoring",
     },
-
 ]
 
 export default MultirotorProducts;
