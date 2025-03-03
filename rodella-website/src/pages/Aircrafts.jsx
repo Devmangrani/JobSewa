@@ -31,7 +31,7 @@ const Aircrafts = () => {
                     <p className="text-xl text-center text-neutral-300 text-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Ipsam fugiat est maiores! Aut molestiae amet nisi omnis, accusantium placeat blanditiis sunt perferendis adipisci temporibus,
                     </p>
-                    <Link to={""} 
+                    <Link to={`/aircrafts/${AirCraftData[currentImageIndex].id}`} 
                     className="flex justify-center">
                     <p className="text-3xl text-center text-black bg-neutral-400 px-8 py-3 rounded-full opacity-70 flex flex-row items-center">
                         {AirCraftData[currentImageIndex].title}
@@ -72,15 +72,15 @@ const Aircrafts = () => {
             </section>
             <section className="px-50 bg-black py-30">
                 <h1 className="text-white text-5xl lg:mb-2 underline text-center">Multirotors</h1>
-                <h2 className="text-neutral-400 text-center">Lorem ipsum, dolor | consectetur adipisicing elit.</h2>
-                <h3 className="text-xl text-neutral-400 mt-2 text-center">We specialize in crafting custom-based multirotor drone solutions, tailored precisely to your unique needs.
-                </h3>
+                <h2 className="text-neutral-400 text-center mt-5">We specialize in crafting custom-based multirotor drone solutions, tailored precisely to your unique needs.</h2>
+                {/* <h3 className="text-xl text-neutral-400 mt-2 text-center">We specialize in crafting custom-based multirotor drone solutions, tailored precisely to your unique needs.
+                </h3> */}
 
                 <div className="grid grid-cols-3 gap-x-5 mt-15">
                     {MultirotorProducts.map((item) => {
                         return(
                         <div key={item.id} className="flex flex-col items-center shadow-lg bg-neutral-900 rounded-sm">
-                            <Link to={`/multirotor/${item.id}`}> {/* linked to Multirotor page for product details rendering dynamically */}
+                            <Link to={`/multirotor/${item.id}`}> {/* linked to Multirotor component page for product details rendering dynamically */}
                              <img src={item.img} alt={item.name} className="object-cover rounded-sm h-100"></img>
                              <h1 className="text-white text-xl text-center mt-4">{item.name}</h1>
                              </Link>
@@ -90,67 +90,22 @@ const Aircrafts = () => {
                     })}
                 </div>
 
-
-
-                {/* <div className="flex flex-col rounded-2xl lg:mt-15 ">
-                    <div className="flex flex:row justify-center">
-                        <img src={MultirotorDrone2} className="w-180 h-120 object-cover rounded-2xl"></img>
-
-
-                        <div className="flex flex-col">
-                            <p className="text-sm text-neutral-200 lg:ml-30 lg:mb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <div className="flex flex-col lg:ml-30">
-
-                                <div className="flex flex-row font-bold text-white text-xl">
-                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
-                                    <p>Vertical Takeoff and Landing</p>
-                                </div>
-                                <div className="flex flex-row font-bold text-white text-xl mt-5">
-                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
-                                    Improved Flight Controllers
-                                </div>
-                                <div className="flex flex-row font-bold text-white text-xl mt-5 ">
-                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
-                                    Better Improved Batteries
-                                </div>
-                                <div className="flex flex-row font-bold text-white text-xl mt-5">
-                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
-                                    Enhanced Cameras & Sensors
-                                </div>
-                                <div className="flex flex-row font-bold text-white text-xl mt-5">
-                                    <img src={CheckMarkIcon} className="h-[22px] w-[22px] bg-gray-400 rounded-full mr-6 self-center"></img>
-                                    Cost-Effective Solutions
-                                </div>
-                               
-                            </div>
-                            <div className="flex flex-row text-black bg-neutral-300 px-5 py-4 rounded-full mr-4 items-center justify-center mt-5 ml-30">
-                                <a href="/multirotor">
-                                    Know more
-                                </a>
-                                <ArrowRightIcon className="h-5 w-5 ml-2" />
-                            </div>
-
-                        </div>
-                    </div>
-                   
-                </div> */}
-
-
             </section>
             
 
             <section className="px-50 bg-black py-30">
                 <h1 className="text-white text-5xl lg:mb-2 underline text-center">Fixed Wings</h1>
-                <h2 className="text-neutral-400 text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
-                <h3 className="text-xl text-neutral-400 mt-5">We specialize in crafting custom-based multirotor drone solutions, tailored precisely to your unique needs.
-                    Our expertise ensures that your multirotor platform is optimized for performance, reliability, and the specific demands of your application.
-                </h3>
-               <div className="grid grid-cols-3 gap-x-5 mt-10">
+                <h2 className="text-neutral-400 text-center mt-5">We specialize in crafting custom-based multirotor drone solutions, tailored precisely to your unique needs.</h2>
+                {/* <h3 className="text-xl text-neutral-400 mt-2 text-center">We specialize in crafting custom-based multirotor drone solutions, tailored precisely to your unique needs.
+                </h3> */}
+               <div className="grid grid-cols-3 gap-x-5 mt-15">
                 {FixedWingProducts.map((item) => {
                     return(
                         <div key={item.id} className="flex flex-col items-center bg-neutral-900">
+                            <Link to={`/fixedwing/${item.id}`}> {/* linked to FixedWiing component page for product details rendering dynamically */}
                             <img src={item.img} className="object-cover rounded-sm h-100"></img>
                             <h1 className="text-white text-xl text-center mt-4">{item.name}</h1>
+                            </Link>
                             <p className="text-white text-sm text-center my-4">{item.price}</p>
                         </div>
                     )
