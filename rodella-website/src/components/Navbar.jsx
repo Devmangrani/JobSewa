@@ -27,9 +27,7 @@ const Navbar = () => {
                 src={logo}
                 alt="logo"
               /> */}
-              <h1 className="text-2xl tracking right text-white">
-                rodella
-              </h1>
+              <h1 className="text-2xl tracking right text-white">rodella</h1>
               {/* <h2 className="text-[10px] tracking right text-white">
                 AEROSPACE LABS
               </h2> */}
@@ -47,11 +45,22 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
+           
+            <li className="relative">
+              <Link
+                to="/blog"
+                className="text-white hover:text-gray-300 px-3 py-2 rounded flex items-center"
+                // Close mobile menu on click
+              >
+                Blog
+              </Link>
+            </li>
+           
           </ul>
           <div className="hidden lg:block">
             <Link
               to="/contact"
-              className="bg-gradient-to-r bg-white py-2 px-3 rounded-md"
+              className="bg-gradient-to-r bg-white py-2 px-3 rounded-md text-black"
               onClick={closeMobileMenu} // Close mobile menu on click
             >
               Contact Us
@@ -86,6 +95,33 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
+            <li className="py-4 w-full text-center">
+              <Link
+                to="/services"
+                onClick={closeMobileMenu} // Close mobile menu on click
+                className="text-white hover:text-gray-300 block"
+              >
+                Services
+              </Link>
+            </li>
+            <li className="py-4 w-full text-center">
+              <Link
+                to="/blog"
+                onClick={closeMobileMenu} // Close mobile menu on click
+                className="text-white hover:text-gray-300 block"
+              >
+                Blog
+              </Link>
+            </li>
+            <li className="py-4 w-full text-center">
+              <Link
+                to="/contact"
+                onClick={closeMobileMenu} // Close mobile menu on click
+                className="text-white hover:text-gray-300 block"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
           <div className="flex space-x-6">
             <Link
