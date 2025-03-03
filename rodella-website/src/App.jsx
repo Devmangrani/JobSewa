@@ -10,10 +10,10 @@ import Footer from "./components/footer";
 import Multirotor from "./pages/Multirotors";
 import FixedWing from "./pages/FixedWing";
 import Engineering from "./pages/Engineering";
-
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 const App = () => {
-
   return (
     <Router>
       <div>
@@ -26,6 +26,8 @@ const App = () => {
           <Route path="/multirotor" element={<Multirotor />} />
           <Route path="/fixedwing" element={<FixedWing />} />
           <Route path="/engineering" element={<Engineering />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
         </Routes>
         <Footer />
       </div>
