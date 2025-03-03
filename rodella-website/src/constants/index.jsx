@@ -8,6 +8,6 @@ export const navItems = [
     // ]
    },
   { label: "Engineering", href: "/engineering" }, //will be added later on
-  { label: "Services", href: "/services" },
+  // { label: "Services", href: "/services" },
   { label: "About", href: "/about" }
 ];
