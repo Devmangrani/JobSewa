@@ -12,6 +12,8 @@ const Engineering = () => {
 
     const section1Ref = useRef(null);
     const section2Ref = useRef(null);
+    const section3Ref = useRef(null);
+    const section4Ref = useRef(null);
 
     const scrollToSection = (elementRef) => {
         if(elementRef.current) {
@@ -32,8 +34,12 @@ const Engineering = () => {
                         Design</div>
                     <div className="text-xl border-2 border-neutral-500 bg-black mb-5 rounded-full px-5 py-2 text-white cursor-pointer"
                         onClick={() => scrollToSection(section2Ref)}
-                        >Prototyping</div>
-                    <div className="text-xl border-2 border-neutral-500 bg-black mb-5 rounded-full px-5 py-2 text-white">Simulation</div>
+                        >
+                        Prototyping</div>
+                    <div className="text-xl border-2 border-neutral-500 bg-black mb-5 rounded-full px-5 py-2 text-white cursor-pointer"
+                        onClick={() => scrollToSection(section3Ref)}
+                        >
+                        Simulation</div>
                     <div className="text-xl border-2 border-neutral-500 bg-black mb-5 rounded-full px-5 py-2 text-white">Airframe Integration</div>
                 </div>
                 <div className="flex justify-center items-center">
@@ -51,9 +57,9 @@ const Engineering = () => {
                 <h1 className="text-white text-5xl text-center underline">Design</h1>
                 <p className="text-neutral-400 text-xl text-center mt-3">Write to us so that we can provide the custom design as per your requirements.</p>
                 <div className="px-30 flex flex-col mt-10">
-                    <h2 className="text-3xl text-neutral-300">3D Modeling</h2>
+                    <h2 className="text-3xl text-neutral-300 my-5">3D Modeling</h2>
                     <div className="flex flex-row">
-                        <p className="text-2xl text-neutral-400 mr-5 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        <p className="text-2xl text-neutral-400 mr-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Id placeat esse pariatur porro, quidem necessitatibus veniam at aspernatur!
                             Eaque rem non iusto et id! Facere molestiae laudantium dolorum.
                             Asperiores ut eius soluta.
@@ -67,7 +73,7 @@ const Engineering = () => {
                 </div>
 
                 <div className="px-30 flex flex-col mt-10">
-                    <h2 className="text-3xl text-neutral-300 mt-5 mb-5">Aerodynamic Analysis</h2>
+                    <h2 className="text-3xl text-neutral-300 my-5">Aerodynamic Analysis</h2>
                     <div className="flex flex-row ">
                         <img src={DesignImg2} className="h-100"></img>
                         <p className="text-2xl text-neutral-400 ml-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -84,9 +90,9 @@ const Engineering = () => {
                 </div>
 
                 <div className="px-30 flex flex-col mt-10">
-                    <h2 className="text-3xl text-neutral-300 mt-5">Material Selection</h2>
+                    <h2 className="text-3xl text-neutral-300 my-5">Material Selection</h2>
                     <div className="flex flex-row">
-                        <p className="text-2xl text-neutral-400 mr-5 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        <p className="text-2xl text-neutral-400 mr-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Id placeat esse pariatur porro, quidem necessitatibus veniam at aspernatur!
                             Eaque rem non iusto et id! Facere molestiae laudantium dolorum.
                             Asperiores ut eius soluta.
@@ -103,7 +109,7 @@ const Engineering = () => {
             <section ref={section2Ref} id="section2" className="px-50 py-30">
                 <h1 className="text-white text-5xl text-center underline">Prototyping</h1>
                 <p className="text-neutral-400 text-xl text-center mt-3">With the facility of advanced composites, plastic and metal fabrication, See your design come to life</p>
-                <p className="text-neutral-400 text-2xl mt-3">During the Prototyping phase our drones go through multiple stages of testing and quality checks to enusre long-lasting reliable performance across all the conditions.
+                <p className="text-neutral-400 text-2xl mt-15">During the Prototyping phase our drones go through multiple stages of testing and quality checks to enusre long-lasting reliable performance across all the conditions.
                     All the maximum performance parameters are checked during this test. The products are pushed to extreme tests to determine the maximum operational abilities of each drone </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mt-8 px-30">
                     <div className="px-2 py-2 bg-neutral-950 flex flex-col items-center rounded-2xl">
@@ -127,6 +133,11 @@ const Engineering = () => {
                         <p className="text-xl text-neutral-300 mt-5 text-center">Multiple flight tests are conducted in controlled environment to evaluate stability, performance and control of the aircraft</p>
                     </div>
                 </div>
+            </section>
+
+            <section ref={section3Ref} id="section3" className="px-50 py-30">
+                <h1 className="text-white text-5xl text-center underline">Simulation</h1>
+                <p className="text-neutral-400 text-xl text-center mt-3">From static testing to CFD, to model analysis, we do it for ourselves, We will do it for you</p>
             </section>
         </div>
     )
