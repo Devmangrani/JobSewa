@@ -230,7 +230,7 @@ export default function Intro() {
                   className="col-span-full flex flex-col items-center justify-center p-8 bg-white rounded-lg shadow-sm"
                 >
                   <img
-                    src="/no-results.svg"
+                    src="/no-results.webp"
                     alt="No results"
                     className="w-48 h-48 mb-4 opacity-75"
                   />
