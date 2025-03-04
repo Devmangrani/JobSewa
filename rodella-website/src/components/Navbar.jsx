@@ -1,36 +1,61 @@
-import logo from "../assets/images/logo.svg";
-import { navItems } from "../constants/index.jsx";
+// import { navItems } from "../constants/NavItems";
 import React, { useState } from "react";
 import menuIcon from "../assets/images/menu.png";
 import closeIcon from "../assets/images/close.png";
 import { Link } from "react-router-dom";
+import DesktopMenu from "./DesktopNavMenu";
+import MobMenu from "./MobileNavMenu";
+import { Menus } from "./../constants/NavItems"
 
 const Navbar = () => {
-  const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  // const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
-  const toggleNavbar = () => {
-    setMobileDrawerOpen(!mobileDrawerOpen);
-  };
+  // const toggleNavbar = () => {
+  //   setMobileDrawerOpen(!mobileDrawerOpen);
+  // };
 
-  const closeMobileMenu = () => {
-    setMobileDrawerOpen(false);
-  };
+  // const closeMobileMenu = () => {
+  //   setMobileDrawerOpen(false);
+  // };
 
   return (
-    <nav className="sticky top-0 py-3 bg-gray-950/75 z-50 rounded-2xl ml-50 mr-50 px-5 shadow-xs shadow-gray-600">
-      <div className=" px-5 flex justify-between items-center text-sm lg:block ">
+    <nav className=" p-2.5 flex items-center justify-between bg-neutral-950 text-white rounded-2xl px-5 sticky w-full max-w-7xl mx-auto opacity-85 z-[999]">
+    <div className="flex items-center gap-x-3 relative">
+      <Link to="/">
+      <h3 className="text-lg">rodella</h3>
+      </Link>     
+    </div>
+
+    <ul className="gap-x-1 lg:flex items-center hidden">
+      {Menus.map((menu) => (
+        <Link to={menu.href}>
+        <DesktopMenu menu={menu} key={menu.name} />
+        </Link>
+      ))}
+    </ul>
+    <div className="flex items-center gap-x-5">
+
+      <Link to="/contact">
+      <div className="bg-white/5 z-[999] relative px-3 py-1.5 shadow rounded-xl flex items-center p-4">
+        Contact Us
+      </div>
+      </Link>
+      <div className="lg:hidden">
+        <MobMenu Menus={Menus} />
+      </div>
+    </div>
+  </nav>
+  );
+};
+
+export default Navbar;
+
+
+ {/* <div className=" px-5 flex justify-between items-center text-sm lg:block ">
         <div className="flex justify-between items-center">
           <div className="flex flex-shrink-0">
             <Link to="/" className="flex flex-col">
-              {/* <img
-                className="h-10 w-10 mr-2 bg-gray-200 rounded-full"
-                src={logo}
-                alt="logo"
-              /> */}
               <h1 className="text-2xl tracking right text-white">rodella</h1>
-              {/* <h2 className="text-[10px] tracking right text-white">
-                AEROSPACE LABS
-              </h2> */}
             </Link>
           </div>
           <ul className="hidden lg:flex space-x-8">
@@ -133,10 +158,4 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-      )}
-      {/* </div> */}
-    </nav>
-  );
-};
-
-export default Navbar;
+      )} */}
