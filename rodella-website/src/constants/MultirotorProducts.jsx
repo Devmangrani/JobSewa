@@ -43,7 +43,7 @@ const MultirotorProducts = [
     },
     {
         id: 2,
-        name: "Skybolt X-MQ650LV",
+        name: "Skybolt X-MQ750LV",
         price: "rs93434",
         img: MQ650LV,
 
@@ -80,7 +80,7 @@ const MultirotorProducts = [
     },
     {
         id: 3,
-        name: "Skybolt X-MQ650LV",
+        name: "Skybolt X-MQ900XV",
         price: "rs93434",
         img: MQ900,
 
