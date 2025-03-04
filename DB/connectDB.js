@@ -1,27 +1,45 @@
 import mongoose from "mongoose";
 
-// connecting to database
+const MONGODB_URI = process.env.DB_URI;
+
+if (!MONGODB_URI) {
+  throw new Error(
+    "Please define the DB_URI environment variable inside .env.local"
+  );
+}
+
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
 const connectDB = async () => {
   try {
-    const connectionUrl = process.env.DB_URI;
-
-    if (!connectionUrl) {
-      throw new Error(
-        "MongoDB connection string (DB_URI) is not defined in environment variables"
-      );
+    if (cached.conn) {
+      console.log("Using cached database connection");
+      return cached.conn;
     }
 
-    await mongoose.connect(connectionUrl, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    if (!cached.promise) {
+      const opts = {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        bufferCommands: false,
+      };
 
-    mongoose.set("strictQuery", false);
-    console.log("Database connected successfully");
+      cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+        console.log("New database connection established");
+        return mongoose;
+      });
+    }
+
+    cached.conn = await cached.promise;
+    return cached.conn;
   } catch (error) {
-    console.error("MongoDB connection error:", error.message);
-    // In production, you might want to handle this error differently
-    process.exit(1);
+    console.error("MongoDB connection error:", error);
+    cached.promise = null;
+    throw error;
   }
 };
 
