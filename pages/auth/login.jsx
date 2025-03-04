@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+//ToastContainer: The place where all toasts appear.
+import "react-toastify/dist/ReactToastify.css"; 
+//react-toastify: A library for showing pop-up notifications (toasts).
 import Link from "next/link";
+//Link: A component for creating links to other pages.  
 import Router from "next/router";
+//Router: A component for routing between pages.
 import { login_me } from "@/Services/auth";
+//login_me: A function that sends the login request to the backend.
 import Cookies from "js-cookie";
+//Cookies: A library for managing cookies.
 import { useDispatch } from "react-redux";
+//useDispatch: A hook for dispatching actions to the Redux store.
 import { setUserData } from "@/Utils/UserSlice";
+//setUserData: A function that sets the user data in the Redux store.
 import styles from "../../styles/Login.module.css";
+//styles: A module for styling the login page.
 
 export default function Login() {
   const dispatch = useDispatch();
