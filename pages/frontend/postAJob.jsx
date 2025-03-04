@@ -1,12 +1,11 @@
 import NavBar from "@/components/NavBar";
 import Select from "react-select";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { post_job } from "@/Services/job";
 import { useRouter } from "next/router";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   BsBriefcase,
   BsCalendar,
@@ -14,12 +13,6 @@ import {
   BsPeople,
 } from "react-icons/bs";
 import { MdBusinessCenter, MdCategory, MdEmail } from "react-icons/md";
-
-const fadeInUp = {
-  initial: { y: 20, opacity: 0 },
-  animate: { y: 0, opacity: 1 },
-  exit: { y: -20, opacity: 0 },
-};
 
 export default function PostAJob() {
   const user = useSelector((state) => state.User.userData);
@@ -45,6 +38,7 @@ export default function PostAJob() {
     job_vacancy: 0,
     job_deadline: "",
   });
+
   const [error, setError] = useState({
     user: "",
     title: "",
@@ -66,7 +60,6 @@ export default function PostAJob() {
       setError({ ...error, title: "Title Field is Required" });
       return;
     }
-
     if (!formData.salary) {
       setError({ ...error, salary: "Salary Field is Required" });
       return;
@@ -74,12 +67,10 @@ export default function PostAJob() {
       setError({ ...error, salary: "Invalid Salary!" });
       return;
     }
-
     if (!formData.email) {
       setError({ ...error, email: "Email Field is Required" });
       return;
     }
-
     if (!formData.company) {
       setError({ ...error, company: "Organization Field is Required" });
       return;
@@ -103,7 +94,6 @@ export default function PostAJob() {
       });
       return;
     }
-
     if (!formData.job_vacancy) {
       setError({ ...error, job_vacancy: "Job_vacancy Field is Required" });
       return;
@@ -111,7 +101,6 @@ export default function PostAJob() {
       setError({ ...error, job_vacancy: "Invalid Job Vacancy!" });
       return;
     }
-
     if (!formData.job_deadline) {
       setError({ ...error, job_deadline: "job_deadline Field is Required" });
       return;
@@ -132,273 +121,253 @@ export default function PostAJob() {
     }
   };
 
-  const options = [
-    { value: "fulltime", label: "Full Time" },
-    { value: "parttime", label: "Part Time" },
-    { value: "internship", label: "Internship" },
-    { value: "contract", label: "Contract" },
-  ];
-
-  const InputField = ({
-    label,
-    id,
-    type,
-    placeholder,
-    value,
-    onChange,
-    error: fieldError,
-    icon: Icon,
-  }) => (
-    <motion.div variants={fadeInUp} className="w-full mb-6">
-      <label
-        htmlFor={id}
-        className="block mb-2 text-sm font-medium text-gray-900"
-      >
-        {label}
-      </label>
-      <div className="relative">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-          <Icon className="w-5 h-5 text-gray-500" />
-        </div>
-        <input
-          type={type}
-          id={id}
-          value={value}
-          onChange={onChange}
-          className={`bg-gray-50 border ${
-            fieldError ? "border-red-500" : "border-gray-300"
-          } text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 p-2.5`}
-          placeholder={placeholder}
-        />
-      </div>
-      {fieldError && <p className="mt-2 text-sm text-red-600">{fieldError}</p>}
-    </motion.div>
+  const options = useMemo(
+    () => [
+      { value: "fulltime", label: "Full Time" },
+      { value: "parttime", label: "Part Time" },
+      { value: "internship", label: "Internship" },
+      { value: "contract", label: "Contract" },
+    ],
+    []
   );
 
-  return (
-    <AnimatePresence>
-      <div className="min-h-screen bg-gray-50">
-        <NavBar />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="pt-20 pb-8"
-        >
-          {/* Hero Section */}
-          <div className="bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <motion.h1
-                variants={fadeInUp}
-                initial="initial"
-                animate="animate"
-                className="text-3xl font-bold text-center"
-              >
-                Post a New Job
-              </motion.h1>
-              <motion.p
-                variants={fadeInUp}
-                initial="initial"
-                animate="animate"
-                className="mt-2 text-center text-indigo-100"
-              >
-                Fill in the details below to create your job listing
-              </motion.p>
+  const InputField = useMemo(() => {
+    const MemoizedInputField = React.memo(
+      ({
+        label,
+        id,
+        type,
+        placeholder,
+        value,
+        onChange,
+        error: fieldError,
+        icon: Icon,
+      }) => (
+        <div className="w-full mb-6">
+          <label
+            htmlFor={id}
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            {label}
+          </label>
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <Icon className="w-5 h-5 text-gray-500" />
             </div>
+            <input
+              type={type}
+              id={id}
+              value={value}
+              onChange={onChange}
+              className={`bg-gray-50 border ${
+                fieldError ? "border-red-500" : "border-gray-300"
+              } text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 p-2.5`}
+              placeholder={placeholder}
+            />
           </div>
+          {fieldError && (
+            <p className="mt-2 text-sm text-red-600">{fieldError}</p>
+          )}
+        </div>
+      )
+    );
+    MemoizedInputField.displayName = "InputField";
+    return MemoizedInputField;
+  }, []);
 
-          {/* Main Form */}
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
-            <motion.div
-              variants={fadeInUp}
-              initial="initial"
-              animate="animate"
-              className="bg-white rounded-xl shadow-lg p-6 md:p-8"
-            >
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <InputField
-                    label="Job Title"
-                    id="title"
-                    type="text"
-                    placeholder="Enter job title"
-                    value={formData.title}
-                    onChange={(e) =>
-                      setFormData({ ...formData, title: e.target.value })
-                    }
-                    error={error.title}
-                    icon={BsBriefcase}
-                  />
-
-                  <InputField
-                    label="Salary"
-                    id="salary"
-                    type="number"
-                    placeholder="Enter salary amount"
-                    value={formData.salary}
-                    onChange={(e) =>
-                      setFormData({ ...formData, salary: e.target.value })
-                    }
-                    error={error.salary}
-                    icon={BsCurrencyDollar}
-                  />
-
-                  <InputField
-                    label="Email"
-                    id="email"
-                    type="email"
-                    placeholder="Enter contact email"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    error={error.email}
-                    icon={MdEmail}
-                  />
-
-                  <InputField
-                    label="Organization Name"
-                    id="company"
-                    type="text"
-                    placeholder="Enter company name"
-                    value={formData.company}
-                    onChange={(e) =>
-                      setFormData({ ...formData, company: e.target.value })
-                    }
-                    error={error.company}
-                    icon={MdBusinessCenter}
-                  />
-
-                  <InputField
-                    label="Job Category"
-                    id="jobCategory"
-                    type="text"
-                    placeholder="Enter job category"
-                    value={formData.job_category}
-                    onChange={(e) =>
-                      setFormData({ ...formData, job_category: e.target.value })
-                    }
-                    error={error.job_category}
-                    icon={MdCategory}
-                  />
-
-                  <InputField
-                    label="Experience Required"
-                    id="jobExperience"
-                    type="text"
-                    placeholder="Enter required experience"
-                    value={formData.job_experience}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        job_experience: e.target.value,
-                      })
-                    }
-                    error={error.job_experience}
-                    icon={BsBriefcase}
-                  />
-
-                  <InputField
-                    label="Number of Vacancies"
-                    id="jobVacancy"
-                    type="number"
-                    placeholder="Enter number of positions"
-                    value={formData.job_vacancy}
-                    onChange={(e) =>
-                      setFormData({ ...formData, job_vacancy: e.target.value })
-                    }
-                    error={error.job_vacancy}
-                    icon={BsPeople}
-                  />
-
-                  <InputField
-                    label="Application Deadline"
-                    id="jobDeadline"
-                    type="date"
-                    min={currentDate}
-                    value={formData.job_deadline}
-                    onChange={(e) =>
-                      setFormData({ ...formData, job_deadline: e.target.value })
-                    }
-                    error={error.job_deadline}
-                    icon={BsCalendar}
-                  />
-                </div>
-
-                <motion.div variants={fadeInUp} className="w-full mb-6">
-                  <label
-                    htmlFor="jobType"
-                    className="block mb-2 text-sm font-medium text-gray-900"
-                  >
-                    Job Type
-                  </label>
-                  <Select
-                    id="jobType"
-                    options={options}
-                    onChange={(e) =>
-                      setFormData({ ...formData, job_type: e.value })
-                    }
-                    placeholder="Select job type"
-                    className="mt-1"
-                    styles={{
-                      control: (base) => ({
-                        ...base,
-                        borderColor: error.job_type ? "#ef4444" : "#d1d5db",
-                        "&:hover": {
-                          borderColor: "#6366f1",
-                        },
-                      }),
-                    }}
-                  />
-                  {error.job_type && (
-                    <p className="mt-2 text-sm text-red-600">
-                      {error.job_type}
-                    </p>
-                  )}
-                </motion.div>
-
-                <motion.div variants={fadeInUp} className="w-full mb-6">
-                  <label
-                    htmlFor="description"
-                    className="block mb-2 text-sm font-medium text-gray-900"
-                  >
-                    Job Description
-                  </label>
-                  <textarea
-                    id="description"
-                    rows="4"
-                    value={formData.description}
-                    onChange={(e) =>
-                      setFormData({ ...formData, description: e.target.value })
-                    }
-                    className={`bg-gray-50 border ${
-                      error.description ? "border-red-500" : "border-gray-300"
-                    } text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5`}
-                    placeholder="Enter detailed job description"
-                  />
-                  {error.description && (
-                    <p className="mt-2 text-sm text-red-600">
-                      {error.description}
-                    </p>
-                  )}
-                </motion.div>
-
-                <motion.div variants={fadeInUp} className="flex justify-end">
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    type="submit"
-                    className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
-                  >
-                    Post Job
-                  </motion.button>
-                </motion.div>
-              </form>
-            </motion.div>
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <NavBar />
+      <div className="pt-20 pb-8">
+        {/* Hero Section */}
+        <div className="bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-3xl font-bold text-center">Post a New Job</h1>
+            <p className="mt-2 text-center text-indigo-100">
+              Fill in the details below to create your job listing
+            </p>
           </div>
-        </motion.div>
+        </div>
+
+        {/* Main Form */}
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
+          <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <InputField
+                  label="Job Title"
+                  id="title"
+                  type="text"
+                  placeholder="Enter job title"
+                  value={formData.title}
+                  onChange={(e) =>
+                    setFormData({ ...formData, title: e.target.value })
+                  }
+                  error={error.title}
+                  icon={BsBriefcase}
+                />
+
+                <InputField
+                  label="Salary"
+                  id="salary"
+                  type="number"
+                  placeholder="Enter salary amount"
+                  value={formData.salary}
+                  onChange={(e) =>
+                    setFormData({ ...formData, salary: e.target.value })
+                  }
+                  error={error.salary}
+                  icon={BsCurrencyDollar}
+                />
+
+                <InputField
+                  label="Email"
+                  id="email"
+                  type="email"
+                  placeholder="Enter contact email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  error={error.email}
+                  icon={MdEmail}
+                />
+
+                <InputField
+                  label="Organization Name"
+                  id="company"
+                  type="text"
+                  placeholder="Enter company name"
+                  value={formData.company}
+                  onChange={(e) =>
+                    setFormData({ ...formData, company: e.target.value })
+                  }
+                  error={error.company}
+                  icon={MdBusinessCenter}
+                />
+
+                <InputField
+                  label="Job Category"
+                  id="jobCategory"
+                  type="text"
+                  placeholder="Enter job category"
+                  value={formData.job_category}
+                  onChange={(e) =>
+                    setFormData({ ...formData, job_category: e.target.value })
+                  }
+                  error={error.job_category}
+                  icon={MdCategory}
+                />
+
+                <InputField
+                  label="Experience Required"
+                  id="jobExperience"
+                  type="text"
+                  placeholder="Enter required experience"
+                  value={formData.job_experience}
+                  onChange={(e) =>
+                    setFormData({ ...formData, job_experience: e.target.value })
+                  }
+                  error={error.job_experience}
+                  icon={BsBriefcase}
+                />
+
+                <InputField
+                  label="Number of Vacancies"
+                  id="jobVacancy"
+                  type="number"
+                  placeholder="Enter number of positions"
+                  value={formData.job_vacancy}
+                  onChange={(e) =>
+                    setFormData({ ...formData, job_vacancy: e.target.value })
+                  }
+                  error={error.job_vacancy}
+                  icon={BsPeople}
+                />
+
+                <InputField
+                  label="Application Deadline"
+                  id="jobDeadline"
+                  type="date"
+                  min={currentDate}
+                  value={formData.job_deadline}
+                  onChange={(e) =>
+                    setFormData({ ...formData, job_deadline: e.target.value })
+                  }
+                  error={error.job_deadline}
+                  icon={BsCalendar}
+                />
+              </div>
+
+              <div className="w-full mb-6">
+                <label
+                  htmlFor="jobType"
+                  className="block mb-2 text-sm font-medium text-gray-900"
+                >
+                  Job Type
+                </label>
+                <Select
+                  id="jobType"
+                  options={options}
+                  onChange={(e) =>
+                    setFormData({ ...formData, job_type: e.value })
+                  }
+                  placeholder="Select job type"
+                  className="mt-1"
+                  styles={{
+                    control: (base) => ({
+                      ...base,
+                      borderColor: error.job_type ? "#ef4444" : "#d1d5db",
+                      "&:hover": {
+                        borderColor: "#6366f1",
+                      },
+                    }),
+                  }}
+                />
+                {error.job_type && (
+                  <p className="mt-2 text-sm text-red-600">{error.job_type}</p>
+                )}
+              </div>
+
+              <div className="w-full mb-6">
+                <label
+                  htmlFor="description"
+                  className="block mb-2 text-sm font-medium text-gray-900"
+                >
+                  Job Description
+                </label>
+                <textarea
+                  id="description"
+                  rows="4"
+                  value={formData.description}
+                  onChange={(e) =>
+                    setFormData({ ...formData, description: e.target.value })
+                  }
+                  className={`bg-gray-50 border ${
+                    error.description ? "border-red-500" : "border-gray-300"
+                  } text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5`}
+                  placeholder="Enter detailed job description"
+                />
+                {error.description && (
+                  <p className="mt-2 text-sm text-red-600">
+                    {error.description}
+                  </p>
+                )}
+              </div>
+
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+                >
+                  Post Job
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
       <ToastContainer />
-    </AnimatePresence>
+    </div>
   );
 }
