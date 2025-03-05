@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion"; // Import framer-motion for animations
 import Footer from "./../components/footer";
 // Import images
+import demo1 from "./../assets/videos/demo1.mp4";
 import MissionImg from "./../assets/images/ServiceImg2.png";
 import VisionImg from "./../assets/images/achievment.jpg";
 // /src/assets/images/achievment.jpg
@@ -82,7 +83,7 @@ const AboutUs = () => {
           <video
             className="w-full rounded-lg shadow-xl"
             controls
-            src="/src/assets/videos/demo1.mp4"
+            src={demo1}
           >
             Your browser does not support the video tag.
           </video>
