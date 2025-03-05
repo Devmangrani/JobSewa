@@ -246,7 +246,7 @@ const BlogPost = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-black text-white pt-2">
         <Navbar />
         <div className="container mx-auto px-4 py-16 text-center">
           <h1 className="text-3xl font-bold mb-4">Blog Post Not Found</h1>
@@ -262,7 +262,7 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white pt-2">
       <Navbar />
       <motion.article
         initial={{ opacity: 0, y: 20 }}
