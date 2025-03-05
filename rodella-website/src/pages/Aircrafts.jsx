@@ -24,13 +24,11 @@ const Aircrafts = () => {
         <div>
             <section className="lg:h-screen relative pt-2">
             <Navbar />
-                <img src={AirCraftData[currentImageIndex].url} className="absolute top-0 left-0 w-full h-full -z-50 object-cover brightness-50"></img>
+                <img src={AirCraftData[currentImageIndex].url} className="absolute top-0 left-0 w-full h-full -z-50 object-cover brightness-30"></img>
                 <div className="flex flex-col lg:h-full pr-50 pl-50 justify-between pb-30">
-                    <h1 className="text-9xl bg-gradient-to-b text-white bg-clip-text text-center lg:mt-30 font-bold lg:h-1/2">
+                    <h1 className="text-9xl bg-gradient-to-b text-white bg-clip-text text-center lg:mt-20 font-bold lg:h-1/2">
                         Let's fly higher</h1>
-                    <p className="text-xl text-center text-neutral-300 text-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Ipsam fugiat est maiores! Aut molestiae amet nisi omnis, accusantium placeat blanditiis sunt perferendis adipisci temporibus,
-                    </p>
+                   
                     <Link to={`/aircrafts/${AirCraftData[currentImageIndex].id}`} 
                     className="flex justify-center">
                     <p className="text-3xl text-center text-black bg-neutral-400 px-8 py-3 rounded-full opacity-70 flex flex-row items-center">
@@ -38,6 +36,9 @@ const Aircrafts = () => {
                         <ArrowRightIcon className="h-8 w-8 ml-2" />
                         </p>
                     </Link>
+                    <p className="text-xl text-center text-neutral-300 text-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ipsam fugiat est maiores!
+                    </p>
                     <div className="grid grid-cols-4 gap-4 divide-x divide-neutral-300">
                         <div className="text-center flex flex-col">
                             <p className="text-white font-bold text-center text-2xl mb-5">{AirCraftData[currentImageIndex].flightTime}</p>
