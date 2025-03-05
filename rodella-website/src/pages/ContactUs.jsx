@@ -83,13 +83,34 @@ const ContactUs = () => {
               />
               <motion.button
                 type="submit"
-                className=" bg-black text-white py-2 rounded-md mt-4 w-full"
+                className=" bg-black text-white py-2 rounded-md mt-4 w-full cursor-pointer"
                 style={{ height: "48px" }}
               >
                 Submit
               </motion.button>
             </form>
           </div>
+
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+            <p className="text-gray-300 text-2xl font-Gilroy mb-2">
+              Love what we do?
+            </p>
+
+            <div className="flex items-center justify-center mb-2">
+              <p className="text-gray-300 text-lg">You can join our Patreon community and support us!</p>
+            </div>
+            <div className="flex items-center justify-center mb-4">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-black hover:bg-neutral-600 text-white py-2 px-6 rounded-full transition-colors duration-400"
+              >
+                Support Us on Patreon
+              </a>
+            </div>
+          </div>
+
 
           {/* Contact Details */}
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
@@ -98,11 +119,11 @@ const ContactUs = () => {
             </p>
 
             <div className="flex items-center justify-center mb-2">
-              <FaPhone className="text-blue-500 mr-2 text-xl" />
+              <FaPhone className="text-neutral-300 mr-2 text-xl" />
               <p className="text-gray-300 text-lg font-Gilroy">063808 97553</p>
             </div>
             <div className="flex items-center justify-center mb-4">
-              <FaEnvelope className="text-blue-500 mr-2 text-xl" />
+              <FaEnvelope className="text-neutral-300 mr-2 text-xl" />
               <p className="text-gray-300 text-lg font-Gilroy">
                 support@rodella.com
               </p>
