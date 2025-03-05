@@ -10,7 +10,7 @@ const Homepage = () => {
     <div >
       <section className="h-screen relative pt-2">
       <Navbar />
-        <video className="absolute top-0 left-0 w-full h-full object-cover brightness-35 -z-50"
+        <video className="absolute top-0 left-0 w-full h-full object-cover brightness-30 -z-50"
           src={HomePageVideo}
           muted
           autoPlay
@@ -23,12 +23,12 @@ const Homepage = () => {
               <h1 className="text-4xl sm:text-6xl lg:text-9xl tracking-wide text-white ">
                rodella
               </h1>
-              <h2 className="text-4xl sm:text-6xl lg:text-5xl tracking-wide text-white font-semibold mt-5">
+              <h2 className="text-4xl sm:text-6xl lg:text-5xl tracking-wide text-white mt-5">
               AEROSPACE LABS
               </h2>
               
               <p className="mt-10 text-2xl text-white max-w-4xl ">
-                DELIVERING SUPREME  BEYOND THE CALL OF DUTY
+                DELIVERING SUPREME BEYOND THE CALL OF DUTY
                 
               </p>
               <div className="flex my-3 flex-col items-center">
