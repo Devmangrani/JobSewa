@@ -93,7 +93,7 @@ const blogPosts = [
 
 const Blog = () => {
   return (
-    <section className="bg-black text-white min-h-screen">
+    <section className="bg-black text-white min-h-screen pt-2">
       <Navbar />
 
       {/* Page Header */}
