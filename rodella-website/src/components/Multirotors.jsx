@@ -117,13 +117,13 @@ const Multirotor = () => {
                                     <p className="text-neutral-300 text-xl mr-30">{product.TechnicalDetails11}</p>
                                 </div>
                             </div>
-                            <img src={MQ650LVpic2} className="h-120 w-170 rounded-2xl"></img>
+                            <img src={product.img} className="h-120 w-170 rounded-2xl"></img>
                         </div>
 
                         <h3 className=" pt-30 text-white text-5xl ml-15">Features</h3>
                         <div className="w-55 h-[2px] bg-neutral-400 ml-15 mt-2"></div>
                         <div className="flex flex-row p-10">
-                            <img src={MQ650LVpic3} className="h-120 w-170 rounded-2xl"></img>
+                            <img src={product.img} className="h-120 w-170 rounded-2xl"></img>
                             <div className="flex flex-col">
 
                                 <div className="flex flex-row items-center ml-30">
