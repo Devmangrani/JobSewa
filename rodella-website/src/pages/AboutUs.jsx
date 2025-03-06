@@ -42,51 +42,65 @@ const leadershipTeam = [
 
 const AboutUs = () => {
   return (
-    <section className="bg-black text-white pt-2">
+    <section className="bg-black text-white min-h-screen">
       <Navbar />
       {/* Page Header */}
-      <div className="text-center py-12">
-        <h1 className="text-4xl font-bold text-white">About Us</h1>
-      </div>
-
-      {/* Leadership Team Section */}
-      <div className="text-center py-12 px-50">
-        <h2 className="text-4xl font-bold text-white">
-          Meet Our Leadership Team
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
-          {leadershipTeam.map((member, index) => (
-            <motion.div
-              key={index}
-              className="bg-gray-800 p-6 rounded-lg shadow-lg"
-              initial={{ opacity: 0, scale: 0.8 }} // Initial state for animation
-              animate={{ opacity: 1, scale: 1 }} // Animate to this state
-              transition={{ duration: 0.5, delay: index * 0.2 }} // Delay for staggered effect
-            >
-              <img
-                src={member.img}
-                alt={member.name}
-                className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white"
-              />
-              <h3 className="text-xl font-semibold">{member.name}</h3>
-              <p className="text-gray-300">{member.title}</p>
-              <p className="mt-2 text-gray-400">{member.description}</p>
-            </motion.div>
-          ))}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center py-8 sm:py-12">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+            About Us
+          </h1>
         </div>
-      </div>
 
-      {/* Video Section */}
-      <div className="flex flex-col items-center justify-center py-16 ">
-        <h2 className="text-4xl font-bold text-white mb-8">Meet Our Team</h2>
-        <div className="w-full max-w-4xl mx-auto px-4">
-          <video
-            className="w-full rounded-lg shadow-xl"
-            controls
-            src={demo1}
-          >
-            Your browser does not support the video tag
-          </video>
+        {/* Leadership Team Section */}
+        <div className="text-center py-8 sm:py-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-8">
+            Meet Our Leadership Team
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+            {leadershipTeam.map((member, index) => (
+              <motion.div
+                key={index}
+                className="bg-gray-800 p-4 sm:p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+              >
+                <div className="aspect-square w-24 sm:w-32 mx-auto mb-4">
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full rounded-full object-cover border-4 border-white"
+                  />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold">
+                  {member.name}
+                </h3>
+                <p className="text-gray-300">{member.title}</p>
+                <p className="mt-2 text-gray-400 text-sm sm:text-base">
+                  {member.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Video Section */}
+        <div className="py-8 sm:py-12 lg:py-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center mb-6 sm:mb-8">
+            Meet Our Team
+          </h2>
+          <div className="w-full max-w-4xl mx-auto px-4">
+            <div className="aspect-w-16 aspect-h-9">
+              <video
+                className="w-full h-full rounded-lg shadow-xl object-cover"
+                controls
+                src={demo1}
+              >
+                Your browser does not support the video tag
+              </video>
+            </div>
+          </div>
         </div>
       </div>
     </section>
