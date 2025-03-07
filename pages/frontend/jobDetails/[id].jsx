@@ -2,12 +2,8 @@ import NavBar from "@/components/NavBar";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { GoLocation } from "react-icons/go";
-import { MdCategory, MdEmail, MdBusinessCenter } from "react-icons/md";
-import {
-  BsBriefcaseFill,
-  BsFillBookmarkCheckFill,
-  BsClock,
-} from "react-icons/bs";
+import { MdCategory, MdEmail } from "react-icons/md";
+import { BsBriefcaseFill, BsFillBookmarkCheckFill } from "react-icons/bs";
 import { AiOutlineArrowRight, AiOutlineDollarCircle } from "react-icons/ai";
 import { RiUserSearchFill } from "react-icons/ri";
 import { BsFillCalendar2DateFill } from "react-icons/bs";
@@ -19,35 +15,9 @@ import { setMatchingJobData } from "@/Utils/JobSlice";
 import { get_specified_job } from "@/Services/job";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { motion, AnimatePresence } from "framer-motion";
+import { InfinitySpin } from "react-loader-spinner";
+import useSWR from "swr";
 import { book_mark_job } from "@/Services/job/bookmark";
-import Cookies from "js-cookie";
-import Link from "next/link";
-
-function NotificationBar() {
-  return (
-    <motion.div
-      initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: 100, opacity: 0 }}
-      className="fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-5 px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-500 text-white rounded-lg shadow-xl transition-all duration-500 z-50"
-    >
-      <span className="font-medium">To view job details, please Login. </span>
-      <Link
-        href="/auth/login"
-        className="text-white underline ml-2 font-semibold hover:text-blue-200 transition-colors"
-      >
-        Login Now
-      </Link>
-    </motion.div>
-  );
-}
-
-const fadeInUp = {
-  initial: { y: 20, opacity: 0 },
-  animate: { y: 0, opacity: 1 },
-  exit: { y: -20, opacity: 0 },
-};
 
 export default function JobDetails() {
   const router = useRouter();
@@ -57,38 +27,16 @@ export default function JobDetails() {
   const machingData = useSelector((state) => state?.Job?.matchingData);
   const user = useSelector((state) => state?.User?.userData);
   const [JobDetails, setJobDetails] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [showNotification, setShowNotification] = useState(false);
+
+  const { data, error, isLoading } = useSWR(`/get-specified-job`, () =>
+    get_specified_job(id)
+  );
 
   useEffect(() => {
-    const fetchJobDetails = async () => {
-      if (!id) return;
-      try {
-        const response = await get_specified_job(id);
-        if (response.success) {
-          setJobDetails(response.data);
-        } else {
-          toast.error(response.message);
-        }
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching job details:", error);
-        toast.error("Failed to fetch job details");
-        setLoading(false);
-      }
-    };
+    if (data) setJobDetails(data?.data);
+  }, [data]);
 
-    fetchJobDetails();
-  }, [id]);
-
-  useEffect(() => {
-    if (!user?._id || !Cookies.get("token")) {
-      setShowNotification(true);
-      setTimeout(() => {
-        router.push("/auth/login");
-      }, 4500);
-    }
-  }, [user, router]);
+  if (error) toast.error(error);
 
   useEffect(() => {
     if (JobDetails) {
@@ -119,275 +67,259 @@ export default function JobDetails() {
     }
   };
 
-  if (loading) {
-    return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="bg-gray-50 w-full h-screen flex items-center flex-col justify-center"
-      >
-        <div className="relative w-24 h-24">
-          <div className="absolute top-0 left-0 w-full h-full border-8 border-indigo-200 rounded-full animate-pulse"></div>
-          <div className="absolute top-0 left-0 w-full h-full border-t-8 border-indigo-600 rounded-full animate-spin"></div>
-        </div>
-        <p className="text-sm font-medium text-gray-600 mt-6 animate-pulse">
-          Loading job details...
-        </p>
-      </motion.div>
-    );
-  }
-
-  if (showNotification) {
-    return (
-      <AnimatePresence>
-        <NavBar />
-        <motion.div
-          variants={fadeInUp}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          className="min-h-screen bg-gray-50 py-20"
-        >
-          <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8 mt-20">
-            <div className="flex items-center space-x-4 mb-6">
-              <div className="p-3 bg-indigo-100 rounded-full">
-                <MdBusinessCenter className="text-2xl text-indigo-600" />
-              </div>
-              <h1 className="text-2xl font-bold text-gray-800">
-                {JobDetails?.title}
-              </h1>
-            </div>
-            <div className="space-y-4 text-gray-600 mb-8">
-              <div className="flex items-center space-x-2">
-                <BsBriefcaseFill className="text-indigo-500" />
-                <p>Company: {JobDetails?.company}</p>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MdCategory className="text-indigo-500" />
-                <p>Category: {JobDetails?.job_category}</p>
-              </div>
-            </div>
-            <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-100">
-              <p className="text-center text-gray-700 font-medium">
-                Please login to view complete job details and apply
-              </p>
-              <Link href="/auth/login">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="mt-4 w-full py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
-                >
-                  Login to Continue
-                </motion.button>
-              </Link>
-            </div>
-          </div>
-        </motion.div>
-        <NotificationBar />
-      </AnimatePresence>
-    );
-  }
-
   return (
-    <AnimatePresence>
-      <ToastContainer />
-      <NavBar />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="min-h-screen bg-gray-50 pt-20"
-      >
-        {/* Hero Section */}
-        <motion.div
-          variants={fadeInUp}
-          className="w-full bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-16"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-bold text-center">Job Details</h1>
-            <p className="text-center mt-2 text-indigo-100">
-              Find your dream opportunity
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Main Content */}
-        <motion.div
-          variants={fadeInUp}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10"
-        >
-          {/* Job Card */}
-          <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-8">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
-              <div className="flex items-center mb-4 md:mb-0">
-                <div className="relative">
+    <>
+      {isLoading ? (
+        <div className="bg-gray w-full h-screen flex items-center flex-col justify-center">
+          <InfinitySpin width="200" color="#4f46e5" />
+          <p className="text-xs uppercase">Loading Resources Hold Tight...</p>
+        </div>
+      ) : (
+        <>
+          <ToastContainer />
+          <NavBar />
+          <div className="w-full  py-20 flex items-center md:px-8 px-2  justify-center flex-col  ">
+            <div className="w-full h-40 bg-gray-50 text-sky-700 font-bold flex items-center justify-center flex-col">
+              <h1 className="text-3xl">Job Details</h1>
+            </div>
+            <div className="flex items-center  justify-center w-full py-10">
+              <div className="flex w-full px-8 md:px-20 items-start md:flex-row flex-col md:justify-between justify-center">
+                <div className="flex mb-1 items-center justify-center">
                   <Image
                     src={
                       JobDetails?.user?.image ||
                       "https://xsgames.co/randomusers/avatar.php?g=male"
                     }
-                    alt="company logo"
-                    width={80}
-                    height={80}
-                    className="rounded-lg object-cover"
+                    alt="no-image"
+                    className="rounded-full mb-2"
+                    width={100}
+                    height={100}
                   />
-                  <div className="absolute -bottom-2 -right-2 bg-green-500 w-4 h-4 rounded-full border-2 border-white"></div>
+                  <div className="px-4 mx-2 flex flex-col items-start justify-center">
+                    <p className="font-semibold text-base mb-1">
+                      {JobDetails?.title}{" "}
+                    </p>
+                    <p className=" text-sm text-gray-800 mb-1">
+                      {JobDetails?.company}
+                    </p>
+                  </div>
                 </div>
-                <div className="ml-4">
-                  <h2 className="text-xl font-bold text-gray-900">
-                    {JobDetails?.title}
-                  </h2>
-                  <p className="text-gray-600">{JobDetails?.company}</p>
+                <div className="md:px-4 mb-1 px-2 md:mx-2 flex flex-col items-start justify-center">
+                  <div className="flex items-center justify-center mb-1">
+                    <FaUserAstronaut className="text-xs font-semibold text-sky-700" />
+                    <p className="font-semibold text-base mx-1  w-20">
+                      Job Poster{" "}
+                    </p>
+                    <p className=" text-sm text-gray-800 mx-1">
+                      {JobDetails?.user?.name}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-center mb-1">
+                    <MdEmail className="text-xs font-semibold text-sky-700" />
+                    <p className="font-semibold text-base mx-1  w-20">Email </p>
+                    <p className=" text-sm text-gray-800 mx-1">
+                      {JobDetails?.user?.email}
+                    </p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={handleBookMark}
-                  className="flex items-center justify-center px-4 py-2 border border-indigo-200 rounded-lg text-indigo-600 hover:bg-indigo-50 transition-colors"
-                >
-                  <BsFillBookmarkCheckFill className="mr-2" />
-                  Save Job
-                </motion.button>
-                {JobDetails?.user?.email === user?.email ? (
-                  <p className="text-red-500 text-sm font-medium">
-                    Unable to apply to your own jobs
-                  </p>
-                ) : (
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={handleApply}
-                    className="px-6 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
-                  >
-                    Apply Now
-                  </motion.button>
-                )}
+                <div className="md:px-4 mb-1 px-2 md:mx-2 flex flex-col items-start justify-center">
+                  <div className="flex items-center justify-center mb-1">
+                    <GoLocation className="text-xs font-semibold text-sky-700" />
+                    <p className="font-semibold text-base mx-1  w-20">
+                      Location{" "}
+                    </p>
+                    <p className=" text-sm text-gray-800 mx-1">Bhopal</p>
+                  </div>
+                  <div className="flex items-center justify-center mb-1">
+                    <MdCategory className="text-xs font-semibold text-sky-700" />
+                    <p className="font-semibold text-base mx-1  w-20">
+                      Category{" "}
+                    </p>
+                    <p className=" text-sm text-gray-800 mx-1 ">
+                      {JobDetails?.job_category}
+                    </p>
+                  </div>
+                </div>
+                <div className="md:px-4 mb-1 px-2 md:mx-2 flex flex-col items-start justify-center">
+                  <div className="flex items-center justify-center mb-1">
+                    <BsBriefcaseFill className="text-xs font-semibold text-sky-700" />
+                    <p className="font-semibold text-base mx-1 w-20">
+                      Job Type{" "}
+                    </p>
+                    <p className="text-sm text-gray-800 mx-1 capitalize">
+                      {JobDetails?.job_type}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-center mb-1">
+                    <AiOutlineDollarCircle className="text-xs font-semibold text-sky-700" />
+                    <p className="font-semibold text-base mx-1  w-20">
+                      Salary{" "}
+                    </p>
+                    <p className=" text-sm text-gray-800 mx-1">
+                      ₹ {JobDetails?.salary}{" "}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center">
+                  {JobDetails?.user?.email === user?.email ? (
+                    <p className="text-xs text-red-500">
+                      unable Apply to your Own jobs
+                    </p>
+                  ) : (
+                    <div className="flex items-center justify-center  ">
+                      <BsFillBookmarkCheckFill
+                        onClick={handleBookMark}
+                        className="text-sky-700 text-4xl cursor-pointer  mx-2"
+                      />
+                      <button
+                        onClick={handleApply}
+                        className="md:px-6 md:py-3 px-3 py-2 mt-2 md:mt-0 bg-indigo-500 rounded text-base tracking-widest uppercase transition-all duration-700 hover:bg-indigo-900 text-white  "
+                      >
+                        Apply Position
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-
-            {/* Job Details Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-              <div className="flex items-center p-4 bg-gray-50 rounded-lg">
-                <GoLocation className="text-xl text-indigo-600" />
-                <div className="ml-3">
-                  <p className="text-sm text-gray-500">Location</p>
-                  <p className="font-medium">Bhopal</p>
-                </div>
+            <div className="w-full md:px-4 py-2 flex items-center md:items-start md:flex-row flex-col justify-start md:justify-center">
+              <div className="md:w-8/12 w-full md:px-4 py-8 flex flex-col items-center content-start justify-center ">
+                <h1 className="text-center lg:text-2xl font-semibold text-xl mb-4 uppercase border-b-2 border-sky-700 py-2">
+                  Job Description
+                </h1>
+                <p className="px-4">{JobDetails?.description}</p>
               </div>
-
-              <div className="flex items-center p-4 bg-gray-50 rounded-lg">
-                <MdCategory className="text-xl text-indigo-600" />
-                <div className="ml-3">
-                  <p className="text-sm text-gray-500">Category</p>
-                  <p className="font-medium">{JobDetails?.job_category}</p>
+              <div className="md:w-4/12 w-full py-8 px-4 md:px-10">
+                <h1 className=" text-2xl font-semibold mb-2">Job Summary</h1>
+                <div className="flex items-center justify-start mb-3">
+                  <RiUserSearchFill className="text-base font-semibold text-sky-700" />
+                  <p className="font-semibold text-base mx-1  w-40">
+                    Total Vacancies{" "}
+                  </p>
+                  <p className=" text-sm text-gray-800 mx-1">
+                    {JobDetails?.job_vacancy}
+                  </p>
                 </div>
-              </div>
-
-              <div className="flex items-center p-4 bg-gray-50 rounded-lg">
-                <BsBriefcaseFill className="text-xl text-indigo-600" />
-                <div className="ml-3">
-                  <p className="text-sm text-gray-500">Job Type</p>
-                  <p className="font-medium capitalize">
-                    {JobDetails?.job_type}
+                <div className="flex items-center justify-start mb-3">
+                  <BsFillCalendar2DateFill className="text-base font-semibold text-sky-700" />
+                  <p className="font-semibold text-base mx-1 w-40">Dead Line</p>
+                  <p className=" text-sm text-gray-800 mx-1">
+                    {new Date(`${JobDetails?.job_deadline}`).toLocaleDateString(
+                      "en-GB"
+                    )}
+                  </p>
+                </div>
+                <div className="flex items-center justify-start mb-3">
+                  <HiOutlineStar className="text-base font-semibold text-sky-700" />
+                  <p className="font-semibold text-base mx-1 w-40">
+                    Experience Required
+                  </p>
+                  <p className=" text-sm text-gray-800 mx-1">
+                    {JobDetails?.job_experience}
                   </p>
                 </div>
               </div>
+            </div>
+            <div className="w-full px-2 md:px-8 mb-2 flex flex-col">
+              <h1 className="text-xl font-semibold lg:text-2xl w-36">
+                Related Jobs
+              </h1>
+              <div className="md:px-8 px-2 md:mx-4 flex flex-wrap items-center justify-center">
+                {/* card */}
 
-              <div className="flex items-center p-4 bg-gray-50 rounded-lg">
-                <AiOutlineDollarCircle className="text-xl text-indigo-600" />
-                <div className="ml-3">
-                  <p className="text-sm text-gray-500">Salary</p>
-                  <p className="font-medium">₹ {JobDetails?.salary}</p>
-                </div>
-              </div>
-
-              <div className="flex items-center p-4 bg-gray-50 rounded-lg">
-                <FaUserAstronaut className="text-xl text-indigo-600" />
-                <div className="ml-3">
-                  <p className="text-sm text-gray-500">Posted By</p>
-                  <p className="font-medium">{JobDetails?.user?.name}</p>
-                </div>
-              </div>
-
-              <div className="flex items-center p-4 bg-gray-50 rounded-lg">
-                <MdEmail className="text-xl text-indigo-600" />
-                <div className="ml-3">
-                  <p className="text-sm text-gray-500">Contact Email</p>
-                  <p className="font-medium">{JobDetails?.user?.email}</p>
-                </div>
+                {machingData?.length === 0 ? (
+                  <>
+                    <div className="md:w-96 w-full py-3 mx-4 my-2 flex items-center md:items-start px-6 justify-start md:justify-center flex-col rounded bg-gray-50">
+                      <p className="text-xs font-semibold text-red-600 uppercase">
+                        No Other similar Jobs Available ...
+                      </p>
+                    </div>
+                  </>
+                ) : (
+                  machingData?.map((item) => {
+                    return (
+                      <div
+                        key={item?._id}
+                        className="md:w-96 w-full py-3 mx-4 my-2 flex items-center md:items-start px-6 justify-start md:justify-center flex-col rounded bg-gray-50"
+                      >
+                        <div className="mb-4 flex px-4 flex-col md:flex-row items-center justify-start py-2 ">
+                          <Image
+                            width={70}
+                            height={70}
+                            className="flex rounded-full mb-4 md:mb-0"
+                            src={
+                              JobDetails?.user?.image ||
+                              "https://xsgames.co/randomusers/avatar.php?g=male"
+                            }
+                            alt="no image"
+                          />
+                          <div className="flex flex-col w-full mx-2 px-2">
+                            <h1 className="text-base md:text-left text-center  md:text-2xl font-semibold">
+                              {item?.title}
+                            </h1>
+                            <p className="text-xs md:text-left text-center sm:text-sm md:text-base text-gray-800">
+                              {item?.company}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex flex-col px-1 md:px-4 py-6 items-start justify-center">
+                          <div className="flex px-1 md:px-4 items-center justify-start mb-2">
+                            <BsBriefcaseFill className="text-base font-semibold text-sky-700" />
+                            <p className="font-semibold text-xs md:text-base mx-1 w-28">
+                              Job Type{" "}
+                            </p>
+                            <p className="text-sm text-gray-800 mx-1 capitalize">
+                              {item?.job_type}
+                            </p>
+                          </div>
+                          <div className="flex px-1 md:px-4 items-center justify-center mb-2">
+                            <AiOutlineDollarCircle className="text-base font-semibold text-sky-700" />
+                            <p className="font-semibold text-xs md:text-base mx-1 w-28">
+                              Salary{" "}
+                            </p>
+                            <p className=" text-sm text-gray-800 mx-1">
+                              {item?.salary}
+                            </p>
+                          </div>
+                          <div className="flex px-1 md:px-4 items-center justify-center mb-2">
+                            <RiUserSearchFill className="text-base font-semibold text-sky-700" />
+                            <p className="font-semibold text-xs md:text-base mx-1 w-28">
+                              Total Vacancies{" "}
+                            </p>
+                            <p className=" text-sm text-gray-800 mx-1">
+                              {item?.job_vacancy}
+                            </p>
+                          </div>
+                          <div className="flex px-1 md:px-4 items-center justify-center mb-2">
+                            <BsFillCalendar2DateFill className="text-base font-semibold text-sky-700" />
+                            <p className="font-semibold text-xs md:text-base mx-1 w-28">
+                              Dead Line
+                            </p>
+                            <p className=" text-xs text-gray-800 mx-1">
+                              {new Date(
+                                `${item?.job_deadline}`
+                              ).toLocaleDateString("en-GB")}
+                            </p>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() =>
+                            router.push(`/frontend/jobDetails/${item?._id}`)
+                          }
+                          className="mx-6 my-2 py-2 px-4  border border-sky-700 uppercase  rounded flex items-center justify-center transition-all duration-700 hover:bg-indigo-600 hover:text-white text-sky-700 font-semibold"
+                        >
+                          View Detail
+                          <AiOutlineArrowRight className="mx-2 text-xl" />
+                        </button>
+                      </div>
+                    );
+                  })
+                )}
               </div>
             </div>
           </div>
-
-          {/* Job Description */}
-          <motion.div
-            variants={fadeInUp}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12"
-          >
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-200">
-                  Job Description
-                </h3>
-                <div className="prose max-w-none">
-                  <p className="text-gray-600 leading-relaxed whitespace-pre-wrap">
-                    {JobDetails?.description}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-1">
-              <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-200">
-                  Job Summary
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <RiUserSearchFill className="text-indigo-600 mr-3" />
-                    <div>
-                      <p className="text-sm text-gray-500">Experience Level</p>
-                      <p className="font-medium">2-3 Years</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <BsClock className="text-indigo-600 mr-3" />
-                    <div>
-                      <p className="text-sm text-gray-500">Job Type</p>
-                      <p className="font-medium capitalize">
-                        {JobDetails?.job_type}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <AiOutlineDollarCircle className="text-indigo-600 mr-3" />
-                    <div>
-                      <p className="text-sm text-gray-500">Salary Range</p>
-                      <p className="font-medium">₹ {JobDetails?.salary}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {JobDetails?.user?.email !== user?.email && (
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={handleApply}
-                    className="w-full mt-6 px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors flex items-center justify-center"
-                  >
-                    Apply Now
-                    <AiOutlineArrowRight className="ml-2" />
-                  </motion.button>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
+        </>
+      )}
+    </>
   );
 }

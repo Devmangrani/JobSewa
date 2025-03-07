@@ -1,88 +1,73 @@
 import React from "react";
 import Image from "next/image";
-import { BsDot, BsBriefcase, BsCalendarDate } from "react-icons/bs";
+import { BsDot } from "react-icons/bs";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useRouter } from "next/router";
-import { motion } from "framer-motion";
 
 export default function JobsCard({ job, posted }) {
   const router = useRouter();
-
   return (
-    <motion.div
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+    <div
       key={job._id}
-      className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 w-full max-w-sm mx-auto"
+      className="mx-auto transition-all duration-1000 shadow-2xl p-2 rounded-md"
     >
-      <div className="relative">
-        <div className="absolute top-0 right-0 bg-indigo-100 text-indigo-800 px-3 py-1 rounded-bl-lg text-sm font-medium">
-          {job?.job_type || "Full Time"}
-        </div>
-        <div className="p-6">
-          <div className="flex items-center space-x-4">
-            <div className="relative w-16 h-16">
-              <Image
-                fill
-                className="rounded-full object-cover"
-                src={
-                  job?.user?.image ||
-                  "https://xsgames.co/randomusers/avatar.php?g=male"
-                }
-                alt="company logo"
-              />
-            </div>
-            <div>
-              <h2 className="text-xl font-semibold text-gray-800 line-clamp-1">
-                {job?.title}
-              </h2>
-              <p className="text-gray-600">{job?.company}</p>
-            </div>
-          </div>
+      <div className="mx-auto justify-center p-2 flex items-center">
+        <Image
+          width={70}
+          height={70}
+          className="rounded-full "
+          src={
+            job?.user?.image ||
+            "https://xsgames.co/randomusers/avatar.php?g=male"
+          }
+          alt="no image"
+        />
+        <div className="flex flex-col mx-2 px-2">
+          <h1 className="text-xl md:text-2xl font-semibold">
+            {job?.user?.name}
+          </h1>
+          <p className="text-xs sm:text-sm md:text-base text-gray-800">
+            {job?.company}
+          </p>
         </div>
       </div>
-
-      <div className="px-6 py-4 border-t border-gray-100">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center text-gray-700">
-            <BsBriefcase className="mr-2" />
-            <span className="font-medium">₹{job?.salary}/month</span>
-          </div>
-          <div className="flex items-center text-gray-700">
-            <BsCalendarDate className="mr-2" />
-            <span className="text-sm">
-              {new Date(`${job?.job_deadline}`).toLocaleDateString("en-GB")}
-            </span>
-          </div>
+      <div className="mb-4 flex min-w-fit items-start justify-center py-2 flex-col">
+        <div className="flex px-2 py-2 items-center justify-center ">
+          <BsDot className="text-4xl font-extrabold text-sky-700" />
+          <h1 className="text-lg text-gray-900 w-20">Salary :</h1>
+          <p className="text-base font-semibold">
+            &nbsp;&nbsp;&nbsp;₹{job?.salary}/ month
+          </p>
         </div>
-
-        <div className="flex flex-wrap gap-2 mb-4">
-          <span className="bg-indigo-50 text-indigo-700 rounded-full px-3 py-1 text-sm">
-            {job?.job_category}
-          </span>
-          <span className="bg-green-50 text-green-700 rounded-full px-3 py-1 text-sm">
-            {job?.job_experience}
-          </span>
+        <div className="flex px-2 py-2 items-center justify-center">
+          <BsDot className="text-4xl font-extrabold text-sky-700" />
+          <h1 className="text-lg text-gray-900 w-20">Deadline {":"}</h1>
+          <p className="text-base  font-semibold">
+            &nbsp;&nbsp;&nbsp;
+            {new Date(`${job?.job_deadline}`).toLocaleDateString("en-GB")}
+          </p>
         </div>
-
+      </div>
+      <div className="flex flex-col gap-5">
+        <div className="text-center min-w-max mx-auto px-6 rounded-2xl py-1 bg-indigo-200 text-indigo-900 capitalize">
+          <p>{job?.title} </p>
+        </div>
         {posted ? (
           <button
             onClick={() => router.push(`/frontend/detailPostedJob/${job?._id}`)}
-            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center justify-center space-x-2"
+            className="my-2 py-2 px-4  border border-sky-700   rounded flex items-center justify-center transition-all duration-700 hover:bg-indigo-600 hover:text-white text-sky-700 font-semibold"
           >
-            <span>View Applications</span>
-            <AiOutlineArrowRight />
+            View Applications <AiOutlineArrowRight className="mx-2 text-xl" />
           </button>
         ) : (
           <button
             onClick={() => router.push(`/frontend/jobDetails/${job?._id}`)}
-            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center justify-center space-x-2"
+            className="my-2 py-2 px-4 cursor-pointer border border-sky-700 rounded-md flex items-center justify-center transition-all duration-700 hover:bg-indigo-600 hover:text-white text-sky-700 font-semibold"
           >
-            <span>View Details</span>
-            <AiOutlineArrowRight />
+            View Detail <AiOutlineArrowRight className="mx-2 text-xl" />
           </button>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }
