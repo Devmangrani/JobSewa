@@ -98,7 +98,7 @@ const Blog = () => {
 
       {/* Page Header */}
       <div className="text-center py-12">
-        <h1 className="text-4xl font-bold mb-4">Our Blog</h1>
+        <h1 className="text-4xl font-bold mb-4">Our Past Works</h1>
         <p className="text-gray-400 max-w-2xl mx-auto">
           Explore the latest insights, news, and developments in the world of
           aircraft and drone technology
