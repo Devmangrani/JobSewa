@@ -55,7 +55,7 @@ export const Menus = [
 
   {
     id: 3,
-    name: "Blog",
+    name: "Past Works",
     href: "/blog",
   },
 
