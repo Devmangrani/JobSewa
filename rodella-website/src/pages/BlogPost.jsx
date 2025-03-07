@@ -10,7 +10,7 @@ import MQ650LV from "../assets/images/MQ650LV.jpg";
 import ServiceImg2 from "../assets/images/ServiceImg2.png";
 import design from "../assets/images/design.jpg";
 
-// Sample detailed blog data - you can replace this with your actual blog data or fetch from an API
+// Sample detailed blog data - you can replace this with your actual blog data or fetch from an API // this is the past works data page
 const blogPostsData = {
     1: {
         title: "The Revolutionary Future of Unmanned Aircraft Systems",
