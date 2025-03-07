@@ -19,8 +19,6 @@ const Multirotor = () => {
             <Navbar />
             <section>
                 <div className="px-50 py-30">
-                {/* <h1 className="text-6xl font-bold text-white text-center underline">Multirotors</h1> */}
-                    {/* <p className="text-neutral-400 text-xl text-center mt-2">COMPACT | SWIFT | UTILITARIAN</p> */}
                     <div>
                         <h1 className="text-4xl font-bold text-white text-center">{product.name}</h1>
                         <p className="text-neutral-400 text-xl mt-2 underline text-center">COMPACT | SWIFT | UTILITARIAN</p>

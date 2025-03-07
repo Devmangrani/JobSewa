@@ -2,7 +2,7 @@ import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 import cards from "../constants/EngineeringSimulationData";
 
-const HorizontalScrollCarousel = () => {
+const HorizontalScrollCarousel = () => {  //currently in use at the Engineering page Simulation section 
 
     const targetRef = useRef(null);
     const { scrollYProgress } = useScroll({
