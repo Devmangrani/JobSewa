@@ -7,8 +7,6 @@ import useSWR from "swr";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
-import { motion } from "framer-motion";
-import styles from "../../styles/Homepage.module.css";
 
 export default function DisplayJobs() {
   const dispatch = useDispatch();
@@ -42,78 +40,31 @@ export default function DisplayJobs() {
   return (
     <>
       <NavBar />
-      <div className="w-full min-h-screen bg-gradient-to-r from-white via-indigo-200 to-sky-500">
-        <div className="w-full py-20 flex items-center md:px-8 px-2 justify-center flex-col">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-xl mt-20 text-center text-indigo-800 leading-snug font-semibold mb-2 md:text-2xl lg:text-4xl"
-          >
-            Available Roles
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex justify-center items-center w-80 border-b-2 border-sky-700 mb-8"
-          >
-            <BiSearch className="text-2xl text-sky-700" />
-            <input
-              className="py-2 px-2 outline-none flex-1 bg-transparent"
-              type="search"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search by title, company or category..."
-            />
-          </motion.div>
+      <div className="w-full  py-20 flex items-center md:px-8 px-2  justify-center flex-col">
+        <h1 className="text-xl mt-20 text-center text-indigo-800  leading-snug font-semibold mb-2 md:text-2xl lg:text-4xl">
+          Available Roles
+        </h1>
+        <div className="flex justify-center items-center w-80 border-b-2 border-sky-700">
+          <BiSearch className="text-2xl text-sky-700" />
+          <input
+            className="py-2 px-2 outline-none flex-1"
+            type={"search"}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder={"Search by title, company or category..."}
+          />
+        </div>
+        <div className="md:mt-10 mt-5 flex flex-wrap space-y-10 gap-10">
+          {/* map */}
+          {Array.isArray(filteredData) && filteredData.length > 0 ? (
+            filteredData?.map((job) => {
+              return <JobsCard job={job} key={job?._id} />;
+            })
+          ) : (
+            <p>No jobs found</p>
+          )}
 
-          <motion.div
-            className={styles.jobsGrid}
-            initial="hidden"
-            animate="show"
-            variants={{
-              hidden: { opacity: 0 },
-              show: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.1,
-                },
-              },
-            }}
-          >
-            {Array.isArray(filteredData) && filteredData.length > 0 ? (
-              filteredData.map((job, index) => (
-                <motion.div
-                  key={job?._id}
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    show: {
-                      opacity: 1,
-                      y: 0,
-                      transition: {
-                        duration: 0.6,
-                        ease: [0.4, 0, 0.2, 1],
-                      },
-                    },
-                  }}
-                  className={styles.jobCardWrapper}
-                  style={{ "--animation-order": index }}
-                >
-                  <JobsCard job={job} />
-                </motion.div>
-              ))
-            ) : (
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className={styles.noJobsMessage}
-              >
-                No jobs found matching your search criteria.
-              </motion.p>
-            )}
-          </motion.div>
+          {/* map */}
         </div>
       </div>
     </>
