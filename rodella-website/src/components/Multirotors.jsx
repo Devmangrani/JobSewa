@@ -1,8 +1,5 @@
 import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
-import MQ650LVpic1 from "./../assets/images/MQ650LV.jpg";
-import MQ650LVpic2 from "./../assets/images/achievment.jpg"
-import MQ650LVpic3 from "./../assets/images/2.png";
 import MultirotorProducts from "../constants/MultirotorProducts";
 
 const Multirotor = () => {
@@ -51,7 +48,7 @@ const Multirotor = () => {
                             <p className="text-xl text-neutral-100 font-bold ml-2">{product.keyHighlights4}</p>
                         </div>
                         <div className="mt-5">
-                            <img src={product.img} className="object-cover h-180 w-full rounded-xl"></img>
+                            <img src={product.img} className="object-cover h-180 w-full rounded-xl" alt={product.name}></img>
                         </div>
                         <div className="flex flex-col w-full justify-center items-center">
                         <h3 className=" pt-30 text-white text-5xl ml-15">Technical Details</h3>
@@ -115,13 +112,13 @@ const Multirotor = () => {
                                     <p className="text-neutral-300 text-xl mr-30">{product.TechnicalDetails11}</p>
                                 </div>
                             </div>
-                            <img src={product.img} className="h-120 w-170 rounded-2xl"></img>
+                            <img src={product.img} className="h-120 w-170 rounded-2xl" alt={product.name}></img>
                         </div>
 
                         <h3 className=" pt-30 text-white text-5xl ml-15">Features</h3>
                         <div className="w-55 h-[2px] bg-neutral-400 ml-15 mt-2"></div>
                         <div className="flex flex-row p-10">
-                            <img src={product.img} className="h-120 w-170 rounded-2xl"></img>
+                            <img src={product.img} className="h-120 w-170 rounded-2xl" alt={product.name}></img>
                             <div className="flex flex-col">
 
                                 <div className="flex flex-row items-center ml-30">

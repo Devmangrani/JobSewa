@@ -6,7 +6,7 @@ import HomePageVideo from "./../assets/videos/pkv3.mp4";
 const Homepage = () => {
   return (
     <div className="min-h-screen">
-      <section className="h-screen relative">
+      <section className="h-screen relative pt-2">
         <Navbar />
         <video
           className="absolute top-0 left-0 w-full h-full object-cover brightness-30 -z-50"

@@ -22,8 +22,8 @@ const Aircrafts = () => {
   }, [AirCraftData.length]);
 
   return (
-    <div className="min-h-screen bg-black">
-      <section className="min-h-screen relative">
+    <div className="min-h-screen">
+      <section className="min-h-screen relative pt-2">
         <Navbar />
         <img
           src={AirCraftData[currentImageIndex].url}
@@ -31,6 +31,7 @@ const Aircrafts = () => {
           alt="Aircraft showcase"
         />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 flex flex-col h-full justify-between">
+          <div>
           <h1 className="text-4xl sm:text-6xl lg:text-9xl bg-gradient-to-b text-white bg-clip-text text-center mt-8 sm:mt-12 lg:mt-20 font-bold">
             Let&apos;s fly higher
           </h1>
@@ -49,7 +50,7 @@ const Aircrafts = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
             fugiat est maiores!
           </p>
-
+          </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12">
             {[
               {

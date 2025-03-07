@@ -42,7 +42,7 @@ const leadershipTeam = [
 
 const AboutUs = () => {
   return (
-    <section className="bg-black text-white min-h-screen">
+    <section className="bg-black text-white min-h-screen pt-2">
       <Navbar />
       {/* Page Header */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
