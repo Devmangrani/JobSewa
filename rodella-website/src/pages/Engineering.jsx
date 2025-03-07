@@ -1,5 +1,4 @@
 import Navbar from "../components/Navbar";
-import ManufacturingVideo from "../assets/videos/demo1.mp4";
 import DesignImg1 from "./../assets/images/services.jpg";
 import DesignImg2 from "./../assets/images/fixed-wing1.png";
 import PrototypeImg1 from "./../assets/images/design.jpg";
@@ -65,43 +64,28 @@ const Engineering = () => {
                 </div> */}
                 </section>
                 <section ref={section1Ref} id="section1" className="lg:pt-30 py-10">
-                    {/* <h1 className="text-white text-5xl text-center underline">Design</h1>
-                <p className="text-neutral-400 lg:text-xl text-center mt-3 sm:text-lg px-2">Write to us so that we can provide the custom design as per your requirements.</p>
-                <div className="lg:px-30 lg:flex lg:flex-col mt-10 px-3">
-                    <h2 className="text-3xl text-neutral-300 my-5">3D Modeling</h2>
-                    <div className="lg:flex lg:flex-row">
-                        <p className="lg:text-2xl text-neutral-400 lg:mr-5 text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Id placeat esse pariatur porro, quidem necessitatibus veniam at aspernatur!
-                            Eaque rem non iusto et id! Facere molestiae laudantium dolorum.
-                            Asperiores ut eius soluta.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </p>
-                        <img src={DesignImg1} className="lg:h-100"></img>
-                    </div>
-                </div> */}
-
                     <h1 className="text-3xl text-center text-white underline lg:text-5xl">Design</h1>
                     <p className="mt-3 px-2 text-center text-lg text-neutral-400 lg:text-xl">Write to us so that we can provide the custom design as per your requirements.</p>
                     
                     <div className="mt-10 px-3 lg:px-30">
                         <h2 className="my-3 lg:text-3xl text-xl text-neutral-200">3D Modeling</h2>
                         <div className="flex flex-col lg:flex-row">
-                            <p className="mr-0 text-lg text-neutral-400 lg:mr-5 lg:text-2xl">
+                            <p className="mr-0 text-lg text-neutral-400 lg:mr-5 lg:text-xl">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Id placeat esse pariatur porro, 
                                 quidem necessitatibus veniam at aspernatur! 
                                 Eaque rem non iusto et id! Facere molestiae laudantium dolorum. 
                                 Asperiores ut eius soluta. 
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             </p>
-                            <img src={DesignImg1} className="mt-4 lg:mt-0 lg:h-100 max-w-full rounded-lg" alt="Design Image 1" />
+                            <img src={DesignImg1} className="mt-4 lg:mt-0 lg:h-100 lg:max-w-1/2 rounded-lg" alt="Design Image 1" />
                         </div>
                     </div>
 
                     <div className="mt-10 px-3 lg:px-30">
                         <h2 className="lg:text-3xl text-xl text-neutral-200 my-5">Aerodynamic Analysis</h2>
                         <div className="flex lg:flex-row flex-col">
-                            <img src={DesignImg2} className="lg:h-100 max-w-full mb-4 rounded-lg" alt="Design Image 2"></img>
-                            <p className="lg:text-2xl text-neutral-400 lg:ml-5 mr-0 text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <img src={DesignImg2} className="lg:h-100 lg:max-w-1/2 mb-4 rounded-lg" alt="Design Image 2"></img>
+                            <p className="lg:text-xl text-neutral-400 lg:ml-5 mr-0 text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                 Id placeat esse pariatur porro, quidem necessitatibus veniam at aspernatur!
                                 Eaque rem non iusto et id! Facere molestiae laudantium dolorum.
                                 Asperiores ut eius soluta.
@@ -113,13 +97,13 @@ const Engineering = () => {
                     <div className="mt-10 px-3 lg:px-30">
                         <h2 className="lg:text-3xl text-xl text-neutral-200 my-3">Material Selection</h2>
                         <div className="flex flex-col lg:flex-row">
-                            <p className="lg:text-2xl text-neutral-400 lg:mr-5 text-lg mr-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <p className="lg:text-xl text-neutral-400 lg:mr-5 text-lg mr-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                 Id placeat esse pariatur porro, quidem necessitatibus veniam at aspernatur!
                                 Eaque rem non iusto et id! Facere molestiae laudantium dolorum.
                                 Asperiores ut eius soluta.
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             </p>
-                            <img src={DesignImg1} className="lg:h-100 mt-4 lg:mt-0 max-w-full rounded-lg" alt="Design Image 3"></img>
+                            <img src={DesignImg1} className="lg:h-100 mt-4 lg:mt-0 lg:max-w-1/2 rounded-lg" alt="Design Image 3"></img>
                         </div>
                     </div>
                 </section>
@@ -127,7 +111,7 @@ const Engineering = () => {
                 <section ref={section2Ref} id="section2" className="lg:pt-30 py-10">
                     <h1 className="text-3xl text-center text-white underline lg:text-5xl">Prototyping</h1>
                     {/* <p className="mt-3 px-2 text-center text-lg text-neutral-400 lg:text-xl">With the facility of advanced composites, plastic and metal fabrication, See your design come to life</p> */}
-                    <p className="text-neutral-400 lg:text-2xl text-lg mt-10 px-3">
+                    <p className="text-neutral-400 lg:text-xl text-lg mt-10 px-3">
                         During the Prototyping phase our drones go through multiple stages of testing and quality checks to enusre 
                         long-lasting reliable performance across all the conditions.
                         All the maximum performance parameters are checked during this test. 
@@ -176,7 +160,7 @@ const Engineering = () => {
                         <div className="flex flex-col lg:flex-row md:flex-row justify-between">
                             <div>
                                 <h2 className="lg:text-3xl text-white text-lg">Component Placement & Mounting</h2>
-                                <ul className="list-disc ml-5 lg:text-2xl text-neutral-400 mt-5">
+                                <ul className="list-disc ml-5 lg:text-xl text-neutral-400 mt-5">
                                     <li>Strategic Placement:</li>
                                     <li>Secure Mounting:</li>
                                     <li>Vibration Isolation:</li>
@@ -184,7 +168,7 @@ const Engineering = () => {
                             </div>
                             <div>
                                 <h2 className="lg:text-3xl text-white text-lg lg:mt-0 md:mt-0 mt-5">Wiring and Connections</h2>
-                                <ul className="list-disc ml-5 lg:text-2xl text-neutral-400 mt-5">
+                                <ul className="list-disc ml-5 lg:text-xl text-neutral-400 mt-5">
                                     <li>Clean Wiring</li>
                                     <li>Secure Connections</li>
                                     <li>Cable Management</li>
@@ -195,7 +179,7 @@ const Engineering = () => {
                         <div className="flex flex-col lg:flex-row md:flex-row justify-between mt-10">
                             <div>
                                 <h2 className="lg:text-3xl text-white text-lg">Payload Integration</h2>
-                                <ul className="list-disc ml-5 lg:text-2xl text-neutral-400 mt-5">
+                                <ul className="list-disc ml-5 lg:text-xl text-neutral-400 mt-5">
                                     <li>Payload Mounting</li>
                                     <li>Payload Power and Data Connections</li>
                                     <li>Payload Integration with Flight Controller</li>
@@ -203,7 +187,7 @@ const Engineering = () => {
                             </div>
                             <div>
                                 <h2 className="lg:text-3xl text-white text-lg lg:mt-0 md:mt-0 mt-5">Testing and Validation</h2>
-                                <ul className="list-disc ml-5 lg:text-2xl text-neutral-400 mt-5">
+                                <ul className="list-disc ml-5 lg:text-xl text-neutral-400 mt-5">
                                     <li>Ground Testing</li>
                                     <li>Vibration Testing</li>
                                     <li>Flight Testing</li>
