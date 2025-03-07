@@ -26,7 +26,7 @@ const Aircrafts = () => {
       <section className="min-h-screen relative pt-2">
         <Navbar />
         <img
-          src={AirCraftData[currentImageIndex].url}
+          src={AirCraftData[currentImageIndex].AircraftPageImg}
           className="absolute top-0 left-0 w-full h-full -z-50 object-cover brightness-30"
           alt="Aircraft showcase"
         />
@@ -41,7 +41,7 @@ const Aircrafts = () => {
             className="flex justify-center mt-8 sm:mt-12"
           >
             <p className="text-xl sm:text-2xl lg:text-3xl text-black bg-neutral-400 px-6 sm:px-8 py-2 sm:py-3 rounded-full opacity-70 flex items-center hover:opacity-80 transition-opacity">
-              {AirCraftData[currentImageIndex].title}
+              {AirCraftData[currentImageIndex].name}
               <ArrowRightIcon className="h-6 w-6 sm:h-8 sm:w-8 ml-2" />
             </p>
           </Link>
@@ -119,7 +119,7 @@ const Aircrafts = () => {
             >
               <Link to={`/multirotor/${item.id}`} className="w-full">
                 <img
-                  src={item.img}
+                  src={item.AircraftPageImg}
                   alt={item.name}
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover"
                 />
@@ -152,7 +152,7 @@ const Aircrafts = () => {
             >
               <Link to={`/fixedwing/${item.id}`} className="w-full">
                 <img
-                  src={item.img}
+                  src={item.AircraftPageImg}
                   alt={item.name}
                   className="w-full h-48 sm:h-56 lg:h-64 object-cover"
                 />
