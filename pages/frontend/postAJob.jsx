@@ -6,6 +6,12 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { post_job } from "@/Services/job";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
+
+const inputStyles =
+  "w-full border border-gray-300 rounded-lg p-3 bg-white bg-opacity-80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 hover:border-indigo-300";
+const labelStyles = "block text-sm font-medium text-gray-700 mb-1";
+const errorStyles = "text-sm text-red-500 mt-1";
 
 export default function PostAJob() {
   const user = useSelector((state) => state.User.userData);
@@ -31,8 +37,8 @@ export default function PostAJob() {
     job_vacancy: 0,
     job_deadline: "",
   });
+
   const [error, setError] = useState({
-    user: "",
     title: "",
     salary: "",
     email: "",
@@ -125,218 +131,204 @@ export default function PostAJob() {
     { value: "contract", label: "Contract" },
   ];
 
+  const formFields = [
+    {
+      name: "title",
+      label: "Job Title",
+      type: "text",
+      placeholder: "Enter title of job",
+    },
+    {
+      name: "salary",
+      label: "Salary",
+      type: "number",
+      placeholder: "Enter salary for this job",
+    },
+    {
+      name: "email",
+      label: "Email",
+      type: "email",
+      placeholder: "Enter email to be contacted for this job",
+    },
+    {
+      name: "company",
+      label: "Organization Name",
+      type: "text",
+      placeholder: "Enter organization name",
+    },
+    {
+      name: "description",
+      label: "Description",
+      type: "textarea",
+      placeholder: "Enter description of job",
+    },
+    {
+      name: "job_category",
+      label: "Job Category",
+      type: "text",
+      placeholder: "Enter category of job",
+    },
+    {
+      name: "job_experience",
+      label: "Job Experience",
+      type: "text",
+      placeholder: "Enter experience required for this job",
+    },
+    {
+      name: "job_vacancy",
+      label: "Job Vacancy",
+      type: "number",
+      placeholder: "Enter number of vacancies",
+    },
+    {
+      name: "job_deadline",
+      label: "Job Deadline",
+      type: "date",
+      min: currentDate,
+    },
+  ];
+
   return (
     <>
       <NavBar />
-      <div className="w-full  py-20 flex items-center  justify-center flex-col">
-        <h1 className="text-xl mt-20 text-center text-indigo-800  leading-snug font-semibold mb-2 md:text-2xl lg:text-4xl">
-          Tell Us About <br className="hidden md:inline" /> Your Job!
-        </h1>
-        <p className="mt-2  text-lg text-gray-600">
-          Provide us with the details of your job opportunity so we can connect
-          you with the best candidates.
-        </p>
-        <form
-          onSubmit={handleSubmit}
-          className="sm:w-1/2 w-full px-10 py-8 bg-white rounded-lg mt-6"
-        >
-          <div className="w-full mb-4  flex flex-col items-start justify-center">
-            <label htmlFor="title" className="mb-1 text-base font-semibold">
-              Title
-            </label>
-            <input
-              onChange={(e) =>
-                setFormData({ ...formData, title: e.target.value })
-              }
-              type="text"
-              id="title"
-              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter title of job"
-            />
-            {error.title && (
-              <p className="text-sm text-red-500">{error.title}</p>
-            )}
-          </div>
-          <div className="w-full mb-4  flex flex-col items-start justify-center">
-            <label htmlFor="salary" className="mb-1 text-base font-semibold">
-              Salary
-            </label>
-            <input
-              onChange={(e) =>
-                setFormData({ ...formData, salary: e.target.value })
-              }
-              type="number"
-              id="salary"
-              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter salary for this job"
-            />
-            {error.salary && (
-              <p className="text-sm text-red-500">{error.salary}</p>
-            )}
-          </div>
-          <div className="w-full mb-4  flex flex-col items-start justify-center">
-            <label htmlFor="email" className="mb-1 text-base font-semibold">
-              Email
-            </label>
-            <input
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-              type="email"
-              id="email"
-              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter email to be contacted for this job"
-            />
-            {error.email && (
-              <p className="text-sm text-red-500">{error.email}</p>
-            )}
-          </div>
-          <div className="w-full mb-4  flex flex-col items-start justify-center">
-            <label htmlFor="company" className="mb-1 text-base font-semibold">
-              Organization Name
-            </label>
-            <input
-              onChange={(e) =>
-                setFormData({ ...formData, company: e.target.value })
-              }
-              type="text"
-              id="company"
-              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter organization name"
-            />
-            {error.company && (
-              <p className="text-sm text-red-500">{error.company}</p>
-            )}
-          </div>
-          <div className="w-full mb-4  flex flex-col items-start justify-center">
-            <label
-              htmlFor="description"
-              className="mb-1 text-base font-semibold"
+      <div className="min-h-screen w-full bg-gradient-to-r from-white via-indigo-200 to-sky-500 py-20">
+        <div className="container mx-auto px-4 pt-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl mx-auto"
+          >
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-3xl md:text-4xl font-bold text-center text-indigo-900 mb-2"
             >
-              Description
-            </label>
-            <textarea
-              onChange={(e) =>
-                setFormData({ ...formData, description: e.target.value })
-              }
-              onResize={"none"}
-              type="text"
-              id="description"
-              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter description of job"
-            />
-            {error.description && (
-              <p className="text-sm text-red-500">{error.description}</p>
-            )}
-          </div>
-          <div className="w-full mb-4  flex flex-col items-start justify-center">
-            <label
-              htmlFor="jobCategory"
-              className="mb-1 text-base font-semibold"
+              Post a New Job
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-center text-gray-600 mb-8"
             >
-              Job Category
-            </label>
-            <input
-              onChange={(e) =>
-                setFormData({ ...formData, job_category: e.target.value })
-              }
-              type="text"
-              id="jobCategory"
-              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter category of job"
-            />
-            {error.job_category && (
-              <p className="text-sm text-red-500">{error.job_category}</p>
-            )}
-          </div>
-          <Select
-            onChange={(e) => setFormData({ ...formData, job_type: e.value })}
-            placeholder="Please select job type"
-            options={options}
-            styles={{
-              control: (defaultstyle) => ({
-                ...defaultstyle,
-                border: "1px solid #D1D5DB",
-                borderRadius: "0.5rem",
-                padding: "0.4rem",
-                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-              }),
-              placeholder: (defaultsyle) => ({
-                ...defaultsyle,
-                color: "#A0AEC0",
-              }),
-            }}
-          />
-          <div className="w-full mb-4  flex flex-col items-start justify-center">
-            {error.job_category && (
-              <p className="text-sm text-red-500">{error.job_category}</p>
-            )}
-          </div>
-          <div className="w-full mb-4  flex flex-col items-start justify-center">
-            <label
-              htmlFor="jobExperience"
-              className="mb-1 text-base font-semibold"
-            >
-              Job Experience
-            </label>
-            <input
-              onChange={(e) =>
-                setFormData({ ...formData, job_experience: e.target.value })
-              }
-              type="text"
-              id="jobExperience"
-              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter experience required for this job"
-            />
-            {error.job_experience && (
-              <p className="text-sm text-red-500">{error.job_experience}</p>
-            )}
-          </div>
-          <div className="w-full mb-4  flex flex-col items-start justify-center">
-            <label htmlFor="jobva" className="mb-1 text-base font-semibold">
-              Job Vacancy
-            </label>
-            <input
-              onChange={(e) =>
-                setFormData({ ...formData, job_vacancy: e.target.value })
-              }
-              type="number"
-              id="jobva"
-              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="enter number of vacancies"
-            />
-            {error.job_vacancy && (
-              <p className="text-sm text-red-500">{error.job_vacancy}</p>
-            )}
-          </div>
-          <div className="w-full mb-4  flex flex-col items-start justify-center">
-            <label htmlFor="jobva" className="mb-1 text-base font-semibold">
-              Job Deadline
-            </label>
-            <input
-              onChange={(e) =>
-                setFormData({ ...formData, job_deadline: e.target.value })
-              }
-              type="date"
-              min={currentDate}
-              id="jobva"
-              className="w-full border border-gray-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-50 shadow-md hover:border-gray-400"
-              placeholder="Enter deadline of job"
-            />
-            {error.job_deadline && (
-              <p className="text-sm text-red-500">{error.job_deadline}</p>
-            )}
-          </div>
+              Fill in the details below to post your job opportunity
+            </motion.p>
 
-          <div className="flex justify-center mt-8">
-            <button
-              type="submit"
-              className="py-2 px-4 rounded bg-indigo-600 text-white font-semibold tracking-widest mx-auto hover:bg-indigo-500 transition duration-200"
+            <motion.form
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              onSubmit={handleSubmit}
+              className="bg-white bg-opacity-60 backdrop-blur-lg rounded-xl shadow-xl p-8"
             >
-              Submit
-            </button>
-          </div>
-        </form>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {formFields.map((field, index) => (
+                  <motion.div
+                    key={field.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 * index }}
+                    className={field.type === "textarea" ? "col-span-full" : ""}
+                  >
+                    <label htmlFor={field.name} className={labelStyles}>
+                      {field.label}
+                    </label>
+                    {field.type === "textarea" ? (
+                      <textarea
+                        id={field.name}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            [field.name]: e.target.value,
+                          })
+                        }
+                        placeholder={field.placeholder}
+                        rows="4"
+                        className={inputStyles}
+                      />
+                    ) : (
+                      <input
+                        type={field.type}
+                        id={field.name}
+                        min={field.min}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            [field.name]: e.target.value,
+                          })
+                        }
+                        placeholder={field.placeholder}
+                        className={inputStyles}
+                      />
+                    )}
+                    {error[field.name] && (
+                      <p className={errorStyles}>{error[field.name]}</p>
+                    )}
+                  </motion.div>
+                ))}
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.9 }}
+                  className="col-span-full"
+                >
+                  <label className={labelStyles}>Job Type</label>
+                  <Select
+                    onChange={(e) =>
+                      setFormData({ ...formData, job_type: e.value })
+                    }
+                    options={options}
+                    placeholder="Please select job type"
+                    className="mt-1"
+                    styles={{
+                      control: (base) => ({
+                        ...base,
+                        backgroundColor: "rgba(255, 255, 255, 0.8)",
+                        backdropFilter: "blur(8px)",
+                        borderColor: "#E5E7EB",
+                        borderRadius: "0.5rem",
+                        padding: "0.2rem",
+                        boxShadow: "none",
+                        "&:hover": {
+                          borderColor: "#818CF8",
+                        },
+                      }),
+                      option: (base, state) => ({
+                        ...base,
+                        backgroundColor: state.isSelected ? "#4F46E5" : "white",
+                        "&:hover": {
+                          backgroundColor: state.isSelected
+                            ? "#4F46E5"
+                            : "#F3F4F6",
+                        },
+                      }),
+                    }}
+                  />
+                </motion.div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1 }}
+                className="mt-8 flex justify-center"
+              >
+                <button
+                  type="submit"
+                  className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold 
+                           transform transition-all duration-200 hover:bg-indigo-700 
+                           hover:scale-105 focus:outline-none focus:ring-2 
+                           focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  Post Job
+                </button>
+              </motion.div>
+            </motion.form>
+          </motion.div>
+        </div>
       </div>
       <ToastContainer />
     </>

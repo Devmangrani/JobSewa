@@ -8,24 +8,51 @@ import { FiTwitter } from "react-icons/fi";
 import { GrLinkedin } from "react-icons/gr";
 import { BsFacebook } from "react-icons/bs";
 import styles from "../styles/Homepage.module.css";
+import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 export default function Intro() {
   const [search, setSearch] = useState("");
   const jobData = useSelector((state) => state.Job.JobData);
   const [filterJobs, setFilteredJobs] = useState([]);
   const [doneSearch, setDoneSearch] = useState(false);
+  const router = useRouter();
+
+  const scrollToResults = () => {
+    const resultsSection = document.getElementById("searchResults");
+    if (resultsSection) {
+      resultsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
+
+    // Check if user is authenticated
+    const token = Cookies.get("token");
+    if (!token) {
+      router.push("/auth/login");
+      return;
+    }
+
     const filteredJobs = jobData?.filter((job) => {
       let x = job?.job_category;
       return x?.toUpperCase() === search?.toUpperCase().trim();
     });
     setFilteredJobs(filteredJobs);
     setDoneSearch(true);
+    // Scroll to results after search
+    setTimeout(scrollToResults, 100);
   };
 
   const onTagClick = (tag) => {
+    // Check if user is authenticated
+    const token = Cookies.get("token");
+    if (!token) {
+      router.push("/auth/login");
+      return;
+    }
+
     setSearch(tag);
     const filteredJobs = jobData?.filter((job) => {
       let x = job?.job_category;
@@ -33,6 +60,8 @@ export default function Intro() {
     });
     setFilteredJobs(filteredJobs);
     setDoneSearch(true);
+    // Scroll to results after tag click
+    setTimeout(scrollToResults, 100);
   };
 
   const clearSearch = () => {
@@ -148,31 +177,60 @@ export default function Intro() {
 
       {doneSearch && (
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          id="searchResults"
+          // initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className={styles.resultsContainer}
         >
           <div className={styles.resultsInner}>
             <h2 className={styles.resultsTitle}>Search Results</h2>
-            <div className={styles.jobsGrid}>
+            <motion.div
+              className={styles.jobsGrid}
+              initial="hidden"
+              animate="show"
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
+                },
+              }}
+            >
               {Array.isArray(filterJobs) && filterJobs.length > 0 ? (
-                filterJobs.map((job) => (
+                filterJobs.map((job, index) => (
                   <motion.div
                     key={job?._id}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      show: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          duration: 0.6,
+                          ease: [0.4, 0, 0.2, 1],
+                        },
+                      },
+                    }}
+                    className={styles.jobCardWrapper}
+                    style={{ "--animation-order": index }}
                   >
                     <JobsCard job={job} />
                   </motion.div>
                 ))
               ) : (
-                <p className={styles.noJobsMessage}>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className={styles.noJobsMessage}
+                >
                   Sorry, no jobs found in this category at the moment.
-                </p>
+                </motion.p>
               )}
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       )}
