@@ -1,0 +1,16 @@
+schemaVersion: 2.0.0
+metadata:
+  name: rodella-website
+components:
+  - name: dev
+    container:
+      image: public.ecr.aws/aws-mde/universal-image:latest
+commands:
+  - id: install
+    exec:
+      component: dev
+      commandLine: "npm install"
+  - id: build
+    exec:
+      component: dev
+      commandLine: "npm run build"
